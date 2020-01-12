@@ -40,6 +40,8 @@ const HealthEffect: React.FC<Props> = (props) => {
     {
       // sectionTitle: i18n.t('wrong_sitting_position_health_effect_title'),
       sectionContent: i18n.t('wrong_sitting_position_health_effect_subtitle'),
+    },
+    {
       sectionOrderedList: i18n.t('wrong_sitting_position_health_effects')
     }
   ]
