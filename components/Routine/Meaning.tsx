@@ -1,14 +1,14 @@
 /* eslint-disable */
 import React, {Component,} from 'react'
 import {
-  StyleSheet, TouchableOpacity,
+  StyleSheet,
+  View,
 } from 'react-native'
 
 import {
-  Header, Card
+  Card
 } from 'react-native-elements'
 
-import { Feather } from '@expo/vector-icons'
 import StyledText from 'react-native-styled-text'
 import { SharedStyle } from '../styles'
 import i18n from 'i18n-js'
@@ -35,16 +35,21 @@ const Meaning: React.FC<Props> = (props) => {
     return componentWillUnmount
   }, [])
 
-  const TITLE = i18n.t('routine_meaning_title')
-  const CONTENT = i18n.t('routine_meaning_body')
+  const DATA = i18n.t('routine_meaning')
+
+  const TITLE = DATA.title
+  const CONTENT = DATA.body
+
   return (
     <Card containerStyle={SharedStyle.InfoCard}>
-      <StyledText style={SharedStyle.Title}>
-        { TITLE }
-      </StyledText>
-      <StyledText style={SharedStyle.Content}>
-        { CONTENT }
-      </StyledText>
+      <View>
+        <StyledText style={SharedStyle.Title}>
+          { TITLE }
+        </StyledText>
+        <StyledText style={SharedStyle.Content}>
+          { CONTENT }
+        </StyledText>
+      </View>
     </Card>
   )
 }

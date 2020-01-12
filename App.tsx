@@ -14,6 +14,7 @@ import CPDiagnosticsPage from '@app/views/CPInfo/Diagnostics'
 import CPMedicalTreatmentsPage from '@app/views/CPInfo/MedicalTreatments'
 import CPBodyEquipmentPage from '@app/views/CPInfo/BodyEquipment'
 import RoutinePage from '@app/views/Routine'
+import RoutineInfoPage from '@app/views/Routine/Info'
 import SittingPositionPage from './views/SittingPosition'
 import SittingPositionInfoPage from './views/SittingPosition/Info'
 import WrongSittingPositionPage from './views/WrongSittingPosition'
@@ -62,7 +63,10 @@ const MainNavigator = createStackNavigator(
     },
     Routine: {
       screen: RoutinePage,
-    }
+    },
+    RoutineInfo: {
+      screen: RoutineInfoPage,
+    },
   },
   {
     initialRouteName: 'Main', // Inital Route

@@ -58,7 +58,7 @@ const VKHeader: React.FC<Props> = (props) => {
     <Header
       backgroundColor={ BG_COLOR }
       leftComponent={ renderLeftComponent(COLOR) }
-      centerComponent={{ text: TITLE, style: { color: COLOR } }}
+      centerComponent={{ text: TITLE, style: { color: COLOR, fontSize: 16, fontWeight: 'bold' } }}
       barStyle={ BAR_STYLE }
       statusBarProps={{ barStyle: BAR_STYLE, backgroundColor: '#00000033', translucent: true, animated: true }}
     />

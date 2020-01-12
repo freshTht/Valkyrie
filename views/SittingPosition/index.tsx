@@ -134,8 +134,10 @@ const SittingPositionPage: React.FC<Props> = (props) => {
         
         <ScrollView style={{ flex: 1 }} contentContainerStyle={LocalStyle.mainMenu}>
 
-          <View style={{ flex: 1 }}>
+          <View style={{ flex: 1, paddingBottom: 16 }}>
+            
             <Importance />
+            
             {/* <View style={LocalStyle.menuListRight}>
               {
                 renderMenuItems(menuItems, props.navigation)
@@ -151,6 +153,7 @@ const SittingPositionPage: React.FC<Props> = (props) => {
               itemWidth={ ITEM_WIDTH }
               itemHeight={ 1000 }
             />
+
 
           </View>
 

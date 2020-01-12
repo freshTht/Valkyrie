@@ -38,16 +38,9 @@ const HealthEffect: React.FC<Props> = (props) => {
 
   const DATA: VKSection[] = [
     {
-      sectionTitle: i18n.t('wrong_sitting_position_health_effect_title'),
+      // sectionTitle: i18n.t('wrong_sitting_position_health_effect_title'),
       sectionContent: i18n.t('wrong_sitting_position_health_effect_subtitle'),
       sectionOrderedList: i18n.t('wrong_sitting_position_health_effects')
-      // sectionOrderedList: [
-      //   i18n.t('wrong_sitting_position_health_effect_1'),
-      //   i18n.t('wrong_sitting_position_health_effect_2'),
-      //   i18n.t('wrong_sitting_position_health_effect_3'),
-      //   i18n.t('wrong_sitting_position_health_effect_4'),
-      //   i18n.t('wrong_sitting_position_health_effect_5'),
-      // ]
     }
   ]
   return (
@@ -60,6 +53,7 @@ const HealthEffect: React.FC<Props> = (props) => {
     //   </StyledText>
     // </Card>
     <VKInfoCard
+      title={ i18n.t('wrong_sitting_position_health_effect_title') }
       contentSections={ DATA }
     />
   )

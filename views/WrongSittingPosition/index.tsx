@@ -129,8 +129,7 @@ const WrongSittingPositionPage: React.FC<Props> = (props) => {
         
         <ScrollView style={{ flex: 1 }} contentContainerStyle={LocalStyle.mainMenu}>
 
-          <View style={{ flex: 1 }}>
-            <HealthEffect />
+          <View style={{ flex: 1, paddingBottom: 16 }}>
             {/* <View style={LocalStyle.menuListRight}>
               {
                 renderMenuItems(menuItems, props.navigation)
@@ -145,6 +144,8 @@ const WrongSittingPositionPage: React.FC<Props> = (props) => {
               sliderHeight={ HEIGHT }
               itemWidth={ ITEM_WIDTH }
             />
+
+            <HealthEffect />
 
           </View>
 

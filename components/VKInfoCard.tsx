@@ -14,13 +14,14 @@ import {
 
 import Image from 'react-native-scalable-image'
 import StyledText from 'react-native-styled-text'
-import { renderOrderedList } from '@app/components/utils'
+import { renderOrderedList, renderUnorderedList } from '@app/components/utils'
 import { SharedStyle } from '@app/components/styles'
 
 interface VKSection {
   sectionTitle?: string,
   sectionContent?: string,
   sectionOrderedList?: string[],
+  hideNumber?: boolean,
   sectionImageSource?: ImageSourcePropType,
 }
 interface Props {
@@ -103,7 +104,8 @@ const VKInfoCard: React.FC<Props> = (props) => {
                 
                 <View style={{ marginLeft: 12 }}>
                   {
-                    renderOrderedList(ORDERED_LIST)
+                    (ORDERED_LIST.length <= 1 || s.hideNumber) ? 
+                    renderUnorderedList(ORDERED_LIST) : renderOrderedList(ORDERED_LIST)
                   }
                 </View>
                 
