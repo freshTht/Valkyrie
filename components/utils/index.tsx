@@ -3,17 +3,18 @@ import {
   StyleSheet,
   TouchableOpacity,
   View,
+  Dimensions,
+  ImageSourcePropType,
 } from 'react-native'
 
 import {
-  Button,
-  Text,
   ListItem,
 } from 'react-native-elements'
 
-import TouchableScale from 'react-native-touchable-scale'
+// import TouchableScale from 'react-native-touchable-scale'
 import StyledText from 'react-native-styled-text'
 import { SharedStyle } from '@app/components/styles'
+import Image from 'react-native-scalable-image'
 
 //
 // MENU ITEMS
@@ -89,26 +90,45 @@ const renderListItems = (menuItems: ListItemData[], navigation: any) => {
   ))
 }
 
-const renderOrderedList = (listItems: string[]) => {
+const renderOrderedList = (listItems: string[], listImages: ImageSourcePropType[] = [], hideOrders: boolean = false) => {
+  const AVAILABLE_SPACE = Dimensions.get('window').width - (2*16) - (2*12)
+  const IMG_WIDTH = AVAILABLE_SPACE * 0.8
+
   return listItems.map((item, index) => (
-    <View key={index} style={LocalStyle.OrderedListRow}>
-      <StyledText style={[ SharedStyle.Content, { marginRight: 8, marginTop: 2 }]}>
-        { `<b>${index+1}.</b>` }
-      </StyledText>
-      <StyledText style={[ SharedStyle.Content, { flex: 1 }]}>
-        { item }
-      </StyledText>
-    </View>
+    <View key={index}>
+      <View style={LocalStyle.OrderedListRow}>
+        {
+          hideOrders === false ?
+          <StyledText style={[ SharedStyle.Content, { marginRight: 8, marginTop: 2 }]}>
+            { `<b>${index+1}.</b>` }
+          </StyledText>
+          : <></>
+        }
+        <StyledText style={[ SharedStyle.Content, { flex: 1 }]}>
+          { item }
+        </StyledText>
+      </View>
+
+      {
+        listImages[index] ? 
+        <Image source={listImages[index]} 
+          style={{ marginLeft: 'auto', marginRight: 'auto' }}
+          width={IMG_WIDTH}
+        />
+        : <></>
+      }
+    </View> 
   ))
 }
-const renderUnorderedList = (listItems: string[]) => {
-  return listItems.map((item, index) => (
-    <View key={index} style={LocalStyle.OrderedListRow}>
-      <StyledText style={[ SharedStyle.Content, { flex: 1 }]}>
-        { item }
-      </StyledText>
-    </View>
-  ))
+const renderUnorderedList = (listItems: string[], listImages: ImageSourcePropType[] = []) => {
+  return renderOrderedList(listItems, listImages, true)
+  // return listItems.map((item, index) => (
+  //   <View style={LocalStyle.OrderedListRow}>
+  //     <StyledText style={[ SharedStyle.Content, { flex: 1 }]}>
+  //       { item }
+  //     </StyledText>
+  //   </View>
+  // ))
 }
 
 const LocalStyle = StyleSheet.create({

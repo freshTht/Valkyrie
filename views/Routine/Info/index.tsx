@@ -76,20 +76,31 @@ const RoutineInfoPage: React.FC<Props> = (props) => {
       contentSections: [],
     }
 
-    if (IMAGES[i]) {
+    // TOP IMAGE
+    if (IMAGES[i] && IMAGES[i].main) {
       ITEM.contentSections.push({
-        sectionImageSource: IMAGES[i],
+        sectionImageSource: IMAGES[i].main,
       })
     }
+
+    // ORDERED LIST
     if (P.instructions) {
-      ITEM.contentSections.push({
+      let SECTION_INSTRUCTION: VKSection = {
         // sectionImageSource: IMAGES[i] ? IMAGES[i]:'',
         sectionTitle: i18n.t('routine_section_instructions'),
         sectionOrderedList: P.instructions,
         hideNumber: P.hideInstructionNumbers,
-      })
+      }
+      ITEM.contentSections.push(SECTION_INSTRUCTION)
+      
+      // LIST IMAGES
+      if (IMAGES[i] && IMAGES[i].orderedList) {
+        SECTION_INSTRUCTION.sectionOrderedListImages = IMAGES[i].orderedList
+      }
+      
     }
-    // show additional messages, if any
+
+    // show ADDITIONAL MESSAGES, if any
     if (P.additionalMessages) {
       ITEM.contentSections.push({
         sectionOrderedList: P.additionalMessages,
