@@ -42,7 +42,9 @@ const SittingPositionPage: React.FC<Props> = (props) => {
 
   React.useEffect(() => {
     // componentDidMount
-    setLoading(false)
+    setTimeout(() => {
+      setLoading(false)
+    }, 100)
 
     const componentWillUnmount = () => {
       // do something..

@@ -43,7 +43,9 @@ const WrongSittingPositionPage: React.FC<Props> = (props) => {
 
   React.useEffect(() => {
     // componentDidMount
-    setLoading(false)
+    setTimeout(() => {
+      setLoading(false)
+    }, 100)
 
     const componentWillUnmount = () => {
       // do something..
@@ -79,7 +81,7 @@ const WrongSittingPositionPage: React.FC<Props> = (props) => {
     })
   }
 
-  let _carousel: Component
+  let _carousel: any
   
   const WIDTH = Dimensions.get('window').width
   const ITEM_WIDTH = Dimensions.get('window').width * 0.7
@@ -137,7 +139,9 @@ const WrongSittingPositionPage: React.FC<Props> = (props) => {
             </View> */}
 
             <Carousel
-              ref={(c: any) => { _carousel = c; }}
+              ref={(c: any) => { 
+                _carousel = c; 
+              }}
               data={carouselItems}
               renderItem={_renderItems}
               sliderWidth={ WIDTH }
