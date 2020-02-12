@@ -19,6 +19,8 @@ import SittingPositionPage from './views/SittingPosition'
 import SittingPositionInfoPage from './views/SittingPosition/Info'
 import WrongSittingPositionPage from './views/WrongSittingPosition'
 import WrongSittingPositionInfoPage from './views/WrongSittingPosition/Info'
+import StrechingPage from './views/Streching'
+import StrechingInfoPage from './views/Streching/Info'
 
 // LOCALIZATION
 require('@app/utils/localizations')
@@ -66,6 +68,12 @@ const MainNavigator = createStackNavigator(
     },
     RoutineInfo: {
       screen: RoutineInfoPage,
+    },
+    Streching: {
+      screen: StrechingPage,
+    },
+    StrechingInfo: {
+      screen: StrechingInfoPage,
     },
   },
   {
