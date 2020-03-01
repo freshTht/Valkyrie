@@ -21,6 +21,8 @@ import WrongSittingPositionPage from './views/WrongSittingPosition'
 import WrongSittingPositionInfoPage from './views/WrongSittingPosition/Info'
 import StrechingPage from './views/Streching'
 import StrechingInfoPage from './views/Streching/Info'
+import ExercisePage from './views/Exercise'
+import ExerciseInfoPage from './views/Exercise/Info'
 
 // LOCALIZATION
 require('@app/utils/localizations')
@@ -75,6 +77,12 @@ const MainNavigator = createStackNavigator(
     StrechingInfo: {
       screen: StrechingInfoPage,
     },
+    Exercise: {
+      screen: ExercisePage,
+    },
+    ExerciseInfo: {
+      screen: ExerciseInfoPage,
+    }
   },
   {
     initialRouteName: 'Main', // Inital Route

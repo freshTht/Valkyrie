@@ -36,12 +36,7 @@ const CategoriesByMovement: React.FC<Props> = (props) => {
   }, [])
 
   const TITLE = i18n.t('cpcategory_movement_title')
-  const LIST_ITEMS = [
-    i18n.t('cpcategory_movement_item_1'),
-    i18n.t('cpcategory_movement_item_2'),
-    i18n.t('cpcategory_movement_item_3'),
-    i18n.t('cpcategory_movement_item_4'),
-  ]
+  const LIST_ITEMS = i18n.t('cpcategory_movement')
   return (
     <Card containerStyle={SharedStyle.InfoCard}>
       <Text style={SharedStyle.Title}>

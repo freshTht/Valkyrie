@@ -156,6 +156,9 @@ const RoutinePage: React.FC<Props> = (props) => {
           main: require('@app/assets/Routine/playing1.png'),
         },
         {
+          main: require('@app/assets/Routine/playing1.png'),
+        },
+        {
           main: require('@app/assets/Routine/playing2.png'),
         },
         {

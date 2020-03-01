@@ -36,13 +36,7 @@ const Causes: React.FC<Props> = (props) => {
   }, [])
 
   const TITLE = i18n.t('cpinfo_causes_title')
-  const LIST_ITEMS = [
-    i18n.t('cpinfo_causes_item_1'),
-    i18n.t('cpinfo_causes_item_2'),
-    i18n.t('cpinfo_causes_item_3'),
-    i18n.t('cpinfo_causes_item_4'),
-    i18n.t('cpinfo_causes_item_5'),
-  ]
+  const LIST_ITEMS = i18n.t('cpinfo_causes')
   return (
     <Card containerStyle={SharedStyle.InfoCard}>
       <Text style={SharedStyle.Title}>

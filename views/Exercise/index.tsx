@@ -9,24 +9,12 @@ import {
   TouchableOpacity,
 } from 'react-native'
 
-// import {
-//   Button,
-//   Text
-// } from 'react-native-elements'
-
-import {
-  FontAwesome5,
-  MaterialCommunityIcons,
-  MaterialIcons,
-} from '@expo/vector-icons'
-
 import { SharedStyle } from '@app/components/styles'
 
 import VKHeader from '@app/components/VKHeader'
-import { renderMenuItems, MenuItemData } from '@app/components/utils'
 import i18n from 'i18n-js'
 
-import Instruction from '@app/components/Streching/Instruction'
+import Note from '@app/components/Exercise/Note'
 import Carousel from 'react-native-snap-carousel'
 import { Card } from 'react-native-elements'
 import Image from 'react-native-scalable-image'
@@ -35,7 +23,7 @@ interface Props {
   navigation?: any
 }
 
-const StrechingPage: React.FC<Props> = (props) => {
+const ExerciseTutorialPage: React.FC<Props> = (props) => {
 
   // STATE
   let [loading, setLoading] = React.useState<boolean>(true);
@@ -55,29 +43,44 @@ const StrechingPage: React.FC<Props> = (props) => {
   // 
   // PARAMS
   // 
-  const DATA = i18n.t(`streching_types`)
+  const DATA = i18n.t(`exercise_types`)
+  const COVER_IMG_FILES = [
+    require('@app/assets/Exercise/17epui1.png'),
+    require('@app/assets/Exercise/weat.png'),
+    require('@app/assets/Exercise/bride.png'),
+    require('@app/assets/Exercise/ถีบบอล.png'),
+
+  ]
   const IMG_FILES = [
     [
-      require('@app/assets/Streching/ต้นแขน-1.png'),
-      require('@app/assets/Streching/ต้นแขน-2.png'),
-    ],
-    // [
-    //   require('@app/assets/Streching/ยืดข้างบอล.png'),
-    // ],
+      require('@app/assets/Exercise/1/1.png'),
+      [
+        require('@app/assets/Exercise/1/2-1.png'),
+        require('@app/assets/Exercise/1/2-2.png'),
+      ],
+      '',
+      require('@app/assets/Exercise/1/3-1.png'),
+      [
+        require('@app/assets/Exercise/1/3-2-1.png'),
+        require('@app/assets/Exercise/1/3-2-2.png'),
+      ],
+      require('@app/assets/Exercise/1/3-3.png'),
+      require('@app/assets/Exercise/1/3-4.png'),
+    ], 
     [
-      require('@app/assets/Streching/แขน.png'),
+      require('@app/assets/Exercise/2/1-wedge.png'),
+      '',
+      require('@app/assets/Exercise/2/2-crawl.png'),
+      '',
+      require('@app/assets/Exercise/2/3-ball.png'),
+      '',
+      require('@app/assets/Exercise/2/4-toys.png'),
     ],
     [
-      // require('@app/assets/Streching/ยกขึ้น.png'),
-      require('@app/assets/Streching/ยกแขนกดหมอน.png'),
-      require('@app/assets/Streching/เว็ดเชฟ.png'),
-      require('@app/assets/Streching/หมุนตัว.png'),
-      require('@app/assets/Streching/ดันบอลเหยียด.png'),
+      require('@app/assets/Exercise/3/1.png'),
     ],
     [
-      require('@app/assets/Streching/ดันบอลขัด.png'),
-      // require('@app/assets/Streching/ดันบอลเหยียด.png'),
-      require('@app/assets/Streching/ยันกำแพง.png'),
+      require('@app/assets/Exercise/4/1.png'),
     ],
     [
       '',   // TODO: add image
@@ -93,8 +96,8 @@ const StrechingPage: React.FC<Props> = (props) => {
 
     carouselItems.push({
       title: ITEM.title,
-      href: 'StrechingInfo',
-      imgSrc: IMG_FILES[i][0],
+      href: 'ExerciseInfo',
+      imgSrc: COVER_IMG_FILES[i],
       hrefParams: {
         INDEX: i,
         IMG_SRC: IMG_FILES[i],
@@ -121,15 +124,11 @@ const StrechingPage: React.FC<Props> = (props) => {
 
           <View style={{ alignItems: 'center' }}>
             <View style={ SharedStyle.CarouselCardImageContainer }>
-              {
-                item.imgSrc ? 
-                <Image 
-                  source={item.imgSrc}
-                  width={ITEM_WIDTH * 0.7}
-                  style={ SharedStyle.CarouselCardImage }
-                />
-                :<></>
-              }
+              <Image 
+                source={item.imgSrc}
+                width={ITEM_WIDTH * 0.7}
+                style={ SharedStyle.CarouselCardImage }
+              />
             </View>
             <Text style={SharedStyle.CarouselCardTitle}> 
               { item.title } 
@@ -148,10 +147,10 @@ const StrechingPage: React.FC<Props> = (props) => {
       <View style={SharedStyle.Root}>
 
         <VKHeader 
-          title={i18n.t('page_title_streching')}
-          backgroundColor='#4FAFA1'
-          color='#fff'
-          barStyle='light-content'
+          title={i18n.t('page_title_exercise')}
+          backgroundColor='#FDC055'
+          color='#000'
+          barStyle='dark-content'
           navigation={ props.navigation }
         />
         
@@ -159,7 +158,13 @@ const StrechingPage: React.FC<Props> = (props) => {
 
           <View style={{ flex: 1, paddingBottom: 16 }}>
             
-            <Instruction />
+            <Note />
+            
+            {/* <View style={LocalStyle.menuListRight}>
+              {
+                renderMenuItems(menuItems, props.navigation)
+              }
+            </View> */}
 
             <Carousel
               ref={(c: any) => { _carousel = c; }}
@@ -170,6 +175,7 @@ const StrechingPage: React.FC<Props> = (props) => {
               itemWidth={ ITEM_WIDTH }
               itemHeight={ 1000 }
             />
+
 
           </View>
 
@@ -196,4 +202,4 @@ const LocalStyle = StyleSheet.create({
   },
 });
 
-export default StrechingPage
+export default ExerciseTutorialPage

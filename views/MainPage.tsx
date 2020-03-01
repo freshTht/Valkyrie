@@ -76,7 +76,7 @@ const MainPage: React.FC<Props> = (props) => {
     {
       title: 'การออกกำลัง',
       href: 'Exercise',
-      backgroundColor: '#EC8C50',
+      backgroundColor: '#FDC055',
     },
   ]
   const menuList3 = [

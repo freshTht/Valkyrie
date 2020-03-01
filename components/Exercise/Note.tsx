@@ -2,19 +2,16 @@
 import React, {Component,} from 'react'
 import {
   StyleSheet, TouchableOpacity,
-  View,
-  Dimensions,
 } from 'react-native'
 
 import {
-  Header, Card, Text,
+  Header, Card
 } from 'react-native-elements'
 
-import Image from 'react-native-scalable-image'
-
+import { Feather } from '@expo/vector-icons'
+import StyledText from 'react-native-styled-text'
+import { SharedStyle } from '../styles'
 import i18n from 'i18n-js'
-import { renderOrderedList } from '@app/components/utils'
-import { SharedStyle } from '@app/components/styles'
 
 interface Props {
   // backgroundColor?: string,
@@ -22,7 +19,7 @@ interface Props {
   // navigation?: any,
 }
 
-const CategoriesByAnomalies: React.FC<Props> = (props) => {
+const Note: React.FC<Props> = (props) => {
   // STATE
   // let [balance, setBalance] = React.useState<number>();
 
@@ -38,22 +35,18 @@ const CategoriesByAnomalies: React.FC<Props> = (props) => {
     return componentWillUnmount
   }, [])
 
-  const TITLE = i18n.t('cpcategory_anomalies_title')
-  const LIST_ITEMS = i18n.t('cpcategory_anomalies')
+  // const TITLE = i18n.t('sitting_position_importance_title')
+  const RAW = i18n.t('exercise_note')
+  const TITLE = RAW.title
+  const CONTENT = RAW.subtitle
   return (
     <Card containerStyle={SharedStyle.InfoCard}>
-      <Text style={SharedStyle.Title}>
+      <StyledText style={SharedStyle.Title}>
         { TITLE }
-      </Text>
-      <View>
-        {
-          renderOrderedList(LIST_ITEMS)
-        }
-      </View>
-      <Image source={require('@app/assets/CPInfo/Categories/plegia.png')} 
-        width={Dimensions.get('window').width - (2*16) - (2*12)}
-        style={{ marginTop: '-5%', marginBottom: '5%' }}
-      />
+      </StyledText>
+      <StyledText style={SharedStyle.Content}>
+        { CONTENT }
+      </StyledText>
     </Card>
   )
 }
@@ -65,4 +58,4 @@ const LocalStyle = StyleSheet.create({
   },
 });
 
-export default CategoriesByAnomalies
+export default Note
