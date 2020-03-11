@@ -57,19 +57,13 @@ const SittingPositionPage: React.FC<Props> = (props) => {
   // 
   const DATA = i18n.t(`sitting_positions`)
   const IMG_FILES = [
-    require('@app/assets/SittingPosition/ring.png'),
-    require('@app/assets/SittingPosition/cross.png'),
-    require('@app/assets/SittingPosition/long.png'),
-    require('@app/assets/SittingPosition/chair.png'),
-    // require('@app/assets/SittingPosition/1.png'),
-    // require('@app/assets/SittingPosition/2.png'),
-    // require('@app/assets/SittingPosition/3.png'),
-    // require('@app/assets/SittingPosition/4.png'),
+    require('@app/assets/colored/Sitting/Correct/ringss.png'),
+    require('@app/assets/colored/Sitting/Correct/crossss.png'),
+    require('@app/assets/colored/Sitting/Correct/longss.png'),
+    require('@app/assets/colored/Sitting/Correct/chairss.png'),
   ]
-  // const ITEM_COUNT = 4;
 
   // MENU items
-  // let menuItems: MenuItemData[] = []
   let carouselItems = []
   for (var i = 0; i < DATA.length; i++) {
     let ITEM = DATA[i]

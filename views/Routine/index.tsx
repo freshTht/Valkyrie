@@ -52,10 +52,10 @@ const RoutinePage: React.FC<Props> = (props) => {
       icon: <MaterialCommunityIcons name='power-sleep' size={22} color='#fff' />,
       images: [
         {
-          main: require('@app/assets/Routine/sleeping1.png'),
+          main: require('@app/assets/colored/ADL/sleeping/33หงายss.png'),
         },
         {
-          main: require('@app/assets/Routine/sleeping2.png'),
+          main: require('@app/assets/colored/ADL/sleeping/34ตะแคงss.png'),
         },
       ],
     },
@@ -63,19 +63,19 @@ const RoutinePage: React.FC<Props> = (props) => {
       icon: <FontAwesome5 name='shower' size={22} color='#fff' />,
       images: [
         {
-          main: require('@app/assets/Routine/bathing1.png'),
+          main: require('@app/assets/colored/ADL/bathing/35นอนคว่ำอาบ.png'),
         },
         {
-          main: require('@app/assets/Routine/bathing2.png'),
+          main: require('@app/assets/colored/ADL/bathing/36นั่งอาบเองในกะละมัง.png'),
         },
         {
-          main: require('@app/assets/Routine/bathing3.png'),
+          main: require('@app/assets/colored/ADL/bathing/37แม่อาบนั่งไม่ดี.png'),
         },
         {
-          main: require('@app/assets/Routine/bathing4.png'),
+          main: require('@app/assets/colored/ADL/bathing/38แม่อาบนั่งได้.png'),
         },
         {
-          main: require('@app/assets/Routine/bathing5.png'),
+          main: require('@app/assets/colored/ADL/bathing/39ตัวเกร็งอาบน้ำ.png'),
         },
       ],
     },
@@ -83,13 +83,13 @@ const RoutinePage: React.FC<Props> = (props) => {
       icon: <FontAwesome5 name='toilet-paper' size={20} color='#fff' />,
       images: [
         {
-          main: require('@app/assets/Routine/toilet1.png'),
+          main: require('@app/assets/colored/ADL/toileting/40นั่งตักแม่ขี้.png'),
         },
         {
-          main: require('@app/assets/Routine/toilet2.png'),
+          main: require('@app/assets/colored/ADL/toileting/41นั่งขี้เอง.png'),
         },
         {
-          main: require('@app/assets/Routine/toilet3.png'),
+          main: require('@app/assets/colored/ADL/toileting/42นั่งยองขี้.gif'),
         },
       ],
     },
@@ -98,21 +98,17 @@ const RoutinePage: React.FC<Props> = (props) => {
       images: [
         // TODO: ADD IMAGES
         {
-          orderedList: [
-            require('@app/assets/Routine/clothing1_1.png'),
-            require('@app/assets/Routine/clothing1_2.png'),
-            require('@app/assets/Routine/clothing1_3.png'),
-          ],
+          main: require('@app/assets/colored/ADL/Dressing/43นอนแต่ง(ขยับ).gif'),
         },
         {
-          main: require('@app/assets/Routine/clothing2.png'),
+          main: require('@app/assets/colored/ADL/Dressing/44นอนคว่ำแต่งตัว(ขยับ).gif'),
         },
         {
           orderedList: [
-            require('@app/assets/Routine/clothing3_1.png'),
-            require('@app/assets/Routine/clothing3_2.png'),
-            require('@app/assets/Routine/clothing3_3.png'),
-            require('@app/assets/Routine/clothing3_4.png'),
+            require('@app/assets/colored/ADL/Dressing/45แต่งเอง1.png'),
+            require('@app/assets/colored/ADL/Dressing/46ใส่เอง2.png'),
+            require('@app/assets/colored/ADL/Dressing/46ใส่เอง3.png'),
+            require('@app/assets/colored/ADL/Dressing/47แต่งเอง4.png'),
           ],
         },
       ],
@@ -121,31 +117,36 @@ const RoutinePage: React.FC<Props> = (props) => {
       icon: <MaterialCommunityIcons name='food-fork-drink' size={22} color='#fff'/>,
       images: [
         {
-          main: require('@app/assets/Routine/feeding1.png'),
+          main: require('@app/assets/colored/ADL/feeding/48ดูดนม.png'),
         },
         {
-          main: require('@app/assets/Routine/feeding2.png'),
+          // main: require('@app/assets/colored/ADL/feeding/49นั่งป้อน.png'),
+          orderedList: [
+            require('@app/assets/colored/ADL/feeding/50มือกดปาก.png'),
+            require('@app/assets/colored/ADL/feeding/49นั่งป้อน.png'),
+            require('@app/assets/colored/ADL/feeding/51ก้มนิดนึงนะ.png'),
+          ],
         },
         {
-          main: require('@app/assets/Routine/feeding3.png'),
+          main: require('@app/assets/colored/ADL/feeding/53กินน้ำ.png'),
         },
         {
-          main: require('@app/assets/Routine/feeding4.png'),
+          main: require('@app/assets/colored/ADL/feeding/54ด้ามใหญ่.png'),
         },
       ],
     },
     {
       icon: <FontAwesome5 name='child' size={22} color='#fff' style={{ width: 22 }}  />,
-      cautionImage: require('@app/assets/Routine/carrying1.png'),
+      cautionImage: require('@app/assets/colored/ADL/carrying/55ท่าอุ้ม.png'),
       images: [
         {
-          main: require('@app/assets/Routine/carrying1.png'),
+          main: require('@app/assets/colored/ADL/carrying/55ท่าอุ้ม.png'),
         },
         {
-          main: require('@app/assets/Routine/carrying2.png'),
-        },
-        {
-          main: require('@app/assets/Routine/carrying3.png'),
+          main: require('@app/assets/colored/ADL/carrying/56แม่อุ้ม.png'),
+          orderedList: [
+            require('@app/assets/colored/ADL/carrying/57เด็กบิน.png'),
+          ],
         },
       ],
     },
@@ -153,22 +154,22 @@ const RoutinePage: React.FC<Props> = (props) => {
       icon: <MaterialIcons name='toys' size={22} color='#fff' />,
       images: [
         {
-          main: require('@app/assets/Routine/playing1.png'),
+          main: require('@app/assets/colored/ADL/playing/คว่ำไปหงาย.gif'),
         },
         {
-          main: require('@app/assets/Routine/playing1.png'),
+          main: require('@app/assets/colored/ADL/playing/พลิกคว่ำ.gif'),
         },
         {
-          main: require('@app/assets/Routine/playing2.png'),
+          main: require('@app/assets/colored/ADL/playing/60ตั้งคลานขยับ.gif'),
         },
         {
-          main: require('@app/assets/Routine/playing3.png'),
+          main: require('@app/assets/colored/ADL/playing/61นอนไปนั่ง(ขยับ).gif'),
         },
         {
-          main: require('@app/assets/Routine/playing4.png'),
+          main: require('@app/assets/colored/ADL/playing/62นั่งไปยืน(ขยับ).gif'),
         },
         {
-          main: require('@app/assets/Routine/playing5.png'),
+          main: require('@app/assets/colored/ADL/playing/63เดิน(ขยับ).gif'),
         },
       ],
     },
@@ -176,25 +177,31 @@ const RoutinePage: React.FC<Props> = (props) => {
       icon: <MaterialCommunityIcons name='badminton' size={22} color='#fff' />,
       images: [
         {
-          main: require('@app/assets/Routine/toy1.png'),
+          main: require('@app/assets/colored/ADL/playing/64ลูกบอล.png'),
         },
         {
-          main: require('@app/assets/Routine/toy2.png'),
+          main: require('@app/assets/colored/ADL/playing/65นอนคว่ำเล่น.png'),
+          // main: require('@app/assets/Routine/toy2.png'),
         },
         {
-          main: require('@app/assets/Routine/toy3.png'),
+          main: require('@app/assets/colored/ADL/playing/66คว่ำ2.png'),
+          // main: require('@app/assets/Routine/toy3.png'),
         },
         {
-          main: require('@app/assets/Routine/toy4.png'),
+          main: require('@app/assets/colored/ADL/playing/67คว่ำบนหมอน.png'),
+          // main: require('@app/assets/Routine/toy4.png'),
         },
         {
-          main: require('@app/assets/Routine/toy5.png'),
+          main: require('@app/assets/colored/ADL/playing/68ตะแคงเล่น.png'),
+          // main: require('@app/assets/Routine/toy5.png'),
         },
         {
-          main: require('@app/assets/Routine/toy6.png'),
+          main: require('@app/assets/colored/ADL/playing/69นั่งเล่น.png'),
+          // main: require('@app/assets/Routine/toy6.png'),
         },
         {
-          main: require('@app/assets/Routine/toy7.png'),
+          main: require('@app/assets/colored/ADL/playing/70ยืนเข่าเล่น.png'),
+          // main: require('@app/assets/Routine/toy7.png'),
         },
       ],
     },

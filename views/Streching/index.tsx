@@ -58,29 +58,30 @@ const StrechingPage: React.FC<Props> = (props) => {
   const DATA = i18n.t(`streching_types`)
   const IMG_FILES = [
     [
-      require('@app/assets/Streching/ต้นแขน-1.png'),
-      require('@app/assets/Streching/ต้นแขน-2.png'),
-    ],
-    // [
-    //   require('@app/assets/Streching/ยืดข้างบอล.png'),
-    // ],
-    [
-      require('@app/assets/Streching/แขน.png'),
+      // require('@app/assets/Streching/ต้นแขน-1.png'),
+      require('@app/assets/colored/Stretching/8(ขยับ).gif'),
+      // require('@app/assets/Streching/ต้นแขน-2.png'),
+      require('@app/assets/colored/Stretching/9ขยับ.gif'),
     ],
     [
-      // require('@app/assets/Streching/ยกขึ้น.png'),
-      require('@app/assets/Streching/ยกแขนกดหมอน.png'),
-      require('@app/assets/Streching/เว็ดเชฟ.png'),
-      require('@app/assets/Streching/หมุนตัว.png'),
-      require('@app/assets/Streching/ดันบอลเหยียด.png'),
+      // require('@app/assets/Streching/แขน.png'),
+      require('@app/assets/colored/Stretching/10.png'),
     ],
     [
-      require('@app/assets/Streching/ดันบอลขัด.png'),
+      // require('@app/assets/Streching/ยกแขนกดหมอน.png'),
+      require('@app/assets/colored/Stretching/11ขยับ.gif'),
+      // require('@app/assets/Streching/เว็ดเชฟ.png'),
+      require('@app/assets/colored/Stretching/12เว็ดเชฟ.png'),
+      // require('@app/assets/Streching/หมุนตัว.png'),
+      require('@app/assets/colored/Stretching/13ขยับ.gif'),
       // require('@app/assets/Streching/ดันบอลเหยียด.png'),
-      require('@app/assets/Streching/ยันกำแพง.png'),
+      require('@app/assets/colored/Stretching/14ขยับ.gif'),
     ],
     [
-      '',   // TODO: add image
+      // require('@app/assets/Streching/ดันบอลขัด.png'),
+      require('@app/assets/colored/Stretching/15ขยับ.gif'),
+      // require('@app/assets/Streching/ยันกำแพง.png'),
+      require('@app/assets/colored/Stretching/16.png'),
     ],
   ]
   // const ITEM_COUNT = 4;

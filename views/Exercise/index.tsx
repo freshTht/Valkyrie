@@ -45,42 +45,46 @@ const ExerciseTutorialPage: React.FC<Props> = (props) => {
   // 
   const DATA = i18n.t(`exercise_types`)
   const COVER_IMG_FILES = [
-    require('@app/assets/Exercise/17epui1.png'),
-    require('@app/assets/Exercise/weat.png'),
-    require('@app/assets/Exercise/bride.png'),
-    require('@app/assets/Exercise/ถีบบอล.png'),
-
+    require('@app/assets/colored/Exercise/COM/17ขยับ.gif'),
+    require('@app/assets/colored/Exercise/COM/26weat.png'),
+    require('@app/assets/colored/Exercise/COM/30ขยับ.gif'),
+    require('@app/assets/colored/Exercise/COM/1ขยับ.gif'),
+    
   ]
   const IMG_FILES = [
     [
-      require('@app/assets/Exercise/1/1.png'),
+      // require('@app/assets/Exercise/1/1.png'),
       [
-        require('@app/assets/Exercise/1/2-1.png'),
-        require('@app/assets/Exercise/1/2-2.png'),
+        require('@app/assets/colored/Exercise/COM/17ขยับ.gif'),
+        require('@app/assets/colored/Exercise/COM/18ขยับ.gif'),
+      ],
+      [
+        require('@app/assets/colored/Exercise/COM/19paraside.png'),
+        require('@app/assets/colored/Exercise/COM/20parafront.png'),
+        require('@app/assets/colored/Exercise/COM/21paraback.png'),
       ],
       '',
-      require('@app/assets/Exercise/1/3-1.png'),
+      require('@app/assets/colored/Exercise/COM/22ขยับ.gif'),
       [
-        require('@app/assets/Exercise/1/3-2-1.png'),
-        require('@app/assets/Exercise/1/3-2-2.png'),
+        require('@app/assets/colored/Exercise/COM/23ขยับ.gif'),
+        require('@app/assets/colored/Exercise/COM/24ขยับ.gif'),
       ],
-      require('@app/assets/Exercise/1/3-3.png'),
-      require('@app/assets/Exercise/1/3-4.png'),
+      require('@app/assets/colored/Exercise/COM/25ขยับ.gif'),
     ], 
     [
-      require('@app/assets/Exercise/2/1-wedge.png'),
+      require('@app/assets/colored/Exercise/COM/26weat.png'),
       '',
-      require('@app/assets/Exercise/2/2-crawl.png'),
+      require('@app/assets/colored/Exercise/COM/27roller.png'),
       '',
-      require('@app/assets/Exercise/2/3-ball.png'),
+      require('@app/assets/colored/Stretching/15ขยับ.gif'),
       '',
-      require('@app/assets/Exercise/2/4-toys.png'),
+      require('@app/assets/colored/Exercise/COM/29ขยับ.gif'),
     ],
     [
-      require('@app/assets/Exercise/3/1.png'),
+      require('@app/assets/colored/Exercise/COM/30ขยับ.gif'),
     ],
     [
-      require('@app/assets/Exercise/4/1.png'),
+      require('@app/assets/colored/Exercise/COM/1ขยับ.gif'),
     ],
     [
       '',   // TODO: add image

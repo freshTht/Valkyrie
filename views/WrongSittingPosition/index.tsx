@@ -60,9 +60,9 @@ const WrongSittingPositionPage: React.FC<Props> = (props) => {
   // MENU items
   const DATA = i18n.t(`wrong_sitting_positions`)
   const IMG_FILES = [
-    require('@app/assets/WrongSittingPosition/w.png'),
-    require('@app/assets/WrongSittingPosition/sacral.png'),
-    require('@app/assets/WrongSittingPosition/chair-wrong.png'),
+    require('@app/assets/colored/Sitting/Incorrect/wss.png'),
+    require('@app/assets/colored/Sitting/Incorrect/sacralss.png'),
+    require('@app/assets/colored/Sitting/Incorrect/sittingผิดss.png'),
   ]
 
   let carouselItems = []
