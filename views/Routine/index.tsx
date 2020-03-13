@@ -120,10 +120,16 @@ const RoutinePage: React.FC<Props> = (props) => {
           main: require('@app/assets/colored/ADL/feeding/48ดูดนม.png'),
         },
         {
-          // main: require('@app/assets/colored/ADL/feeding/49นั่งป้อน.png'),
+          main: require('@app/assets/colored/ADL/feeding/49นั่งป้อน.png'),
+          // orderedList: [
+          //   require('@app/assets/colored/ADL/feeding/50มือกดปาก.png'),
+          //   require('@app/assets/colored/ADL/feeding/49นั่งป้อน.png'),
+          //   require('@app/assets/colored/ADL/feeding/51ก้มนิดนึงนะ.png'),
+          // ],
+        },
+        {
           orderedList: [
             require('@app/assets/colored/ADL/feeding/50มือกดปาก.png'),
-            require('@app/assets/colored/ADL/feeding/49นั่งป้อน.png'),
             require('@app/assets/colored/ADL/feeding/51ก้มนิดนึงนะ.png'),
           ],
         },
