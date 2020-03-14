@@ -79,13 +79,13 @@ const MainPage: React.FC<Props> = (props) => {
       backgroundColor: '#FDC055',
     },
   ]
-  const menuList3 = [
-    {
-      title: 'วิดีโอการออกกำลังกาย',
-      href: 'ExerciseTutorial',
-      backgroundColor: '#E16E5B',
-    },
-  ]
+  // const menuList3 = [
+  //   {
+  //     title: 'วิดีโอการออกกำลังกาย',
+  //     href: 'ExerciseTutorial',
+  //     backgroundColor: '#E16E5B',
+  //   },
+  // ]
 
   return (
     <View style={SharedStyle.Root}>
@@ -103,17 +103,19 @@ const MainPage: React.FC<Props> = (props) => {
           }
         </View>
 
+        <View style={{ height: 20 }}/>
+
         <View style={LocalStyle.menuListRight}>
           {
             renderMenuItems(menuList2, props.navigation, 'right')
           }
         </View>
 
-        <View style={LocalStyle.menuList3}>
+        {/* <View style={LocalStyle.menuList3}>
           {
             renderMenuItems(menuList3, props.navigation, 'left')
           }
-        </View>
+        </View> */}
 
       </View>
 
@@ -139,6 +141,8 @@ const LocalStyle = StyleSheet.create({
   mainMenu: {
     // paddingHorizontal: 12,
     paddingVertical: 16,
+    justifyContent: 'center',
+    flex: 1,
   },
   menuButton: {
     marginBottom: 8,
