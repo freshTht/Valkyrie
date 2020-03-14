@@ -52,7 +52,7 @@ const ExerciseInfoPage: React.FC<Props> = (props) => {
   const DATA: any = {
     title: RAW_DATA.title_full,
     contentSections: [
-      {}, // extra padding on top
+      // {}, // extra padding on top
     ]
   }
   for (let i = 0; i < RAW_DATA.methods.length; i++) {

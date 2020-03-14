@@ -9,11 +9,16 @@ const SharedStyle = StyleSheet.create({
   },
   Title: {
     marginBottom: 4,
-    fontSize: 19,
-    fontWeight: 'bold',
+    // fontSize: 19,
+    // fontWeight: 'bold',
+
+    fontFamily: 'rsu-text_bold',
+    fontSize: 24,
   },
   Content: {
-    fontSize: 15,
+    // fontSize: 15,
+    fontFamily: 'rsu-text',
+    fontSize: 17,
   },
   Subtitle: {
     fontSize: 15,
@@ -22,15 +27,20 @@ const SharedStyle = StyleSheet.create({
   },
   InfoCard: {
     borderRadius: 8,
+
+    paddingTop: 20,
+    paddingHorizontal: 20,
   },
   SubSection: {
-    marginTop: 8,
-    marginBottom: 8,
+    marginTop: 16,
+    marginBottom: 16,
   },
   SubSectionTitle: {
     marginBottom: 4,
-    fontSize: 15,
-    fontWeight: 'bold',
+    // fontSize: 15,
+    // fontWeight: 'bold',
+    fontFamily: 'rsu-text_bold',
+    fontSize: 19,
   },
 
   Carousel: {
@@ -61,10 +71,11 @@ const SharedStyle = StyleSheet.create({
   CarouselCardTitle: {
     color: '#fff',
     marginTop: 20,
-    // marginHorizontal: 24,
-    fontSize: 19,
-    // fontWeight: 'bold',
+    // fontSize: 19,
     textAlign: 'center',
+
+    fontFamily: 'rsu-text',
+    fontSize: 24,
   },
 });
 

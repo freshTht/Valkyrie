@@ -146,13 +146,14 @@ const RoutinePage: React.FC<Props> = (props) => {
       cautionImage: require('@app/assets/colored/ADL/carrying/55ท่าอุ้ม.png'),
       images: [
         {
-          main: require('@app/assets/colored/ADL/carrying/55ท่าอุ้ม.png'),
-        },
-        {
           main: require('@app/assets/colored/ADL/carrying/56แม่อุ้ม.png'),
           orderedList: [
             require('@app/assets/colored/ADL/carrying/57เด็กบิน.png'),
           ],
+          // main: require('@app/assets/colored/ADL/carrying/56-57-combined.png'),
+        },
+        {
+          main: require('@app/assets/colored/ADL/carrying/58แม่อุ้ม.png'),
         },
       ],
     },

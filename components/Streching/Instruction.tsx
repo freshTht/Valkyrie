@@ -35,13 +35,13 @@ const Instruction: React.FC<Props> = (props) => {
     return componentWillUnmount
   }, [])
 
-  // const TITLE = i18n.t('sitting_position_importance_title')
+  const TITLE = i18n.t('streching_note_title')
   const CONTENT = i18n.t('streching_note')
   return (
     <Card containerStyle={SharedStyle.InfoCard}>
-      {/* <StyledText style={SharedStyle.Title}>
+      <StyledText style={SharedStyle.Title}>
         { TITLE }
-      </StyledText> */}
+      </StyledText>
       <StyledText style={SharedStyle.Content}>
         { CONTENT }
       </StyledText>

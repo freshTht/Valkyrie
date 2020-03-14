@@ -1,9 +1,11 @@
-/* eslint-disable */
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Dimensions, Platform } from 'react-native'
 import { createStackNavigator } from 'react-navigation-stack'
 import { createAppContainer } from 'react-navigation'
 import NavigationService from '@app/components/NavigationService'
+
+// FONT
+import * as Font from 'expo-font'
 
 // PAGES
 import MainPage from '@app/views/MainPage'
@@ -100,10 +102,19 @@ const MainNavigator = createStackNavigator(
 const AppContainer = createAppContainer(MainNavigator)
 
 const App = () => {
-  // const [ fontLoaded, setFontLoad ] = useState(false)
+  const [ fontLoaded, setFontLoad ] = useState(false)
+  
+  const loadAsync = async () => {
+    await Font.loadAsync({
+      'rsu-text': require('./assets/fonts/RSU_Regular.ttf'),
+      'rsu-text_bold': require('./assets/fonts/RSU_BOLD.ttf'),
+    })
+    setFontLoad(true)
+  }
 
   useEffect(() => {
     // componentDidMount
+    loadAsync()
 
     const componentWillUnmount = () => {
       // do something..
@@ -111,10 +122,6 @@ const App = () => {
     return componentWillUnmount
   }, [])
 
-  // async function loadAsync() {
-  //   await loadFont()
-  //   setFontLoad(true)
-  // }
   let getActiveRouteName = (navigationState:any): string | null => {
     if (!navigationState) {
       return null
@@ -166,13 +173,15 @@ const App = () => {
   
   return (
     // <Provider store={store}>
-      // {fontLoaded ? (
+      fontLoaded ? (
         // <View style={{ width: '100%', height: '100%', backgroundColor: '#fff' }}>
-          <AppContainer 
-            ref={(navigatorRef: any) => NavigationService.setTopLevelNavigator(navigatorRef)}
-            onNavigationStateChange={onNavigationStateChange} />
+        <AppContainer 
+          ref={(navigatorRef: any) => NavigationService.setTopLevelNavigator(navigatorRef)}
+          onNavigationStateChange={onNavigationStateChange} />
         // </View>
-        // ) : null}
+      )
+      : null
+      
     // </Provider>
   )
 }

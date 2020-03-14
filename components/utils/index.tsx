@@ -54,7 +54,7 @@ const renderMenuItems = (menuItems: MenuItemData[], navigation: any, style: stri
       onPress={() => navigation.navigate(item.href, item.hrefParams) }
       containerStyle={[ LocalStyle.menuButtonContainer, menuButtonStyle, { backgroundColor: item.backgroundColor, paddingLeft: 20 }]}
       contentContainerStyle={{ marginLeft: 0 }}
-      titleStyle={{ color: item.color ? item.color:'#fff', paddingLeft: 0 }}
+      titleStyle={{ color: item.color ? item.color:'#fff', paddingLeft: 0, fontFamily: 'rsu-text_bold', fontSize: 21, marginBottom: -4 }}
       Component={TouchableOpacity}
       activeOpacity={0.5}
     />
@@ -99,7 +99,7 @@ const renderOrderedList = (listItems: string[], listImages: ImageSourcePropType[
       <View style={LocalStyle.OrderedListRow}>
         {
           hideOrders === false ?
-          <StyledText style={[ SharedStyle.Content, { marginRight: 8, marginTop: 2 }]}>
+          <StyledText style={[ SharedStyle.Content, { marginRight: 8, fontFamily: 'rsu-text_bold' }]}>
             { `<b>${index+1}.</b>` }
           </StyledText>
           : <></>
