@@ -13,19 +13,19 @@ const SharedStyle = StyleSheet.create({
     // fontWeight: 'bold',
 
     fontFamily: 'rsu-text_bold',
-    fontSize: 24,
+    fontSize: 32,
   },
   Content: {
     // fontSize: 15,
     fontFamily: 'rsu-text',
-    fontSize: 17,
+    fontSize: 24,
   },
   Subtitle: {
     // fontSize: 15,
     marginBottom: 12,
 
     fontFamily: 'rsu-text',
-    fontSize: 17,
+    fontSize: 28,
     // marginLeft: 24,
   },
   InfoCard: {
@@ -43,7 +43,7 @@ const SharedStyle = StyleSheet.create({
     // fontSize: 15,
     // fontWeight: 'bold',
     fontFamily: 'rsu-text_bold',
-    fontSize: 19,
+    fontSize: 24,
   },
 
   Carousel: {
@@ -77,8 +77,9 @@ const SharedStyle = StyleSheet.create({
     // fontSize: 19,
     textAlign: 'center',
 
-    fontFamily: 'rsu-text',
-    fontSize: 24,
+    fontFamily: 'rsu-text_bold',
+    // fontSize: 24,
+    fontSize: 32,
   },
 });
 

@@ -106,8 +106,8 @@ const App = () => {
   
   const loadAsync = async () => {
     await Font.loadAsync({
-      'rsu-text': require('./assets/fonts/RSU_Regular.ttf'),
-      'rsu-text_bold': require('./assets/fonts/RSU_BOLD.ttf'),
+      'rsu-text': require('./assets/fonts/RSUText_Regular.ttf'),
+      'rsu-text_bold': require('./assets/fonts/RSUText_Bold.ttf'),
     })
     setFontLoad(true)
   }
