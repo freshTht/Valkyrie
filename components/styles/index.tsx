@@ -21,8 +21,11 @@ const SharedStyle = StyleSheet.create({
     fontSize: 17,
   },
   Subtitle: {
-    fontSize: 15,
+    // fontSize: 15,
     marginBottom: 12,
+
+    fontFamily: 'rsu-text',
+    fontSize: 17,
     // marginLeft: 24,
   },
   InfoCard: {

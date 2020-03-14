@@ -10,7 +10,7 @@ import {
 } from 'react-native-elements'
 
 import i18n from 'i18n-js';
-import { renderUnorderedList } from '@app/components/utils'
+import { renderOrderedList } from '@app/components/utils'
 import { SharedStyle } from '@app/components/styles'
 
 interface Props {
@@ -49,9 +49,9 @@ const Diagnostics2: React.FC<Props> = (props) => {
       <Text style={SharedStyle.Title}>
         { TITLE }
       </Text>
-      <View style={{ marginLeft: 24 }}>
+      <View style={{ marginLeft: 16 }}>
         {
-          renderUnorderedList(LIST_ITEMS)
+          renderOrderedList(LIST_ITEMS)
         }
       </View>
     </Card>

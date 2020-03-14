@@ -73,7 +73,7 @@ const CPInfoPage: React.FC<Props> = (props) => {
       leftElement: <MaterialCommunityIcons name='medical-bag' size={20} color='#fff' />,
     },
     {
-      title: 'การรักษาอื่นๆ',
+      title: 'การรักษา',
       href: 'CPMedicalTreatments',
       backgroundColor: '#E16E5B',
       leftElement: <MaterialCommunityIcons name='medical-bag' size={20} color='#fff' />,

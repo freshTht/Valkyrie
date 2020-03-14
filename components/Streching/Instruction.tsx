@@ -11,6 +11,7 @@ import {
 import { Feather } from '@expo/vector-icons'
 import StyledText from 'react-native-styled-text'
 import { SharedStyle } from '../styles'
+import { renderOrderedList } from '../utils'
 import i18n from 'i18n-js'
 
 interface Props {
@@ -36,15 +37,15 @@ const Instruction: React.FC<Props> = (props) => {
   }, [])
 
   const TITLE = i18n.t('streching_note_title')
-  const CONTENT = i18n.t('streching_note')
+  const CONTENT: string[] = i18n.t('streching_note')
   return (
     <Card containerStyle={SharedStyle.InfoCard}>
       <StyledText style={SharedStyle.Title}>
         { TITLE }
       </StyledText>
-      <StyledText style={SharedStyle.Content}>
-        { CONTENT }
-      </StyledText>
+      {/* <StyledText style={SharedStyle.Content}> */}
+        { renderOrderedList(CONTENT) }
+      {/* </StyledText> */}
     </Card>
   )
 }

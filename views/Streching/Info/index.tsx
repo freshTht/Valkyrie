@@ -45,7 +45,7 @@ const StrechingInfoPage: React.FC<Props> = (props) => {
 
   // PARAM
   let INDEX = props.navigation.getParam('INDEX', 1)
-  let IMG_SRC = props.navigation.getParam('IMG_SRC', '')
+  // let IMG_SRC = props.navigation.getParam('IMG_SRC', '')
   
   // DATA
   const RAW_DATA = i18n.t(`streching_types`)[INDEX]
@@ -57,7 +57,8 @@ const StrechingInfoPage: React.FC<Props> = (props) => {
     const METHOD = RAW_DATA.methods[i]
 
     DATA.contentSections.push({
-      sectionImageSource: IMG_SRC[i],
+      // sectionImageSource: IMG_SRC[i],
+      sectionImageSource: METHOD.image,
     })
     // console.log(JSON.stringify(IMG_SRC[INDEX]));
 
@@ -75,16 +76,23 @@ const StrechingInfoPage: React.FC<Props> = (props) => {
       sectionOrderedList: METHOD.steps,
     })
 
-    DATA.contentSections.push({
-      sectionTitle: i18n.t(`streching_section_benefits`),
-      sectionOrderedList: METHOD.benefits,
-    })
-
     if (METHOD.note) {
       DATA.contentSections.push({
         sectionContent: METHOD.note,
       })
     }
+
+    DATA.contentSections.push({
+      sectionTitle: i18n.t(`streching_section_benefits`),
+      sectionOrderedList: METHOD.benefits,
+    })
+
+    if (i !== RAW_DATA.methods.length - 1) {
+      DATA.contentSections.push({
+        isSeperatorSection: true,
+      })
+    }
+
   }
   
   

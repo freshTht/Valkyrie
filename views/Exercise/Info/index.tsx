@@ -124,7 +124,12 @@ const ExerciseInfoPage: React.FC<Props> = (props) => {
       })
     }
 
-    DATA.contentSections.push({})
+    if (i !== RAW_DATA.methods.length - 1 
+      && (METHOD.description || METHOD.steps || METHOD.notes || METHOD.warning || METHOD.note)) {
+      DATA.contentSections.push({
+        isSeperatorSection: true,
+      })
+    }
   }
   
   

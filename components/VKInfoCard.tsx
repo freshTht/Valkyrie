@@ -25,6 +25,8 @@ interface VKSection {
   hideNumber?: boolean,
   sectionImageSource?: ImageSourcePropType,
   sectionNestedSection?: VKSection,
+
+  isSeperatorSection?: boolean,
 }
 interface Props {
   title?: string,
@@ -67,60 +69,67 @@ const VKInfoCard: React.FC<Props> = (props) => {
   }
 
   const _renderSection = (s: VKSection, i: number) => {
-    const AVAILABLE_SPACE = Dimensions.get('window').width - (2*16) - (2*12)
-    const IMG_WIDTH = AVAILABLE_SPACE * 0.9
-
-    const ORDERED_LIST = s.sectionOrderedList ? s.sectionOrderedList : []
-    const ORDERED_LIST_IMAGES = s.sectionOrderedListImages ? s.sectionOrderedListImages : []
-    
-    return (
-      <View style={SharedStyle.SubSection} key={i}>
-        { 
-          s.sectionTitle ?
-          (
-            <StyledText style={SharedStyle.SubSectionTitle}>
-              { s.sectionTitle }
-            </StyledText>
-          )
-          : (<></>)
-        }
-        
-        { 
-          s.sectionContent ?
-          (
-            <StyledText style={SharedStyle.Content}>
-              { s.sectionContent }
-            </StyledText>
-          )
-          : (<></>)
-        }
-        
-        <View style={{ marginLeft: 12 }}>
-          {
-            // (ORDERED_LIST.length <= 1 || s.hideNumber) ? 
-            // renderUnorderedList(ORDERED_LIST) : renderOrderedList(ORDERED_LIST, ORDERED_LIST_IMAGES)
-            renderOrderedList(ORDERED_LIST, ORDERED_LIST_IMAGES, ORDERED_LIST.length <= 1 || s.hideNumber)
+    if (s.isSeperatorSection) {
+      return (
+        <View style={{ width: '100%', height: 1, backgroundColor: '#000000', opacity: 0.2, marginVertical: 20 }}/>
+      )
+    }
+    else {
+      const AVAILABLE_SPACE = Dimensions.get('window').width - (2*16) - (2*12)
+      const IMG_WIDTH = AVAILABLE_SPACE * 0.9
+  
+      const ORDERED_LIST = s.sectionOrderedList ? s.sectionOrderedList : []
+      const ORDERED_LIST_IMAGES = s.sectionOrderedListImages ? s.sectionOrderedListImages : []
+      
+      return (
+        <View style={SharedStyle.SubSection} key={i}>
+          { 
+            s.sectionTitle ?
+            (
+              <StyledText style={SharedStyle.SubSectionTitle}>
+                { s.sectionTitle }
+              </StyledText>
+            )
+            : (<></>)
           }
+          
+          { 
+            s.sectionContent ?
+            (
+              <StyledText style={SharedStyle.Content}>
+                { s.sectionContent }
+              </StyledText>
+            )
+            : (<></>)
+          }
+          
+          <View style={{ marginLeft: 12 }}>
+            {
+              // (ORDERED_LIST.length <= 1 || s.hideNumber) ? 
+              // renderUnorderedList(ORDERED_LIST) : renderOrderedList(ORDERED_LIST, ORDERED_LIST_IMAGES)
+              renderOrderedList(ORDERED_LIST, ORDERED_LIST_IMAGES, ORDERED_LIST.length <= 1 || s.hideNumber)
+            }
+          </View>
+          
+          {
+            s.sectionImageSource ?
+            (
+              <Image source={s.sectionImageSource} 
+                style={{ marginLeft: 'auto', marginRight: 'auto' }}
+                width={IMG_WIDTH}
+              />
+                // style={{ marginTop: '-5%', marginBottom: '5%' }}
+            )
+            : (<></>)
+          }
+  
+          {/* {
+            s.sectionNestedSection ? _renderSection(s.sectionNestedSection, i) : <></>
+          } */}
+          
         </View>
-        
-        {
-          s.sectionImageSource ?
-          (
-            <Image source={s.sectionImageSource} 
-              style={{ marginLeft: 'auto', marginRight: 'auto' }}
-              width={IMG_WIDTH}
-            />
-              // style={{ marginTop: '-5%', marginBottom: '5%' }}
-          )
-          : (<></>)
-        }
-
-        {/* {
-          s.sectionNestedSection ? _renderSection(s.sectionNestedSection, i) : <></>
-        } */}
-        
-      </View>
-    )
+      )
+    }
   }
 
   return (

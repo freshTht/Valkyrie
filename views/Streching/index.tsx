@@ -56,38 +56,8 @@ const StrechingPage: React.FC<Props> = (props) => {
   // PARAMS
   // 
   const DATA = i18n.t(`streching_types`)
-  const IMG_FILES = [
-    [
-      // require('@app/assets/Streching/ต้นแขน-1.png'),
-      // require('@app/assets/Streching/ต้นแขน-2.png'),
-      require('@app/assets/colored/Stretching/8(ขยับ).gif'),
-      require('@app/assets/colored/Stretching/9ขยับ.gif'),
-    ],
-    [
-      // require('@app/assets/Streching/แขน.png'),
-      require('@app/assets/colored/Stretching/10.png'),
-    ],
-    [
-      // require('@app/assets/Streching/ยกแขนกดหมอน.png'),
-      // require('@app/assets/Streching/เว็ดเชฟ.png'),
-      // require('@app/assets/Streching/หมุนตัว.png'),
-      // require('@app/assets/Streching/ดันบอลเหยียด.png'),
-      require('@app/assets/colored/Stretching/11ขยับ.gif'),
-      require('@app/assets/colored/Stretching/12เว็ดเชฟ.png'),
-      require('@app/assets/colored/Stretching/13ขยับ.gif'),
-      require('@app/assets/colored/Stretching/14ขยับ.gif'),
-    ],
-    [
-      // require('@app/assets/Streching/ดันบอลขัด.png'),
-      // require('@app/assets/Streching/ยันกำแพง.png'),
-      require('@app/assets/colored/Stretching/15ขยับ.gif'),
-      require('@app/assets/colored/Stretching/16.png'),
-    ],
-  ]
-  // const ITEM_COUNT = 4;
 
   // MENU items
-  // let menuItems: MenuItemData[] = []
   let carouselItems = []
   for (var i = 0; i < DATA.length; i++) {
     let ITEM = DATA[i]
@@ -95,10 +65,9 @@ const StrechingPage: React.FC<Props> = (props) => {
     carouselItems.push({
       title: ITEM.title,
       href: 'StrechingInfo',
-      imgSrc: IMG_FILES[i][0],
+      imgSrc: ITEM.preview_image,
       hrefParams: {
         INDEX: i,
-        IMG_SRC: IMG_FILES[i],
       },
       backgroundColor: '#325E96',
     })
