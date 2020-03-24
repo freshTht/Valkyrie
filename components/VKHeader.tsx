@@ -2,8 +2,8 @@
 import React, {Component,} from 'react'
 import {
   StyleSheet, TouchableOpacity, StatusBarStyle,
-  // View,
-  // Text,
+  View,
+  Text,
 } from 'react-native'
 
 import {
@@ -11,6 +11,8 @@ import {
 } from 'react-native-elements'
 
 import { Feather } from '@expo/vector-icons';
+import StyledText from 'react-native-styled-text';
+import { SharedStyle } from './styles';
 
 interface Props {
   backgroundColor?: string,
@@ -53,15 +55,23 @@ const VKHeader: React.FC<Props> = (props) => {
 
   return (
     // <View style={[ LocalStyle.header, { backgroundColor: BG_COLOR } ]}>
-    //   <Text>{ TITLE }</Text>
+    //   { renderLeftComponent(COLOR) }
+    //   <StyledText style={[ SharedStyle.HeaderTitle, { color: COLOR } ]}>
+    //     { TITLE }
+    //   </StyledText>
     // </View>
     <Header
       backgroundColor={ BG_COLOR }
       leftComponent={ renderLeftComponent(COLOR) }
-      centerComponent={{ text: TITLE, style: { color: COLOR, fontSize: 26, fontWeight: 'bold', fontFamily: 'rsu-text_bold' } }}
+      centerComponent={
+        <StyledText style={[ SharedStyle.HeaderTitle, { color: COLOR } ]}>
+          { TITLE }
+        </StyledText>
+      }
       barStyle={ BAR_STYLE }
       statusBarProps={{ barStyle: BAR_STYLE, backgroundColor: '#00000033', translucent: true, animated: true }}
     />
+      // centerComponent={{ text: TITLE, style: { color: COLOR, fontSize: 26, fontWeight: 'bold', fontFamily: 'rsu-text_bold' } }}
   )
 }
 

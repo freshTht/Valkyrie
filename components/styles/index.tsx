@@ -81,6 +81,12 @@ const SharedStyle = StyleSheet.create({
     // fontSize: 24,
     fontSize: 32,
   },
+
+  HeaderTitle: {
+    fontSize: 28, 
+    // fontWeight: 'bold', 
+    fontFamily: 'rsu-text_bold',
+  },
 });
 
 export {
