@@ -24,6 +24,7 @@ import VKHeader from '@app/components/VKHeader'
 import { VKInfoCard, VKSection } from '@app/components/VKInfoCard'
 import { renderMenuItems } from '@app/components/utils'
 import i18n from 'i18n-js'
+import VKRootView from '@app/components/VKRootView'
 
 interface Props {
   navigation?: any
@@ -97,7 +98,7 @@ const StrechingInfoPage: React.FC<Props> = (props) => {
   
   
   return (
-    <View style={ SharedStyle.Root }>
+    <VKRootView>
 
       <VKHeader 
         title=''
@@ -117,7 +118,7 @@ const StrechingInfoPage: React.FC<Props> = (props) => {
         </View>
       </ScrollView>
 
-    </View>
+    </VKRootView>
   )
 }
 

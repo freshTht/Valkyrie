@@ -18,6 +18,7 @@ import { SharedStyle } from '@app/components/styles'
 import VKHeader from '@app/components/VKHeader'
 import VKInfoCard from '@app/components/VKInfoCard'
 import BodyEquipment from '@app/components/CPInfo/BodyEquipment'
+import VKRootView from '@app/components/VKRootView'
 
 interface Props {
   navigation?: any
@@ -87,7 +88,7 @@ const BodyEquipmentPage: React.FC<Props> = (props) => {
   }
 
   return (
-    <View style={SharedStyle.Root}>
+    <VKRootView>
 
       <VKHeader 
         title={i18n.t('page_title_cpinfo_body_equipment')}
@@ -120,7 +121,7 @@ const BodyEquipmentPage: React.FC<Props> = (props) => {
         </View>
       </ScrollView>
 
-    </View>
+    </VKRootView>
   )
 }
 

@@ -16,6 +16,7 @@ import { SharedStyle } from '@app/components/styles'
 
 import VKHeader from '@app/components/VKHeader'
 import Causes from '@app/components/CPInfo/Causes'
+import VKRootView from '@app/components/VKRootView'
 
 interface Props {
   navigation?: any
@@ -36,7 +37,7 @@ const CausesPage: React.FC<Props> = (props) => {
   }, [])
 
   return (
-    <View style={SharedStyle.Root}>
+    <VKRootView>
 
       <VKHeader 
         title='ปัจจัยเสี่ยงการเกิดโรค'
@@ -49,7 +50,7 @@ const CausesPage: React.FC<Props> = (props) => {
         <Causes />
       </ScrollView>      
 
-    </View>
+    </VKRootView>
   )
 }
 

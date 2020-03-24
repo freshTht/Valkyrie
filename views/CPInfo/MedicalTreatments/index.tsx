@@ -17,6 +17,7 @@ import { SharedStyle } from '@app/components/styles'
 
 import VKHeader from '@app/components/VKHeader'
 import MedicalTreatments from '@app/components/CPInfo/MedicalTreatments'
+import VKRootView from '@app/components/VKRootView'
 
 interface Props {
   navigation?: any
@@ -37,7 +38,7 @@ const MedicalTreatmentsPage: React.FC<Props> = (props) => {
   }, [])
 
   return (
-    <View style={SharedStyle.Root}>
+    <VKRootView>
 
       <VKHeader 
         title={i18n.t('page_title_cpinfo_medical_treatments')}
@@ -49,7 +50,7 @@ const MedicalTreatmentsPage: React.FC<Props> = (props) => {
         <MedicalTreatments />
       </ScrollView>
 
-    </View>
+    </VKRootView>
   )
 }
 

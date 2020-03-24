@@ -2,6 +2,9 @@
 // LOCALIZATIONS
 // 
 const th = {
+  // // BG_IMAGE
+  // '__app_bg': require('@app/assets/_brand/bg.png'),
+
   // PAGE TITLES
   'page_title_cpinfo_diagnostic': `การวินิจฉัยโรค`,
   'page_title_cpinfo_medical_treatments': `การรักษา`,

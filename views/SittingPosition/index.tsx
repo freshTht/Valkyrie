@@ -30,6 +30,7 @@ import Importance from '@app/components/SittingPosition/Importance'
 import Carousel from 'react-native-snap-carousel'
 import { Card } from 'react-native-elements'
 import Image from 'react-native-scalable-image'
+import VKRootView from '@app/components/VKRootView'
 
 interface Props {
   navigation?: any
@@ -118,7 +119,7 @@ const SittingPositionPage: React.FC<Props> = (props) => {
   }
   else {
     return (
-      <View style={SharedStyle.Root}>
+      <VKRootView>
 
         <VKHeader 
           title={i18n.t('page_title_sitting_position')}
@@ -155,7 +156,7 @@ const SittingPositionPage: React.FC<Props> = (props) => {
 
         </ScrollView>
 
-      </View>
+      </VKRootView>
     )
   }
 }

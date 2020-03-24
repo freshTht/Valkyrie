@@ -2,29 +2,19 @@
 
 import React, {Component,} from 'react'
 import {
-  SafeAreaView,
   StyleSheet,
-  StatusBar,
   View, 
-  ScrollView,
-  Dimensions,
-  FlatList, ListRenderItem, TouchableOpacity,
-  ActivityIndicator,
+  // TouchableOpacity,
   // Image,
 } from 'react-native'
 
 import {
   Header,
-  Button,
-  Text,
-  Card,
-  Image ,
 } from 'react-native-elements'
 
-import { SharedStyle } from '@app/components/styles'
+// import { SharedStyle } from '@app/components/styles'
 import { renderMenuItems } from '@app/components/utils'
-
-const DefaultTouchableComponent = TouchableOpacity
+import VKRootView from '@app/components/VKRootView'
 
 interface Props {
   navigation?: any
@@ -88,7 +78,7 @@ const MainPage: React.FC<Props> = (props) => {
   // ]
 
   return (
-    <View style={SharedStyle.Root}>
+    <VKRootView>
       <Header
         backgroundColor='#336099'
         centerComponent={{ text: 'APP NAME', style: { color: '#fff' } }}
@@ -126,7 +116,7 @@ const MainPage: React.FC<Props> = (props) => {
           onPress={() => alert('coming soon..') } />
       </View> */}
 
-    </View>
+    </VKRootView>
   )
 }
 

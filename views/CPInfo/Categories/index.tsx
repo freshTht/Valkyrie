@@ -6,6 +6,7 @@ import {
   ScrollView,
   View,
   SafeAreaView,
+  ImageBackground,
 } from 'react-native'
 
 // import {
@@ -18,6 +19,7 @@ import { SharedStyle } from '@app/components/styles'
 import VKHeader from '@app/components/VKHeader'
 import CategoriesByMovement from '@app/components/CPInfo/CategoriesByMovement'
 import CategoriesByAnomalies from '@app/components/CPInfo/CategoriesByAnomalies'
+import VKRootView from '@app/components/VKRootView'
 
 interface Props {
   navigation?: any
@@ -38,8 +40,7 @@ const CategoriesPage: React.FC<Props> = (props) => {
   }, [])
 
   return (
-    <View style={SharedStyle.Root}>
-
+    <VKRootView>
       <VKHeader 
         title='การแบ่งประเภทเด็กภาวะสมองพิการ'
         backgroundColor='#E16E5B'
@@ -51,7 +52,7 @@ const CategoriesPage: React.FC<Props> = (props) => {
         <CategoriesByAnomalies />
       </ScrollView>
 
-    </View>
+    </VKRootView>
   )
 }
 

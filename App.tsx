@@ -29,6 +29,8 @@ import ExerciseInfoPage from './views/Exercise/Info'
 // LOCALIZATION
 require('@app/utils/localizations')
 
+import { Asset } from 'expo-asset'
+
 //
 // Main Navigator
 //
@@ -102,19 +104,28 @@ const MainNavigator = createStackNavigator(
 const AppContainer = createAppContainer(MainNavigator)
 
 const App = () => {
-  const [ fontLoaded, setFontLoad ] = useState(false)
+  const [ fontLoaded, setFontLoaded ] = useState(false)
   
-  const loadAsync = async () => {
+  const loadFontAsync = async () => {
     await Font.loadAsync({
       'rsu-text': require('./assets/fonts/RSUText_Regular.ttf'),
       'rsu-text_bold': require('./assets/fonts/RSUText_Bold.ttf'),
     })
-    setFontLoad(true)
+    setFontLoaded(true)
+  }
+  const loadImageAsync = async () => {
+    const images = [
+      require("./assets/_brand/bg.png"),   
+    ]
+    for (let image of images) {
+      await Asset.fromModule(image).downloadAsync()
+    }
   }
 
   useEffect(() => {
     // componentDidMount
-    loadAsync()
+    loadFontAsync()
+    loadImageAsync()
 
     const componentWillUnmount = () => {
       // do something..

@@ -20,6 +20,7 @@ import VKHeader from '@app/components/VKHeader'
 import Diagnostics1 from '@app/components/CPInfo/Diagnostics1'
 import Diagnostics2 from '@app/components/CPInfo/Diagnostics2'
 import Diagnostics3 from '@app/components/CPInfo/Diagnostics3'
+import VKRootView from '@app/components/VKRootView'
 
 interface Props {
   navigation?: any
@@ -40,7 +41,7 @@ const DiagnosticsPage: React.FC<Props> = (props) => {
   }, [])
 
   return (
-    <View style={SharedStyle.Root}>
+    <VKRootView>
 
       <VKHeader 
         title={i18n.t('page_title_cpinfo_diagnostic')}
@@ -54,7 +55,7 @@ const DiagnosticsPage: React.FC<Props> = (props) => {
         <Diagnostics3/>
       </ScrollView>
 
-    </View>
+    </VKRootView>
   )
 }
 

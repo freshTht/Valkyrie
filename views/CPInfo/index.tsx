@@ -5,6 +5,7 @@ import {
   StyleSheet,
   ScrollView,
   View,
+  ImageBackground,
 } from 'react-native'
 
 import {
@@ -27,6 +28,7 @@ import { SharedStyle } from '@app/components/styles'
 
 import VKHeader from '@app/components/VKHeader'
 import Meaning from '@app/components/CPInfo/Meaning'
+import VKRootView from '@app/components/VKRootView'
 // import Causes from '@app/components/CPInfo/Causes'
 
 interface Props {
@@ -87,7 +89,7 @@ const CPInfoPage: React.FC<Props> = (props) => {
   ]
   
   return (
-    <View style={SharedStyle.Root}>
+    <VKRootView>
 
       <VKHeader 
         title='CP คืออะไร?'
@@ -107,10 +109,9 @@ const CPInfoPage: React.FC<Props> = (props) => {
           </View>
           {/* </Card> */}
         </View>
-
       </ScrollView>
 
-    </View>
+    </VKRootView>
   )
 }
 

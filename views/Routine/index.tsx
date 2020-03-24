@@ -25,6 +25,7 @@ import Meaning from '@app/components/Routine/Meaning'
 // const DefaultTouchableComponent = TouchableOpacity
 
 import i18n from 'i18n-js'
+import VKRootView from '@app/components/VKRootView'
 
 interface Props {
   navigation?: any
@@ -230,7 +231,7 @@ const RoutinePage: React.FC<Props> = (props) => {
   }
 
   return (
-    <View style={SharedStyle.Root}>
+    <VKRootView>
 
       <VKHeader 
         title='กิจวัตรประจำวัน'
@@ -251,7 +252,7 @@ const RoutinePage: React.FC<Props> = (props) => {
 
       </ScrollView>
 
-    </View>
+    </VKRootView>
   )
 }
 
