@@ -1,11 +1,7 @@
 import React, { useEffect } from 'react'
 import {
-  StyleSheet,
   View,
-  // TouchableOpacity,
-  // Image,
-  AsyncStorage,
-  Alert,
+  StyleSheet,
 } from 'react-native'
 
 import {
@@ -16,13 +12,13 @@ import {
   Button, Card, CheckBox, Divider
 } from 'react-native-elements'
 
-import Modal from 'react-native-modal'
+import Image from 'react-native-scalable-image'
 
 // import { SharedStyle } from '@app/components/styles'
 import { renderUnorderedList } from '@app/components/utils'
 import StyledText from 'react-native-styled-text'
 import { SharedStyle } from '@app/components/styles'
-import { ScrollView } from 'react-native-gesture-handler'
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
 
 // ASYNC STORAGE
 import _dontShowOverlay from '@app/utils/preferences/dontShowOverlay'
@@ -52,6 +48,17 @@ const FirstTimeMessage: React.FC<Props> = (props) => {
     return componentWillUnmount
   }, [])
 
+  // EventListeners
+  const closeButtonClicked = async () => {
+    // setOverlayVisible(false)
+    await _dontShowOverlay.save(dontShowOverlayAgain)
+
+    // trigger the event
+    if (props.onCloseButtonPress) {
+      props.onCloseButtonPress()
+    }
+  }
+
   return (
     <Card containerStyle={{ borderRadius: 8, padding: 0, alignItems: 'center' }}>
       <View style={{ padding: 16, paddingBottom: 8, backgroundColor: '#FDC055', borderTopLeftRadius: 8, borderTopRightRadius: 8 }}>
@@ -59,6 +66,32 @@ const FirstTimeMessage: React.FC<Props> = (props) => {
           ชี้แจงจากคณะผู้จัดทำ
         </StyledText>
       </View>
+
+      {/* dialog close button */}
+      <View 
+        style={{ 
+          position: 'absolute', width: '100%', flexDirection: 'row', justifyContent: 'flex-end', 
+          top: -16, right: -16
+        }}
+      >
+        <TouchableOpacity 
+          style={{ width: 40, height: 40, alignItems: 'center', justifyContent: 'center' }}
+          onPress={closeButtonClicked}
+          activeOpacity={0.5}
+        >
+          <View 
+            style={{ 
+              backgroundColor: '#000000ab',
+              height: 24, width: 24, borderRadius: 12,
+              alignItems: 'center', justifyContent: 'center',
+              borderColor: 'white', borderWidth: 1,
+              shadowColor: '#000', shadowRadius: 4, shadowOffset: { height: 3, width: 0 }, shadowOpacity: 0.75,
+            }}>
+            <MaterialCommunityIcons name='close' size={16} color={`#fff`} style={{ marginLeft: 2, marginTop: 1 }} />
+          </View>
+        </TouchableOpacity>
+      </View>
+
       <ScrollView 
         style={{ flex: 1 }}
         contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 24 }}
@@ -84,7 +117,7 @@ const FirstTimeMessage: React.FC<Props> = (props) => {
         </View>
 
         <View style={{ marginTop: 16 }}>
-          <StyledText style={[ SharedStyle.Content, { marginBottom: 8, fontFamily: 'rsu-text_bold' }]}>
+          <StyledText style={[ SharedStyle.Content, { marginBottom: 8, fontFamily: 'rsu-text_bold', textAlign: 'center' }]}>
             อาจารย์ที่ปรึกษา
           </StyledText>
           { 
@@ -105,10 +138,16 @@ const FirstTimeMessage: React.FC<Props> = (props) => {
           เป็นประโยชน์ต่อผู้ใช้งาน 
         </StyledText>
 
+        <Image 
+          source={require('@app/assets/_brand/TU-Logo.png')} 
+          width={100} 
+          style={{ alignSelf: 'center', marginTop: 32, marginBottom: 16 }} />
+
       </ScrollView>
 
       <Divider />
-      <View style={{ paddingHorizontal: 16, paddingVertical: 8 }}>
+
+      <View style={{ paddingHorizontal: 8, paddingVertical: 8 }}>
         <CheckBox
           title={`ไม่ต้องแสดงข้อความนี้อีก`}
           titleProps={{ style: [ SharedStyle.Content, { marginLeft: 8 } ] }}
@@ -116,9 +155,9 @@ const FirstTimeMessage: React.FC<Props> = (props) => {
           uncheckedIcon={<MaterialCommunityIcons name='checkbox-blank-outline' size={12}/>}
           checked={dontShowOverlayAgain}
           onPress={() => setDontShowOverlayAgain(!dontShowOverlayAgain)}
-          containerStyle={{ marginBottom: 8 }}
+          containerStyle={{ paddingVertical: 4 }}
         />
-        <Button 
+        {/* <Button 
           buttonStyle={SharedStyle.ButtonOrange}
           titleStyle={SharedStyle.ButtonText}
           onPress={async () => {
@@ -131,7 +170,7 @@ const FirstTimeMessage: React.FC<Props> = (props) => {
             }
           }}
           title='ปิด'
-        />
+        /> */}
       </View>
     </Card>
   )
