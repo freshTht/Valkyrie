@@ -1,31 +1,49 @@
 /* eslint-disable */
 
-import React, {Component,} from 'react'
+import React from 'react'
 import {
   StyleSheet,
-  View, 
+  View,
   // TouchableOpacity,
   // Image,
+  AsyncStorage,
 } from 'react-native'
 
 import {
   Header,
 } from 'react-native-elements'
 
+import Modal from 'react-native-modal'
+
 // import { SharedStyle } from '@app/components/styles'
 import { renderMenuItems } from '@app/components/utils'
 import VKRootView from '@app/components/VKRootView'
+import { SharedStyle } from '@app/components/styles'
+import FirstTimeMessage from '@app/components/FirstTimeMessage'
+
+// ASYNC STORAGE
+import _dontShowOverlay from '@app/utils/preferences/dontShowOverlay'
+
 
 interface Props {
   navigation?: any
 }
 
 const MainPage: React.FC<Props> = (props) => {
+
   // STATE
-  // let [balance, setBalance] = React.useState<number>();
+  let [overlayVisible, setOverlayVisible] = React.useState<boolean>(false);
+  // useEffect(() => {_saveToAsyncStorage()}, [dontShowOverlayAgain])
 
   React.useEffect(() => {
     // componentDidMount
+    setTimeout(async () => {
+      const dontShowOverlayAgain = await _dontShowOverlay.load()
+      if (dontShowOverlayAgain === false) {
+        setOverlayVisible(true)
+      }
+
+    }, 100)
 
     const componentWillUnmount = () => {
       // do something..
@@ -81,7 +99,7 @@ const MainPage: React.FC<Props> = (props) => {
     <VKRootView>
       <Header
         backgroundColor='#336099'
-        centerComponent={{ text: 'APP NAME', style: { color: '#fff' } }}
+        centerComponent={{ text: `NuuJa's App`, style: [SharedStyle.HeaderTitle, { color: '#fff' }], onPress: () => setOverlayVisible(true) }}
         barStyle="light-content"
         statusBarProps={{ barStyle: 'light-content', backgroundColor: '#00000033', translucent: true, animated: true }}
       />
@@ -109,12 +127,17 @@ const MainPage: React.FC<Props> = (props) => {
 
       </View>
 
-      {/* <View style={LocalStyle.bottomBar}>
-        <Button 
-          style={LocalStyle.menuButton}  
-          title='DETECT' 
-          onPress={() => alert('coming soon..') } />
-      </View> */}
+      {/* modal message for first time use */}
+      <Modal
+        isVisible={overlayVisible}
+        animationIn={'fadeInUp'}
+        animationOut={'fadeOutDown'}
+        onBackdropPress={() => setOverlayVisible(false)}
+        onBackButtonPress={() => setOverlayVisible(false)}
+      >
+        <FirstTimeMessage 
+          onCloseButtonPress={() => {setOverlayVisible(false)}}/>
+      </Modal>
 
     </VKRootView>
   )

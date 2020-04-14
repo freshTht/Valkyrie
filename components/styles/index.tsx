@@ -88,6 +88,14 @@ const SharedStyle = StyleSheet.create({
     // fontWeight: 'bold', 
     fontFamily: 'rsu-text_bold',
   },
+  
+  ButtonText: {
+    fontSize: 28,
+    fontFamily: 'rsu-text_bold',
+  },
+  ButtonOrange: {
+    backgroundColor: '#EC8C50',
+  },
 });
 
 export {
