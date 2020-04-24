@@ -102,6 +102,9 @@ const RoutinePage: React.FC<Props> = (props) => {
           main: require('@app/assets/colored/ADL/Dressing/43นอนแต่ง(ขยับ).gif'),
         },
         {
+          main: require('@app/assets/colored/ADL/Dressing/4Xนอนหงายใส่เสื้อคอกลม.png'),
+        },
+        {
           main: require('@app/assets/colored/ADL/Dressing/44นอนคว่ำแต่งตัว(ขยับ).gif'),
         },
         {
@@ -173,17 +176,17 @@ const RoutinePage: React.FC<Props> = (props) => {
         {
           main: require('@app/assets/colored/ADL/playing/61นอนไปนั่ง(ขยับ).gif'),
         },
+      ],
+    },
+    {
+      icon: <MaterialCommunityIcons name='badminton' size={22} color='#fff' />,
+      images: [
         {
           main: require('@app/assets/colored/ADL/playing/62นั่งไปยืน(ขยับ).gif'),
         },
         {
           main: require('@app/assets/colored/ADL/playing/63เดิน(ขยับ).gif'),
         },
-      ],
-    },
-    {
-      icon: <MaterialCommunityIcons name='badminton' size={22} color='#fff' />,
-      images: [
         {
           main: require('@app/assets/colored/ADL/playing/64ลูกบอล.png'),
         },

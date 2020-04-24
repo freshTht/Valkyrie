@@ -72,7 +72,7 @@ const ExerciseInfoPage: React.FC<Props> = (props) => {
       
       DATA.contentSections.push(TITLE_AND_IMGS);
       
-      console.log(`${i} ${JSON.stringify(IMG)}`)
+      // console.log(`${i} ${JSON.stringify(IMG)}`)
       if (IMG) { // if image exists
         if (!IMG[0]) {  // if not an array
           TITLE_AND_IMGS.sectionImageSource = IMG;
@@ -95,22 +95,31 @@ const ExerciseInfoPage: React.FC<Props> = (props) => {
     // console.log(JSON.stringify(IMG_SRC[INDEX]));
     
 
-    if (METHOD.description || METHOD.steps)
-    DATA.contentSections.push({
-      sectionTitle: i18n.t(`exercise_section_methods`),
-      sectionContent: (
-        METHOD.description ? 
-        METHOD.description
-        : undefined
-      ),
-      sectionOrderedList: METHOD.steps,
-    })
+    if (METHOD.description || METHOD.steps) {
+      DATA.contentSections.push({
+        sectionTitle: i18n.t(`exercise_section_methods`),
+        sectionContent: (
+          METHOD.description ? 
+          METHOD.description
+          : undefined
+        ),
+        sectionOrderedList: METHOD.steps,
+      })
+    }
 
     if (METHOD.notes) {
       DATA.contentSections.push({
         sectionContent: METHOD.notes,
       })
     }
+    
+    if (METHOD.advice) {
+      DATA.contentSections.push({
+        sectionTitle: i18n.t(`exercise_section_advice`),
+        sectionContent: METHOD.advice,
+      })
+    }
+    // console.log(METHOD.advice)
 
     if (METHOD.warnings) {
       DATA.contentSections.push({
@@ -119,14 +128,9 @@ const ExerciseInfoPage: React.FC<Props> = (props) => {
       })
     }
 
-    if (METHOD.note) {
-      DATA.contentSections.push({
-        sectionContent: METHOD.note,
-      })
-    }
 
     if (i !== RAW_DATA.methods.length - 1 
-      && (METHOD.description || METHOD.steps || METHOD.notes || METHOD.warning || METHOD.note)) {
+      && (METHOD.description || METHOD.steps || METHOD.notes || METHOD.warning || METHOD.advice)) {
       DATA.contentSections.push({
         isSeperatorSection: true,
       })

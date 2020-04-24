@@ -70,7 +70,7 @@ const SittingPositionInfoPage: React.FC<Props> = (props) => {
       {
         sectionTitle: i18n.t(`sitting_position_section_prohibitions`),
         // sectionContent: i18n.t(`sitting_position${INDEX}_prohibitions`),
-        sectionContent: RAW_DATA.prohibitions,
+        sectionOrderedList: RAW_DATA.prohibitions,
       },
     ]
   }

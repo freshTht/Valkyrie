@@ -17,7 +17,7 @@ import { SharedStyle } from '@app/components/styles'
 
 import VKHeader from '@app/components/VKHeader'
 import VKInfoCard from '@app/components/VKInfoCard'
-import BodyEquipment from '@app/components/CPInfo/BodyEquipment'
+// import BodyEquipment from '@app/components/CPInfo/BodyEquipment'
 import VKRootView from '@app/components/VKRootView'
 
 interface Props {
@@ -48,7 +48,7 @@ const BodyEquipmentPage: React.FC<Props> = (props) => {
   // DATA
   const RAW_DATA = i18n.t(`cpinfo_body_equipments`)
   
-  let CAUTION_CARD: any 
+  // let CAUTION_CARD: any 
   // if (RAW_DATA.caution) {
   //   CAUTION_CARD = {
   //     title: i18n.t('routine_section_caution'),
@@ -91,7 +91,7 @@ const BodyEquipmentPage: React.FC<Props> = (props) => {
     <VKRootView>
 
       <VKHeader 
-        title={i18n.t('page_title_cpinfo_body_equipment')}
+        title={i18n.t('cpinfo_body_equipment_title')}
         backgroundColor='#E16E5B'
         navigation={ props.navigation }
       />

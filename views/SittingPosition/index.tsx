@@ -133,8 +133,6 @@ const SittingPositionPage: React.FC<Props> = (props) => {
 
           <View style={{ flex: 1, paddingBottom: 16 }}>
             
-            <Importance />
-            
             {/* <View style={LocalStyle.menuListRight}>
               {
                 renderMenuItems(menuItems, props.navigation)
@@ -151,6 +149,7 @@ const SittingPositionPage: React.FC<Props> = (props) => {
               itemHeight={ 1000 }
             />
 
+            <Importance />
 
           </View>
 

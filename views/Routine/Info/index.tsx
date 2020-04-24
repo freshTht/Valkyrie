@@ -108,6 +108,15 @@ const RoutineInfoPage: React.FC<Props> = (props) => {
         hideNumber: true,
       })
     }
+
+    // show ADVICE, if any
+    if (P.advices) {
+      ITEM.contentSections.push({
+        sectionTitle: i18n.t('routine_section_advice'),
+        sectionOrderedList: P.advices,
+      })
+    }
+
     CARDS_DATA.push(ITEM)
   }
 

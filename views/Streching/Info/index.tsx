@@ -77,9 +77,9 @@ const StrechingInfoPage: React.FC<Props> = (props) => {
       sectionOrderedList: METHOD.steps,
     })
 
-    if (METHOD.note) {
+    if (METHOD.notes) {
       DATA.contentSections.push({
-        sectionContent: METHOD.note,
+        sectionContent: METHOD.notes,
       })
     }
 

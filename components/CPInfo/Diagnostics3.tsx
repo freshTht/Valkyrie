@@ -37,11 +37,14 @@ const Diagnostics3: React.FC<Props> = (props) => {
 
   const TITLE = i18n.t('cpinfo_diagnostics3_title')
   const SUBTITLE = i18n.t('cpinfo_diagnostics3_subtitle')
-  const LIST_ITEMS = [
-    i18n.t('cpinfo_diagnostics3_item_1_title') + '\n\t' + i18n.t('cpinfo_diagnostics3_item_1_body'),
-    i18n.t('cpinfo_diagnostics3_item_2_title') + '\n\t' + i18n.t('cpinfo_diagnostics3_item_2_body'),
-    i18n.t('cpinfo_diagnostics3_item_3_title') + '\n\t' + i18n.t('cpinfo_diagnostics3_item_3_body'),
-  ]
+  const rawListItems = i18n.t('cpinfo_diagnostics3_items')
+
+  const LIST_ITEMS = rawListItems.map((elm: any) => `${elm.title} ${elm.body}`)
+  // const LIST_ITEMS = [
+  //   i18n.t('cpinfo_diagnostics3_item_1_title') + '\n\t' + i18n.t('cpinfo_diagnostics3_item_1_body'),
+  //   i18n.t('cpinfo_diagnostics3_item_2_title') + '\n\t' + i18n.t('cpinfo_diagnostics3_item_2_body'),
+  //   i18n.t('cpinfo_diagnostics3_item_3_title') + '\n\t' + i18n.t('cpinfo_diagnostics3_item_3_body'),
+  // ]
   return (
     <Card containerStyle={SharedStyle.InfoCard}>
       <Text style={SharedStyle.Title}>

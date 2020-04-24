@@ -12,6 +12,7 @@ import { Feather } from '@expo/vector-icons'
 import StyledText from 'react-native-styled-text'
 import { SharedStyle } from '../styles'
 import i18n from 'i18n-js'
+import VKInfoCard from '../VKInfoCard'
 
 interface Props {
   // backgroundColor?: string,
@@ -36,16 +37,12 @@ const Importance: React.FC<Props> = (props) => {
   }, [])
 
   const TITLE = i18n.t('sitting_position_importance_title')
-  const CONTENT = i18n.t('sitting_position_importance_body')
+  const CONTENT_SECTIONS = i18n.t('sitting_position_importance_content')
   return (
-    <Card containerStyle={SharedStyle.InfoCard}>
-      <StyledText style={SharedStyle.Title}>
-        { TITLE }
-      </StyledText>
-      <StyledText style={SharedStyle.Content}>
-        { CONTENT }
-      </StyledText>
-    </Card>
+    <VKInfoCard
+      title={TITLE}
+      contentSections={CONTENT_SECTIONS}
+    />
   )
 }
 

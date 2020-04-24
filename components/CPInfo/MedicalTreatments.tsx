@@ -11,6 +11,7 @@ import {
 import { Feather } from '@expo/vector-icons'
 import { SharedStyle } from '../styles'
 import i18n from 'i18n-js'
+import VKInfoCard, { VKSection } from '../VKInfoCard'
 
 interface Props {
   // backgroundColor?: string,
@@ -35,16 +36,14 @@ const MedicalTreatments: React.FC<Props> = (props) => {
   }, [])
 
   const TITLE = i18n.t('cpinfo_medical_treatments_title')
-  const CONTENT = i18n.t('cpinfo_medical_treatments_body')
+  const CONTENT_SECTIONS = i18n.t('cpinfo_medical_treatments_content')
+
   return (
-    <Card containerStyle={SharedStyle.InfoCard}>
-      <Text style={SharedStyle.Title}>
-        { TITLE }
-      </Text>
-      <Text style={SharedStyle.Content}>
-        { CONTENT }
-      </Text>
-    </Card>
+    <VKInfoCard 
+      title={TITLE}
+      titleAlignment={`left`}
+      contentSections={CONTENT_SECTIONS}
+    />
   )
 }
 

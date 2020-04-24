@@ -112,7 +112,7 @@ const renderOrderedList = (listItems: string[], listImages: ImageSourcePropType[
       {
         listImages[index] ? 
         <Image source={listImages[index]} 
-          style={{ marginLeft: 'auto', marginRight: 'auto' }}
+          style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: 32 }}
           width={IMG_WIDTH}
         />
         : <></>
