@@ -65,7 +65,7 @@ const SittingPositionInfoPage: React.FC<Props> = (props) => {
       {
         sectionTitle: i18n.t(`sitting_position_section_benefits`),
         // sectionContent: i18n.t(`sitting_position${INDEX}_benefits`),
-        sectionContent: RAW_DATA.benefits,
+        sectionOrderedList: RAW_DATA.benefits,
       },
       {
         sectionTitle: i18n.t(`sitting_position_section_prohibitions`),
