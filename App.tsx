@@ -11,6 +11,7 @@ import * as Font from 'expo-font'
 import MainPage from '@app/views/MainPage'
 import CPInfoPage from '@app/views/CPInfo'
 import CPCausesPage from '@app/views/CPInfo/Causes'
+import CPSymptomsPage from '@app/views/CPInfo/Symptoms'
 import CPCategoriesPage from '@app/views/CPInfo/Categories'
 import CPDiagnosticsPage from '@app/views/CPInfo/Diagnostics'
 import CPMedicalTreatmentsPage from '@app/views/CPInfo/MedicalTreatments'
@@ -44,6 +45,9 @@ const MainNavigator = createStackNavigator(
     },
     CPCauses: {
       screen: CPCausesPage,
+    },
+    CPSymptoms: {
+      screen: CPSymptomsPage,
     },
     CPCategories: {
       screen: CPCategoriesPage,

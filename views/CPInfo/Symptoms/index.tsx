@@ -17,9 +17,9 @@ import i18n from 'i18n-js'
 import { SharedStyle } from '@app/components/styles'
 
 import VKHeader from '@app/components/VKHeader'
-import Diagnostics1 from '@app/components/CPInfo/Diagnostics1'
-// import Diagnostics2 from '@app/components/CPInfo/Diagnostics2'
-import Diagnostics3 from '@app/components/CPInfo/Diagnostics3'
+// import Diagnostics1 from '@app/components/CPInfo/Diagnostics1'
+import Symptoms from '@app/components/CPInfo/Symptoms'
+// import Diagnostics3 from '@app/components/CPInfo/Diagnostics3'
 import VKRootView from '@app/components/VKRootView'
 
 interface Props {
@@ -50,9 +50,9 @@ const DiagnosticsPage: React.FC<Props> = (props) => {
       />
       
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 16 }}>
-        <Diagnostics1/>
-        {/* <Diagnostics2/> */}
-        <Diagnostics3/>
+        {/* <Diagnostics1/> */}
+        <Symptoms/>
+        {/* <Diagnostics3/> */}
       </ScrollView>
 
     </VKRootView>

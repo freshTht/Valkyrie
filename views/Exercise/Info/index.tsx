@@ -67,7 +67,8 @@ const ExerciseInfoPage: React.FC<Props> = (props) => {
           METHOD.name
           : undefined
         ),
-        sectionImageSource: '',
+        sectionImageSource: undefined,
+        sectionMultipleImageSource: undefined,
       }
       
       DATA.contentSections.push(TITLE_AND_IMGS);
@@ -78,11 +79,12 @@ const ExerciseInfoPage: React.FC<Props> = (props) => {
           TITLE_AND_IMGS.sectionImageSource = IMG;
         }
         else {
-          IMG.forEach((elm: any) => {
-            DATA.contentSections.push({
-              sectionImageSource: elm,
-            });
-          })
+          TITLE_AND_IMGS.sectionMultipleImageSource = IMG;
+          // IMG.forEach((elm: any) => {
+          //   DATA.contentSections.push({
+          //     sectionImageSource: elm,
+          //   });
+          // })
         }
       }
     }
@@ -105,6 +107,16 @@ const ExerciseInfoPage: React.FC<Props> = (props) => {
         ),
         sectionOrderedList: METHOD.steps,
       })
+    }
+
+    if (METHOD.multiSteps) {
+      for (let key in METHOD.multiSteps) {
+        // console.log(key)
+        DATA.contentSections.push({
+          sectionTitle: key,
+          sectionOrderedList: METHOD.multiSteps[key],
+        })
+      }
     }
 
     if (METHOD.notes) {
@@ -130,7 +142,7 @@ const ExerciseInfoPage: React.FC<Props> = (props) => {
 
 
     if (i !== RAW_DATA.methods.length - 1 
-      && (METHOD.description || METHOD.steps || METHOD.notes || METHOD.warning || METHOD.advice)) {
+      && (METHOD.description || METHOD.steps || METHOD.multiSteps || METHOD.notes || METHOD.warning || METHOD.advice)) {
       DATA.contentSections.push({
         isSeperatorSection: true,
       })

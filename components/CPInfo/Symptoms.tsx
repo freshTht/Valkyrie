@@ -19,7 +19,7 @@ interface Props {
   // navigation?: any,
 }
 
-const Diagnostics2: React.FC<Props> = (props) => {
+const Symptoms: React.FC<Props> = (props) => {
   // STATE
   // let [balance, setBalance] = React.useState<number>();
 
@@ -35,15 +35,8 @@ const Diagnostics2: React.FC<Props> = (props) => {
     return componentWillUnmount
   }, [])
 
-  const TITLE = i18n.t('cpinfo_diagnostics2_title')
-  const LIST_ITEMS = [
-    i18n.t('cpinfo_diagnostics2_item_1'),
-    i18n.t('cpinfo_diagnostics2_item_2'),
-    i18n.t('cpinfo_diagnostics2_item_3'),
-    i18n.t('cpinfo_diagnostics2_item_4'),
-    i18n.t('cpinfo_diagnostics2_item_5'),
-    i18n.t('cpinfo_diagnostics2_item_6'),
-  ]
+  const TITLE = i18n.t('cpinfo_symptoms_title')
+  const LIST_ITEMS = i18n.t('cpinfo_symptoms_items')
   return (
     <Card containerStyle={SharedStyle.InfoCard}>
       <Text style={SharedStyle.Title}>
@@ -65,4 +58,4 @@ const LocalStyle = StyleSheet.create({
   },
 });
 
-export default Diagnostics2
+export default Symptoms

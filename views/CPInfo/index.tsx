@@ -63,6 +63,12 @@ const CPInfoPage: React.FC<Props> = (props) => {
       leftElement: <AntDesign name='exclamationcircle' size={20} color='#fff' />,
     },
     {
+      title: 'อาการอื่นๆ ที่อาจพบร่วมด้วย',
+      href: 'CPSymptoms',
+      backgroundColor: '#E16E5B',
+      leftElement: <AntDesign name='exclamationcircle' size={20} color='#fff' />,
+    },
+    {
       title: 'การแบ่งประเภท',
       href: 'CPCategories',
       backgroundColor: '#E16E5B',

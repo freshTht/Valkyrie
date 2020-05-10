@@ -73,7 +73,10 @@ const RoutinePage: React.FC<Props> = (props) => {
           main: require('@app/assets/colored/ADL/bathing/37แม่อาบนั่งไม่ดี.png'),
         },
         {
-          main: require('@app/assets/colored/ADL/bathing/38แม่อาบนั่งได้.png'),
+          main: [
+            require('@app/assets/colored/ADL/bathing/อาบเองนั่งได้.png'),
+            require('@app/assets/colored/ADL/bathing/38แม่อาบนั่งได้.png'),
+          ],
         },
         {
           main: require('@app/assets/colored/ADL/bathing/39ตัวเกร็งอาบน้ำ.png'),
@@ -99,10 +102,15 @@ const RoutinePage: React.FC<Props> = (props) => {
       images: [
         // TODO: ADD IMAGES
         {
-          main: require('@app/assets/colored/ADL/Dressing/43นอนแต่ง(ขยับ).gif'),
+          orderedList: [
+            require('@app/assets/colored/ADL/Dressing/43นอนแต่ง(ขยับ)1.gif'),
+            require('@app/assets/colored/ADL/Dressing/43นอนแต่ง(ขยับ)2.gif'),
+            require('@app/assets/colored/ADL/Dressing/43นอนแต่ง(ขยับ)3.gif'),
+          ],
         },
         {
-          main: require('@app/assets/colored/ADL/Dressing/4Xนอนหงายใส่เสื้อคอกลม.png'),
+          // main: require('@app/assets/colored/ADL/Dressing/4Xนอนหงายใส่เสื้อคอกลม.png'),
+          main: require('@app/assets/colored/ADL/Dressing/4Xนอนหงายใส่เสื้อคอกลม.gif'),
         },
         {
           main: require('@app/assets/colored/ADL/Dressing/44นอนคว่ำแต่งตัว(ขยับ).gif'),
@@ -150,8 +158,8 @@ const RoutinePage: React.FC<Props> = (props) => {
       cautionImage: require('@app/assets/colored/ADL/carrying/55ท่าอุ้ม.png'),
       images: [
         {
-          main: require('@app/assets/colored/ADL/carrying/56แม่อุ้ม.png'),
-          orderedList: [
+          main: [
+            require('@app/assets/colored/ADL/carrying/56แม่อุ้ม.png'),
             require('@app/assets/colored/ADL/carrying/57เด็กบิน.png'),
           ],
           // main: require('@app/assets/colored/ADL/carrying/56-57-combined.png'),

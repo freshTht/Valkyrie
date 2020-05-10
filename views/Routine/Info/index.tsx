@@ -79,9 +79,15 @@ const RoutineInfoPage: React.FC<Props> = (props) => {
 
     // TOP IMAGE
     if (IMAGES[i] && IMAGES[i].main) {
-      ITEM.contentSections.push({
-        sectionImageSource: IMAGES[i].main,
-      })
+      if (IMAGES[i].main[0]) {
+        ITEM.contentSections.push({
+          sectionMultipleImageSource: IMAGES[i].main,
+        })
+      } else {
+        ITEM.contentSections.push({
+          sectionImageSource: IMAGES[i].main,
+        })
+      }
     }
 
     // ORDERED LIST

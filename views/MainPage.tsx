@@ -65,7 +65,7 @@ const MainPage: React.FC<Props> = (props) => {
       backgroundColor: '#FDC055',
     },
     {
-      title: 'ท่านั่งที่ผิดปกติ',
+      title: 'การนั่งที่ไม่เหมาะสม',
       href: 'WrongSittingPosition',
       backgroundColor: '#EC8C50',
     },

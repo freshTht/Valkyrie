@@ -86,7 +86,10 @@ const ExerciseTutorialPage: React.FC<Props> = (props) => {
       require('@app/assets/colored/Exercise/COM/29ขยับ.gif'),
     ],
     [
-      require('@app/assets/colored/Exercise/COM/30ขยับ.gif'),
+      [
+        require('@app/assets/colored/Exercise/COM/30ขยับ.gif'),
+        require('@app/assets/colored/Exercise/COM/30-31.gif'),
+      ],
     ],
     [
       require('@app/assets/colored/Exercise/COM/1ขยับ.gif'),

@@ -24,6 +24,7 @@ interface VKSection {
   sectionOrderedListImages?: ImageSourcePropType[],
   hideNumber?: boolean,
   sectionImageSource?: ImageSourcePropType,
+  sectionMultipleImageSource?: ImageSourcePropType[],
   sectionNestedSection?: VKSection,
 
   isSeperatorSection?: boolean,
@@ -77,9 +78,12 @@ const VKInfoCard: React.FC<Props> = (props) => {
     else {
       const AVAILABLE_SPACE = Dimensions.get('window').width - (2*16) - (2*12)
       const IMG_WIDTH = AVAILABLE_SPACE * 0.9
-  
+      
       const ORDERED_LIST = s.sectionOrderedList ? s.sectionOrderedList : []
       const ORDERED_LIST_IMAGES = s.sectionOrderedListImages ? s.sectionOrderedListImages : []
+
+      const SMALL_IMG_WIDTH = AVAILABLE_SPACE * 0.5
+      const SMALL_IMG_MARGIN = -(AVAILABLE_SPACE * 0.05)
       
       return (
         <View style={SharedStyle.SubSection} key={i}>
@@ -119,6 +123,23 @@ const VKInfoCard: React.FC<Props> = (props) => {
                 width={IMG_WIDTH}
               />
                 // style={{ marginTop: '-5%', marginBottom: '5%' }}
+            )
+            : (<></>)
+          }
+
+          {
+            s.sectionMultipleImageSource ?
+            (
+              <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' }}>
+              {
+                s.sectionMultipleImageSource.map(elm =>
+                  <Image source={elm} 
+                    style={{ marginHorizontal: SMALL_IMG_MARGIN }}
+                    width={SMALL_IMG_WIDTH}
+                  />
+                )
+              }
+              </View>
             )
             : (<></>)
           }
