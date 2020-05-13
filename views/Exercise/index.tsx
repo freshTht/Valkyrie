@@ -131,8 +131,8 @@ const ExerciseTutorialPage: React.FC<Props> = (props) => {
       <TouchableOpacity activeOpacity={0.8}
         onPress={() => props.navigation.navigate( item.href, item.hrefParams )}
       >
-        <Card
-          containerStyle={[ SharedStyle.CarouselCard, { backgroundColor: item.backgroundColor } ]}>
+        <View
+          style={[ SharedStyle.CarouselCard, { backgroundColor: item.backgroundColor } ]}>
 
           <View style={{ alignItems: 'center' }}>
             <View style={ SharedStyle.CarouselCardImageContainer }>
@@ -146,7 +146,7 @@ const ExerciseTutorialPage: React.FC<Props> = (props) => {
               { item.title } 
             </Text>
           </View>
-        </Card>
+        </View>
       </TouchableOpacity>
     )
   }
