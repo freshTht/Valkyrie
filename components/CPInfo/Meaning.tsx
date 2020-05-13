@@ -1,14 +1,13 @@
 /* eslint-disable */
-import React, {Component,} from 'react'
+import React from 'react'
 import {
-  StyleSheet, TouchableOpacity,
+  StyleSheet, View
 } from 'react-native'
 
 import {
-  Header, Card, Text
+  Text
 } from 'react-native-elements'
 
-import { Feather } from '@expo/vector-icons'
 import { SharedStyle } from '../styles'
 import i18n from 'i18n-js'
 
@@ -37,14 +36,14 @@ const Meaning: React.FC<Props> = (props) => {
   const TITLE = i18n.t('cpinfo_meaning_title')
   const CONTENT = i18n.t('cpinfo_meaning_body')
   return (
-    <Card containerStyle={SharedStyle.InfoCard}>
+    <View style={SharedStyle.InfoCard}>
       <Text style={SharedStyle.Title}>
         { TITLE }
       </Text>
       <Text style={SharedStyle.Content}>
         { CONTENT }
       </Text>
-    </Card>
+    </View>
   )
 }
 

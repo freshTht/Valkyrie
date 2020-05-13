@@ -41,7 +41,7 @@ const CategoriesByAnomalies: React.FC<Props> = (props) => {
   const TITLE = i18n.t('cpcategory_anomalies_title')
   const LIST_ITEMS = i18n.t('cpcategory_anomalies')
   return (
-    <Card containerStyle={SharedStyle.InfoCard}>
+    <View style={SharedStyle.InfoCard}>
       <Text style={SharedStyle.Title}>
         { TITLE }
       </Text>
@@ -54,7 +54,7 @@ const CategoriesByAnomalies: React.FC<Props> = (props) => {
         width={Dimensions.get('window').width - (2*16) - (2*12)}
         style={{ marginTop: '-5%', marginBottom: '5%' }}
       />
-    </Card>
+    </View>
   )
 }
 

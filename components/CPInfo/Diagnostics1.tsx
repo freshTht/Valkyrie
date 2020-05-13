@@ -38,14 +38,14 @@ const Diagnostics1: React.FC<Props> = (props) => {
   const TITLE = i18n.t('cpinfo_diagnostics1_title')
   const CONTENT = i18n.t('cpinfo_diagnostics1_body')
   return (
-    <Card containerStyle={SharedStyle.InfoCard}>
+    <View style={SharedStyle.InfoCard}>
       <Text style={SharedStyle.Title}>
         { TITLE }
       </Text>
       <Text style={SharedStyle.Content}>
         { CONTENT }
       </Text>
-    </Card>
+    </View>
   )
 }
 

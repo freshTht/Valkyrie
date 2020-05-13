@@ -154,23 +154,21 @@ const VKInfoCard: React.FC<Props> = (props) => {
   }
 
   return (
-    <Card containerStyle={SharedStyle.InfoCard}>
-      <View>
-        { 
-          TITLE ?
-          (
-            <Text style={[ SharedStyle.Title, TITLE_ALIGNMENT ]}>
-              { TITLE }
-            </Text>
-          ) 
-          : (<></>)
-        }
+    <View style={SharedStyle.InfoCard}>
+      { 
+        TITLE ?
+        (
+          <Text style={[ SharedStyle.Title, TITLE_ALIGNMENT ]}>
+            { TITLE }
+          </Text>
+        ) 
+        : (<></>)
+      }
 
-        {
-          SECTIONS.map( (s: VKSection, i: number) => _renderSection(s, i))
-        }
-      </View>
-    </Card>
+      {
+        SECTIONS.map( (s: VKSection, i: number) => _renderSection(s, i))
+      }
+    </View>
   )
 }
 

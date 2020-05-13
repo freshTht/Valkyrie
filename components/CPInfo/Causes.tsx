@@ -38,7 +38,7 @@ const Causes: React.FC<Props> = (props) => {
   const TITLE = i18n.t('cpinfo_causes_title')
   const LIST_ITEMS = i18n.t('cpinfo_causes')
   return (
-    <Card containerStyle={SharedStyle.InfoCard}>
+    <View style={SharedStyle.InfoCard}>
       <Text style={SharedStyle.Title}>
         { TITLE }
       </Text>
@@ -47,7 +47,7 @@ const Causes: React.FC<Props> = (props) => {
           renderOrderedList(LIST_ITEMS)
         }
       </View>
-    </Card>
+    </View>
   )
 }
 

@@ -1,14 +1,9 @@
 /* eslint-disable */
-import React, {Component,} from 'react'
+import React from 'react'
 import {
-  StyleSheet, TouchableOpacity,
+  StyleSheet, View,
 } from 'react-native'
 
-import {
-  Header, Card
-} from 'react-native-elements'
-
-import { Feather } from '@expo/vector-icons'
 import StyledText from 'react-native-styled-text'
 import { SharedStyle } from '../styles'
 import i18n from 'i18n-js'
@@ -40,14 +35,14 @@ const Note: React.FC<Props> = (props) => {
   const TITLE = RAW.title
   const CONTENT = RAW.subtitle
   return (
-    <Card containerStyle={SharedStyle.InfoCard}>
+    <View style={SharedStyle.InfoCard}>
       <StyledText style={SharedStyle.Title}>
         { TITLE }
       </StyledText>
       <StyledText style={SharedStyle.Content}>
         { CONTENT }
       </StyledText>
-    </Card>
+    </View>
   )
 }
 

@@ -32,8 +32,13 @@ const SharedStyle = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: 'rgba(255, 255, 255, 0.75)',
 
-    paddingTop: 20,
+    paddingVertical: 20,
     paddingHorizontal: 20,
+
+    margin: 16,
+    // shadowColor: 'rgba(0, 0, 0, 0.25)',
+    borderColor: 'rgba(100, 100, 100, 0.1)',
+    borderWidth: 1,
   },
   SubSection: {
     marginTop: 16,

@@ -69,7 +69,7 @@ const VKHeader: React.FC<Props> = (props) => {
         </StyledText>
       }
       barStyle={ BAR_STYLE }
-      statusBarProps={{ barStyle: BAR_STYLE, backgroundColor: '#00000033', translucent: true, animated: true }}
+      statusBarProps={{ barStyle: BAR_STYLE, backgroundColor: '#00000020', translucent: true, animated: true }}
     />
       // centerComponent={{ text: TITLE, style: { color: COLOR, fontSize: 26, fontWeight: 'bold', fontFamily: 'rsu-text_bold' } }}
   )

@@ -1,14 +1,9 @@
 /* eslint-disable */
 import React, {Component,} from 'react'
 import {
-  StyleSheet, TouchableOpacity,
+  StyleSheet, View,
 } from 'react-native'
 
-import {
-  Header, Card
-} from 'react-native-elements'
-
-import { Feather } from '@expo/vector-icons'
 import StyledText from 'react-native-styled-text'
 import { SharedStyle } from '../styles'
 import { renderOrderedList } from '../utils'
@@ -39,14 +34,12 @@ const Instruction: React.FC<Props> = (props) => {
   const TITLE = i18n.t('streching_note_title')
   const CONTENT: string[] = i18n.t('streching_note')
   return (
-    <Card containerStyle={SharedStyle.InfoCard}>
+    <View style={SharedStyle.InfoCard}>
       <StyledText style={SharedStyle.Title}>
         { TITLE }
       </StyledText>
-      {/* <StyledText style={SharedStyle.Content}> */}
-        { renderOrderedList(CONTENT) }
-      {/* </StyledText> */}
-    </Card>
+      { renderOrderedList(CONTENT) }
+    </View>
   )
 }
 

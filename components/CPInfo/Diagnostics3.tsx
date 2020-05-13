@@ -46,7 +46,7 @@ const Diagnostics3: React.FC<Props> = (props) => {
   //   i18n.t('cpinfo_diagnostics3_item_3_title') + '\n\t' + i18n.t('cpinfo_diagnostics3_item_3_body'),
   // ]
   return (
-    <Card containerStyle={SharedStyle.InfoCard}>
+    <View style={SharedStyle.InfoCard}>
       <Text style={SharedStyle.Title}>
         { TITLE }
       </Text>
@@ -58,7 +58,7 @@ const Diagnostics3: React.FC<Props> = (props) => {
           renderOrderedList(LIST_ITEMS)
         }
       </View>
-    </Card>
+    </View>
   )
 }
 

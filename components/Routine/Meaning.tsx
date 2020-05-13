@@ -41,16 +41,14 @@ const Meaning: React.FC<Props> = (props) => {
   const CONTENT = DATA.body
 
   return (
-    <Card containerStyle={SharedStyle.InfoCard}>
-      <View>
-        <StyledText style={SharedStyle.Title}>
-          { TITLE }
-        </StyledText>
-        <StyledText style={SharedStyle.Content}>
-          { CONTENT }
-        </StyledText>
-      </View>
-    </Card>
+    <View style={SharedStyle.InfoCard}>
+      <StyledText style={SharedStyle.Title}>
+        { TITLE }
+      </StyledText>
+      <StyledText style={SharedStyle.Content}>
+        { CONTENT }
+      </StyledText>
+    </View>
   )
 }
 

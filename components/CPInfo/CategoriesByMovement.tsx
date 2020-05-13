@@ -38,7 +38,7 @@ const CategoriesByMovement: React.FC<Props> = (props) => {
   const TITLE = i18n.t('cpcategory_movement_title')
   const LIST_ITEMS = i18n.t('cpcategory_movement')
   return (
-    <Card containerStyle={SharedStyle.InfoCard}>
+    <View style={SharedStyle.InfoCard}>
       <Text style={SharedStyle.Title}>
         { TITLE }
       </Text>
@@ -47,7 +47,7 @@ const CategoriesByMovement: React.FC<Props> = (props) => {
           renderOrderedList(LIST_ITEMS)
         }
       </View>
-    </Card>
+    </View>
   )
 }
 
