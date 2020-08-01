@@ -146,7 +146,10 @@ const RoutinePage: React.FC<Props> = (props) => {
           ],
         },
         {
-          main: require('@app/assets/colored/ADL/feeding/53กินน้ำ.png'),
+          main: [
+            require('@app/assets/colored/ADL/feeding/53กินน้ำ-1.png'),
+            require('@app/assets/colored/ADL/feeding/53กินน้ำ-2.png'),
+          ],
         },
         {
           main: require('@app/assets/colored/ADL/feeding/54ด้ามใหญ่.png'),

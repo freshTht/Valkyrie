@@ -24,7 +24,13 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "com.sullivan496.apps.valkyrie",
+      "buildNumber": "1.0.0",
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.sullivan496.apps.valkyrie",
+      "versionCode": 1
     },
     "description": ""
   }

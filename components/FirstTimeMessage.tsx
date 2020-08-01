@@ -109,6 +109,7 @@ const FirstTimeMessage: React.FC<Props> = (props) => {
           </StyledText>
           { 
             renderUnorderedList([
+              'อ.ดร.ปฤณภัก มหาทรัพย์',
               'นายวิริยะ เดชไชย',
               'นายเกริกพล ระกาศ',
               'นางสาวสุธิดา เชิดชูถิ่น',
@@ -117,6 +118,12 @@ const FirstTimeMessage: React.FC<Props> = (props) => {
         </View>
 
         <View style={{ marginTop: 16 }}>
+          <StyledText style={[ SharedStyle.Content, { fontFamily: 'rsu-text_bold' }]}>
+            คณะสหเวชศาสตร์ สาขาวิชากายภาพบำบัด มหาวิทยาลัยธรรมศาสตร์
+          </StyledText>
+        </View>
+
+        {/* <View style={{ marginTop: 16 }}>
           <StyledText style={[ SharedStyle.Content, { marginBottom: 8, fontFamily: 'rsu-text_bold', textAlign: 'center' }]}>
             อาจารย์ที่ปรึกษา
           </StyledText>
@@ -125,7 +132,7 @@ const FirstTimeMessage: React.FC<Props> = (props) => {
               'อ.ดร.ปฤณภัก มหาทรัพย์',
             ]) 
           }
-        </View>
+        </View> */}
 
         <StyledText style={[ SharedStyle.Content, { marginTop: 16} ]}>
           งานวิจัยนี้ได้รับทุนจาก ทุนสนับสนุนงานวิจัยเชิงนวัตกรรมประจำปีงบประมาณ 2562 
