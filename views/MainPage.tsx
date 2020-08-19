@@ -99,7 +99,7 @@ const MainPage: React.FC<Props> = (props) => {
     <VKRootView>
       <Header
         backgroundColor='#336099'
-        centerComponent={{ text: `NuuJa's App`, style: [SharedStyle.HeaderTitle, { color: '#fff' }], onPress: () => setOverlayVisible(true) }}
+        centerComponent={{ text: `NuuJa`, style: [SharedStyle.HeaderTitle, { color: '#fff' }], onPress: () => setOverlayVisible(true) }}
         barStyle="light-content"
         statusBarProps={{ barStyle: 'light-content', backgroundColor: '#00000033', translucent: true, animated: true }}
       />
