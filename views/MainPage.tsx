@@ -54,7 +54,7 @@ const MainPage: React.FC<Props> = (props) => {
   // MENU items
   const menuList1 = [
     {
-      title: 'CP คืออะไร ?',
+      title: 'Cerebral palsy คืออะไร',
       href: 'CPInfo',
       backgroundColor: '#4FAFA1',
       // leftElement: <AntDesign name='exclamationcircle' size={20} color='#fff' />,
@@ -82,7 +82,7 @@ const MainPage: React.FC<Props> = (props) => {
       backgroundColor: '#4FAFA1',
     },
     {
-      title: 'การออกกำลัง',
+      title: 'การออกกำลังกาย',
       href: 'Exercise',
       backgroundColor: '#FDC055',
     },
@@ -99,7 +99,7 @@ const MainPage: React.FC<Props> = (props) => {
     <VKRootView>
       <Header
         backgroundColor='#336099'
-        centerComponent={{ text: `NuuJa`, style: [SharedStyle.HeaderTitle, { color: '#fff' }], onPress: () => setOverlayVisible(true) }}
+        centerComponent={{ text: `หนูจ๋า`, style: [SharedStyle.HeaderTitle, { color: '#fff' }], onPress: () => setOverlayVisible(true) }}
         barStyle="light-content"
         statusBarProps={{ barStyle: 'light-content', backgroundColor: '#00000033', translucent: true, animated: true }}
       />

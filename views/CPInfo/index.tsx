@@ -98,7 +98,7 @@ const CPInfoPage: React.FC<Props> = (props) => {
     <VKRootView>
 
       <VKHeader 
-        title='CP คืออะไร?'
+        title='Cerebral palsy คืออะไร'
         backgroundColor='#4FAFA1'
         navigation={ props.navigation }
       />

@@ -2,6 +2,9 @@ import React, { useEffect } from 'react'
 import {
   View,
   StyleSheet,
+  Platform,
+  Alert,
+  TouchableOpacity
 } from 'react-native'
 
 import {
@@ -18,7 +21,7 @@ import Image from 'react-native-scalable-image'
 import { renderUnorderedList } from '@app/components/utils'
 import StyledText from 'react-native-styled-text'
 import { SharedStyle } from '@app/components/styles'
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
+import { ScrollView } from 'react-native-gesture-handler'
 
 // ASYNC STORAGE
 import _dontShowOverlay from '@app/utils/preferences/dontShowOverlay'
@@ -71,11 +74,11 @@ const FirstTimeMessage: React.FC<Props> = (props) => {
       <View 
         style={{ 
           position: 'absolute', width: '100%', flexDirection: 'row', justifyContent: 'flex-end', 
-          top: -16, right: -16
+          top: -32, right: -32
         }}
       >
         <TouchableOpacity 
-          style={{ width: 40, height: 40, alignItems: 'center', justifyContent: 'center' }}
+          style={{ width: 64, height: 64, alignItems: 'center', justifyContent: 'center' }}
           onPress={closeButtonClicked}
           activeOpacity={0.5}
         >
@@ -87,7 +90,12 @@ const FirstTimeMessage: React.FC<Props> = (props) => {
               borderColor: 'white', borderWidth: 1,
               shadowColor: '#000', shadowRadius: 4, shadowOffset: { height: 3, width: 0 }, shadowOpacity: 0.75,
             }}>
-            <MaterialCommunityIcons name='close' size={16} color={`#fff`} style={{ marginLeft: 2, marginTop: 1 }} />
+
+            {/* add some margin so it looks center (only on) */}
+            <MaterialCommunityIcons name='close' size={16} color={`#fff`} 
+              style={ Platform.OS === "ios" ? { marginLeft: 2, marginTop: 1 } : {} } 
+            />
+
           </View>
         </TouchableOpacity>
       </View>
@@ -119,7 +127,7 @@ const FirstTimeMessage: React.FC<Props> = (props) => {
 
         <View style={{ marginTop: 16 }}>
           <StyledText style={[ SharedStyle.Content, { fontFamily: 'rsu-text_bold' }]}>
-            คณะสหเวชศาสตร์ สาขาวิชากายภาพบำบัด มหาวิทยาลัยธรรมศาสตร์
+            ภาควิชากายภาพบำบัด คณะสหเวชศาสตร์ มหาวิทยาลัยธรรมศาสตร์
           </StyledText>
         </View>
 
@@ -135,8 +143,7 @@ const FirstTimeMessage: React.FC<Props> = (props) => {
         </View> */}
 
         <StyledText style={[ SharedStyle.Content, { marginTop: 16} ]}>
-          งานวิจัยนี้ได้รับทุนสนับสนุนงานวิจัยเชิงนวัตกรรมประจำปี
-          จากคณะสหเวชศาสตร์ มหาวิทยาลัยธรรมศาสตร์
+          งานวิจัยนี้ได้รับทุนสนับสนุนงานวิจัยเชิงนวัตกรรมประจำปีงบประมาณ 2562 จากคณะสหเวชศาสตร์ มหาวิทยาลัยธรรมศาสตร์
         </StyledText>
 
         <StyledText style={[ SharedStyle.Content, { marginTop: 16} ]}>
