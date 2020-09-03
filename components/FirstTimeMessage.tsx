@@ -161,7 +161,8 @@ const FirstTimeMessage: React.FC<Props> = (props) => {
       <View 
           style={{ 
             position: 'absolute', width: '100%', flexDirection: 'row', justifyContent: 'flex-end',
-            right: -12
+            right: -12,
+            elevation: 10,
           }}
         >
           <TouchableOpacity 
@@ -200,6 +201,13 @@ const LocalStyle = StyleSheet.create({
     backgroundColor: '#fff',
     height: '100%',
     alignItems: 'center',
+
+    shadowColor: '#000',
+    shadowOpacity: 1,
+    shadowOffset: { width: 4, height: 4 },
+    shadowRadius: 10,
+
+    elevation: 10,
   },
   DialogHeader: { 
     padding: 16,

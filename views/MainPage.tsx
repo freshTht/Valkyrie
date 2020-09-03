@@ -4,9 +4,8 @@ import React from 'react'
 import {
   StyleSheet,
   View,
-  // TouchableOpacity,
-  // Image,
-  AsyncStorage,
+  TouchableOpacity,
+  Text,
 } from 'react-native'
 
 import {
@@ -97,9 +96,16 @@ const MainPage: React.FC<Props> = (props) => {
 
   return (
     <VKRootView>
+      {/* centerComponent={{ text: `หนูจ๋า`, style: [SharedStyle.HeaderTitle, { color: '#fff' }], onPress: () => setOverlayVisible(true) }} */}
       <Header
         backgroundColor='#336099'
-        centerComponent={{ text: `หนูจ๋า`, style: [SharedStyle.HeaderTitle, { color: '#fff' }], onPress: () => setOverlayVisible(true) }}
+        centerComponent={
+          <TouchableOpacity onPress={() => setOverlayVisible(true)}>
+            <Text style={[SharedStyle.HeaderTitle, { color: '#fff' }]}>
+              หนูจ๋า
+            </Text>
+          </TouchableOpacity>
+        }
         barStyle="light-content"
         statusBarProps={{ barStyle: 'light-content', backgroundColor: '#00000033', translucent: true, animated: true }}
       />
