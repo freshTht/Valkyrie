@@ -56,7 +56,7 @@ const renderMenuItems = (menuItems: MenuItemData[], navigation: any, style: stri
       contentContainerStyle={{ marginLeft: 0 }}
       titleStyle={{ color: item.color ? item.color:'#fff', paddingLeft: 0, fontFamily: 'rsu-text_bold', fontSize: 28, marginBottom: -4 }}
       Component={TouchableOpacity}
-      activeOpacity={0.5}
+      activeOpacity={0.75}
     />
   ))
 }

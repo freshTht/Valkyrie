@@ -8,7 +8,7 @@
       "android",
       "web"
     ],
-    "version": "1.0.1",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -24,12 +24,12 @@
     ],
     "ios": {
       "bundleIdentifier": "com.sullivan496.apps.valkyrie",
-      "buildNumber": "1.0.1",
-      "supportsTablet": true
+      "buildNumber": "1.0.3",
+      "supportsTablet": false
     },
     "android": {
       "package": "com.sullivan496.apps.valkyrie",
-      "versionCode": 2
+      "versionCode": 4
     },
     "description": ""
   }
