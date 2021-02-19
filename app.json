@@ -29,7 +29,8 @@
     },
     "android": {
       "package": "com.sullivan496.apps.valkyrie",
-      "versionCode": 4
+      "versionCode": 5,
+      "permissions": []
     },
     "description": ""
   }
