@@ -40,6 +40,8 @@ const CategoriesByAnomalies: React.FC<Props> = (props) => {
 
   const TITLE = i18n.t('cpcategory_anomalies_title')
   const LIST_ITEMS = i18n.t('cpcategory_anomalies')
+  const IMG_WIDTH = Dimensions.get('window').width - (2*16) - (2*12)
+
   return (
     <View style={SharedStyle.InfoCard}>
       <Text style={SharedStyle.Title}>
@@ -51,8 +53,8 @@ const CategoriesByAnomalies: React.FC<Props> = (props) => {
         }
       </View>
       <Image source={require('@app/assets/CPInfo/Categories/plegia.png')} 
-        width={Dimensions.get('window').width - (2*16) - (2*12)}
-        style={{ marginTop: '-5%', marginBottom: '5%' }}
+        width={IMG_WIDTH}
+        style={{ marginTop: IMG_WIDTH * 0.1, marginBottom: IMG_WIDTH * 0.1 }}
       />
     </View>
   )
