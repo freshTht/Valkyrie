@@ -22,11 +22,13 @@
       "**/*"
     ],
     "ios": {
+      "icon": "./assets/icon.ios.png",
       "bundleIdentifier": "com.sullivan496.apps.valkyrie",
       "buildNumber": "1.0.3",
       "supportsTablet": false
     },
     "android": {
+      "icon": "./assets/icon.android.png",
       "package": "com.sullivan496.apps.valkyrie",
       "versionCode": 7,
       "permissions": []
