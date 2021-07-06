@@ -30,7 +30,7 @@
     "android": {
       "icon": "./assets/icon.android.png",
       "package": "com.sullivan496.apps.valkyrie",
-      "versionCode": 7,
+      "versionCode": 8,
       "permissions": []
     },
     "description": ""
