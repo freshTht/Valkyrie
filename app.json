@@ -23,16 +23,24 @@
     ],
     "ios": {
       "icon": "./assets/icon.ios.png",
-      "bundleIdentifier": "com.sullivan496.apps.valkyrie",
+      "bundleIdentifier": "com.sullivan496.apps.nujar",
       "buildNumber": "1.0.3",
       "supportsTablet": false
     },
     "android": {
       "icon": "./assets/icon.android.png",
-      "package": "com.sullivan496.apps.valkyrie",
+      "package": "com.sullivan496.apps.nujar",
       "versionCode": 8,
       "permissions": []
     },
-    "description": ""
+    "description": "",
+    "extra": {
+      "eas": {
+        "projectId": "49d8b98b-153b-4dbb-a959-bdf6a7bdbc25"
+      }
+    },
+    "plugins": [
+      "expo-localization"
+    ]
   }
 }
