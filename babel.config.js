@@ -19,7 +19,12 @@ module.exports = function(api) {
             'lib': path.join(__dirname, 'lib')
           }
         },
-      ]
-    ]
-  }
+      ],
+      [
+        '@babel/plugin-transform-private-methods', {
+          'loose': true,
+        },
+      ],
+    ],
+  };
 }
