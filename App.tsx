@@ -28,6 +28,7 @@ import ExerciseInfoPage from './views/Exercise/Info'
 require('@app/utils/localizations')
 
 import { Asset } from 'expo-asset'
+import { NavigationContainer } from '@react-navigation/native'
 
 //
 // Main Navigator
@@ -85,7 +86,11 @@ const App = () => {
     }
     return componentWillUnmount
   }, [])
-  return fontLoaded && <AppContainer />;
+  return fontLoaded && (
+    <NavigationContainer>
+      <AppContainer />
+    </NavigationContainer>
+  );
 }
 
 export default App;

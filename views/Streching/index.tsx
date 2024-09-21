@@ -17,8 +17,8 @@ import VKHeader from '@app/components/VKHeader'
 import i18n from 'i18n-js'
 
 import Instruction from '@app/components/Streching/Instruction'
-import Carousel from 'react-native-snap-carousel'
 import VKRootView from '@app/components/VKRootView'
+import { VKCarousel } from '@app/components/VKCarousel'
 
 interface Props {
   navigation?: any
@@ -80,15 +80,11 @@ const StrechingPage: React.FC<Props> = (props) => {
 
           <View style={{ alignItems: 'center' }}>
             <View style={ SharedStyle.CarouselCardImageContainer }>
-              {
-                item.imgSrc ? 
-                <Image 
-                  source={item.imgSrc}
-                  width={ITEM_WIDTH * 0.7}
-                  style={ SharedStyle.CarouselCardImage }
-                />
-                :<></>
-              }
+              <Image 
+                source={item.imgSrc}
+                width={ITEM_WIDTH * 0.7}
+                style={ SharedStyle.CarouselCardImage }
+              />
             </View>
             <Text style={SharedStyle.CarouselCardTitle}> 
               { item.title } 
@@ -117,19 +113,8 @@ const StrechingPage: React.FC<Props> = (props) => {
         <ScrollView style={{ flex: 1 }} contentContainerStyle={LocalStyle.mainMenu}>
 
           <View style={{ flex: 1, paddingBottom: 16 }}>
-            
             <Instruction />
-
-            <Carousel
-              ref={(c: any) => { _carousel = c; }}
-              data={carouselItems}
-              renderItem={_renderItems}
-              sliderWidth={ WIDTH }
-              sliderHeight={ HEIGHT }
-              itemWidth={ ITEM_WIDTH }
-              itemHeight={ 1000 }
-            />
-
+            <VKCarousel data={carouselItems} />
           </View>
 
         </ScrollView>

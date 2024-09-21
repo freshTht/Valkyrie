@@ -16,8 +16,8 @@ import VKHeader from '@app/components/VKHeader'
 import i18n from 'i18n-js'
 
 import Importance from '@app/components/SittingPosition/Importance'
-import Carousel from 'react-native-snap-carousel'
 import VKRootView from '@app/components/VKRootView'
+import { VKCarousel } from '@app/components/VKCarousel'
 
 interface Props {
   navigation?: any
@@ -119,25 +119,8 @@ const SittingPositionPage: React.FC<Props> = (props) => {
         <ScrollView style={{ flex: 1 }} contentContainerStyle={LocalStyle.mainMenu}>
 
           <View style={{ flex: 1, paddingBottom: 16 }}>
-            
-            {/* <View style={LocalStyle.menuListRight}>
-              {
-                renderMenuItems(menuItems, props.navigation)
-              }
-            </View> */}
-
-            <Carousel
-              ref={(c: any) => { _carousel = c; }}
-              data={carouselItems}
-              renderItem={_renderItems}
-              sliderWidth={ WIDTH }
-              sliderHeight={ HEIGHT }
-              itemWidth={ ITEM_WIDTH }
-              itemHeight={ 1000 }
-            />
-
+            <VKCarousel data={carouselItems} />
             <Importance />
-
           </View>
 
         </ScrollView>
