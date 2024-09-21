@@ -1,20 +1,16 @@
 /* eslint-disable */
-import React, {Component,} from 'react'
+import React from 'react'
 import {
-  StyleSheet, TouchableOpacity,
+  StyleSheet,
   View,
   Dimensions,
   ImageSourcePropType,
+  Image,
   Text
 } from 'react-native'
 
-import {
-  Header, Card
-} from 'react-native-elements'
-
-import Image from 'react-native-scalable-image'
 import StyledText from 'react-native-styled-text'
-import { renderOrderedList, renderUnorderedList } from '@app/components/utils'
+import { renderOrderedList } from '@app/components/utils'
 import { SharedStyle } from '@app/components/styles'
 
 interface VKSection {

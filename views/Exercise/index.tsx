@@ -7,6 +7,7 @@ import {
   Dimensions,
   Text,
   TouchableOpacity,
+  Image,
 } from 'react-native'
 
 import { SharedStyle } from '@app/components/styles'
@@ -16,8 +17,6 @@ import i18n from 'i18n-js'
 
 import Note from '@app/components/Exercise/Note'
 import Carousel from 'react-native-snap-carousel'
-import { Card } from 'react-native-elements'
-import Image from 'react-native-scalable-image'
 import VKRootView from '@app/components/VKRootView'
 
 interface Props {

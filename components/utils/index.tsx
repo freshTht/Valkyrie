@@ -5,16 +5,15 @@ import {
   View,
   Dimensions,
   ImageSourcePropType,
+  Image,
 } from 'react-native'
 
 import {
   ListItem,
 } from 'react-native-elements'
 
-// import TouchableScale from 'react-native-touchable-scale'
 import StyledText from 'react-native-styled-text'
 import { SharedStyle } from '@app/components/styles'
-import Image from 'react-native-scalable-image'
 
 //
 // MENU ITEMS

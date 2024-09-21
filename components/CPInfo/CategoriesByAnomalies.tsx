@@ -1,16 +1,15 @@
 /* eslint-disable */
-import React, {Component,} from 'react'
+import React from 'react'
 import {
-  StyleSheet, TouchableOpacity,
+  StyleSheet, 
   View,
   Dimensions,
+  Image,
 } from 'react-native'
 
 import {
-  Header, Card, Text,
+  Text,
 } from 'react-native-elements'
-
-import Image from 'react-native-scalable-image'
 
 import i18n from 'i18n-js'
 import { renderOrderedList } from '@app/components/utils'

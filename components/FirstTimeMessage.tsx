@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {
   View,
   StyleSheet,
   Platform,
-  Alert,
+  Image,
   TouchableOpacity
 } from 'react-native'
 
@@ -12,10 +12,8 @@ import {
 } from '@expo/vector-icons'
 
 import {
-  Button, Card, CheckBox, Divider
+  CheckBox, Divider
 } from 'react-native-elements'
-
-import Image from 'react-native-scalable-image'
 
 // import { SharedStyle } from '@app/components/styles'
 import { renderUnorderedList } from '@app/components/utils'

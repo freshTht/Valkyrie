@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, {Component} from 'react'
+import React from 'react'
 import {
   StyleSheet,
   View,
@@ -7,29 +7,15 @@ import {
   Dimensions,
   Text,
   TouchableOpacity,
+  Image,
 } from 'react-native'
-
-// import {
-//   Button,
-//   Text
-// } from 'react-native-elements'
-
-import {
-  FontAwesome5,
-  MaterialCommunityIcons,
-  MaterialIcons,
-} from '@expo/vector-icons'
 
 import { SharedStyle } from '@app/components/styles'
 
 import VKHeader from '@app/components/VKHeader'
-import { renderMenuItems, MenuItemData } from '@app/components/utils'
 import i18n from 'i18n-js'
 
-import Importance from '@app/components/SittingPosition/Importance'
 import Carousel from 'react-native-snap-carousel'
-import { Card } from 'react-native-elements'
-import Image from 'react-native-scalable-image'
 import HealthEffect from '@app/components/WrongSittingPosition/HealthEffect'
 import VKRootView from '@app/components/VKRootView'
 
