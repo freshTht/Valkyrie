@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Dimensions, Platform } from 'react-native'
-import { createStackNavigator } from 'react-navigation-stack'
-import { createAppContainer } from 'react-navigation'
-import NavigationService from '@app/components/NavigationService'
+import { createStackNavigator } from '@react-navigation/stack'
 
 // FONT
 import * as Font from 'expo-font'
@@ -35,77 +32,29 @@ import { Asset } from 'expo-asset'
 //
 // Main Navigator
 //
-const MainNavigator = createStackNavigator(
-  {
-    Main: {
-      screen: MainPage,
-    },
-    CPInfo: {
-      screen: CPInfoPage,
-    },
-    CPCauses: {
-      screen: CPCausesPage,
-    },
-    CPSymptoms: {
-      screen: CPSymptomsPage,
-    },
-    CPCategories: {
-      screen: CPCategoriesPage,
-    },
-    CPDiagnostics: {
-      screen: CPDiagnosticsPage,
-    },
-    CPMedicalTreatments: {
-      screen: CPMedicalTreatmentsPage,
-    },
-    CPBodyEquipment: {
-      screen: CPBodyEquipmentPage,
-    },
-    SittingPosition: {
-      screen: SittingPositionPage,
-    },
-    SittingPositionInfo: {
-      screen: SittingPositionInfoPage,
-    },
-    WrongSittingPosition: {
-      screen: WrongSittingPositionPage,
-    },
-    WrongSittingPositionInfo: {
-      screen: WrongSittingPositionInfoPage,
-    },
-    Routine: {
-      screen: RoutinePage,
-    },
-    RoutineInfo: {
-      screen: RoutineInfoPage,
-    },
-    Streching: {
-      screen: StrechingPage,
-    },
-    StrechingInfo: {
-      screen: StrechingInfoPage,
-    },
-    Exercise: {
-      screen: ExercisePage,
-    },
-    ExerciseInfo: {
-      screen: ExerciseInfoPage,
-    }
-  },
-  {
-    initialRouteName: 'Main', // Inital Route
-    headerMode: 'none',
-    // mode: 'modal',
-    navigationOptions: {
-      gesturesEnabled: true,
-      gestureResponseDistance: {
-        vertical: Dimensions.get('window').height
-      },
-    },
-  }
-)
-
-const AppContainer = createAppContainer(MainNavigator)
+const Stack = createStackNavigator();
+const AppContainer = () => (
+  <Stack.Navigator initialRouteName='Main'>
+    <Stack.Screen name="Main" component={MainPage} />
+    <Stack.Screen name="CPInfo" component={CPInfoPage} />
+    <Stack.Screen name="CPCauses" component={CPCausesPage} />
+    <Stack.Screen name="CPSymptoms" component={CPSymptomsPage} />
+    <Stack.Screen name="CPCategories" component={CPCategoriesPage} />
+    <Stack.Screen name="CPDiagnostics" component={CPDiagnosticsPage} />
+    <Stack.Screen name="CPMedicalTreatments" component={CPMedicalTreatmentsPage} />
+    <Stack.Screen name="CPBodyEquipment" component={CPBodyEquipmentPage} />
+    <Stack.Screen name="SittingPosition" component={SittingPositionPage} />
+    <Stack.Screen name="SittingPositionInfo" component={SittingPositionInfoPage} />
+    <Stack.Screen name="WrongSittingPosition" component={WrongSittingPositionPage} />
+    <Stack.Screen name="WrongSittingPositionInfo" component={WrongSittingPositionInfoPage} />
+    <Stack.Screen name="Routine" component={RoutinePage} />
+    <Stack.Screen name="RoutineInfo" component={RoutineInfoPage} />
+    <Stack.Screen name="Streching" component={StrechingPage} />
+    <Stack.Screen name="StrechingInfo" component={StrechingInfoPage} />
+    <Stack.Screen name="Exercise" component={ExercisePage} />
+    <Stack.Screen name="ExerciseInfo" component={ExerciseInfoPage} />
+  </Stack.Navigator>
+);
 
 const App = () => {
   const [ fontLoaded, setFontLoaded ] = useState(false)
@@ -136,69 +85,7 @@ const App = () => {
     }
     return componentWillUnmount
   }, [])
-
-  let getActiveRouteName = (navigationState:any): string | null => {
-    if (!navigationState) {
-      return null
-    }
-    const route = navigationState.routes[navigationState.index];
-    // dive into nested navigators
-    if (route.routes) {
-      return getActiveRouteName(route)
-    }
-    return route.routeName
-  }
-
-  // let updateOrientation = (routeName: string) => {
-  //   let o = orientationLocks[routeName]
-  //     switch(o) {
-  //       case 'portrait':
-  //         Orientation.lockToPortrait()
-  //         break
-  //       case 'portraitUpsideDown':
-  //         Orientation.lockToPortraitUpsideDown()
-  //         break
-  //       case 'landscape':
-  //         Orientation.lockToLandscape()
-  //         break
-  //       case 'landscapeLeft':
-  //         Orientation.lockToLandscapeLeft()
-  //         break
-  //       case 'landscapeRight':
-  //         Orientation.lockToLandscapeRight()
-  //         break
-  //       default:
-  //         Orientation.unlockAllOrientations()
-  //         break
-  //     }
-  // }
-
-  let onNavigationStateChange = (prevState: any, currentState:any, action:any) => {
-    const currentRouteName = getActiveRouteName(currentState)!
-    const previousRouteName = getActiveRouteName(prevState)!
-
-    if (currentRouteName && previousRouteName && previousRouteName !== currentRouteName) {
-      // // the line below uses the @react-native-firebase/analytics tracker
-      // // change the tracker here to use other Mobile analytics SDK.
-
-      // analytics().setCurrentScreen(currentRouteName, currentRouteName);
-      // updateOrientation(currentRouteName)
-    }
-  }
-  
-  return (
-    // <Provider store={store}>
-      fontLoaded ? (
-        // <View style={{ width: '100%', height: '100%', backgroundColor: '#fff' }}>
-        <AppContainer 
-          ref={(navigatorRef: any) => NavigationService.setTopLevelNavigator(navigatorRef)}
-          onNavigationStateChange={onNavigationStateChange} />
-        // </View>
-      )
-      : null
-      
-    // </Provider>
-  )
+  return fontLoaded && <AppContainer />;
 }
 
 export default App;
