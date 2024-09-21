@@ -32,7 +32,6 @@ const MainPage: React.FC<Props> = (props) => {
 
   // STATE
   let [overlayVisible, setOverlayVisible] = React.useState<boolean>(false);
-  // useEffect(() => {_saveToAsyncStorage()}, [dontShowOverlayAgain])
 
   React.useEffect(() => {
     // componentDidMount
