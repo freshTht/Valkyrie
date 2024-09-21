@@ -48,7 +48,11 @@ const AppContainer = () => (
     <Stack.Screen name="SittingPositionInfo" component={SittingPositionInfoPage} />
     <Stack.Screen name="WrongSittingPosition" component={WrongSittingPositionPage} />
     <Stack.Screen name="WrongSittingPositionInfo" component={WrongSittingPositionInfoPage} />
-    <Stack.Screen name="Routine" component={RoutinePage} />
+    <Stack.Screen
+      name="Routine"
+      component={RoutinePage}
+      options={{ title: 'กิจวัตรประจำวัน' }}
+    />
     <Stack.Screen name="RoutineInfo" component={RoutineInfoPage} />
     <Stack.Screen name="Streching" component={StrechingPage} />
     <Stack.Screen name="StrechingInfo" component={StrechingInfoPage} />

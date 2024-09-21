@@ -246,15 +246,7 @@ const RoutinePage: React.FC<Props> = (props) => {
 
   return (
     <VKRootView>
-
-      <VKHeader 
-        title='กิจวัตรประจำวัน'
-        backgroundColor='#E16E5B'
-        navigation={ props.navigation }
-      />
-      
       <ScrollView style={{ flex: 1 }} contentContainerStyle={LocalStyle.mainMenu}>
-
         <View style={{ flex: 1 }}>
           <Meaning />
           <View style={LocalStyle.menuListRight}>
@@ -263,9 +255,7 @@ const RoutinePage: React.FC<Props> = (props) => {
             }
           </View>
         </View>
-
       </ScrollView>
-
     </VKRootView>
   )
 }

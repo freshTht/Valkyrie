@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {
   StyleSheet,
   TouchableOpacity,
@@ -6,6 +6,8 @@ import {
   Dimensions,
   ImageSourcePropType,
   Image,
+  Button,
+  Text,
 } from 'react-native'
 
 import {
@@ -14,6 +16,7 @@ import {
 
 import StyledText from 'react-native-styled-text'
 import { SharedStyle } from '@app/components/styles'
+import TouchableScale from 'react-native-touchable-scale'
 
 //
 // MENU ITEMS
@@ -37,26 +40,32 @@ const renderMenuItems = (menuItems: MenuItemData[], navigation: any, style: stri
       break
   }
   return menuItems.map((item, index) => (
-    // <Button 
+    item.title && (
+      <TouchableScale
+        key={index}
+        onPress={() => {
+          navigation.navigate(item.href, item.hrefParams)
+        }}
+      >
+        <View
+          style={[ LocalStyle.menuButtonContainer, menuButtonStyle, { backgroundColor: item.backgroundColor, paddingLeft: 20 }]}
+        >
+          {item.leftElement}
+          <Text>{item.title}</Text>
+        </View>
+      </TouchableScale>
+    )
+    // <ListItem
     //   key={index}
-    //   containerStyle={LocalStyle.menuButtonContainer} 
-    //   title={item.title} 
-    //   icon={{ name: 'human' }}
-    //   onPress={() => navigation.push(item.href) }
-    //   buttonStyle={[ LocalStyle.menuButton, { backgroundColor: item.backgroundColor }]}
-    //   TouchableComponent={TouchableOpacity}
-    //   />
-    <ListItem
-      key={index}
-      leftElement={item.leftElement}
-      title={item.title}
-      onPress={() => navigation.navigate(item.href, item.hrefParams) }
-      containerStyle={[ LocalStyle.menuButtonContainer, menuButtonStyle, { backgroundColor: item.backgroundColor, paddingLeft: 20 }]}
-      contentContainerStyle={{ marginLeft: 0 }}
-      titleStyle={{ color: item.color ? item.color:'#fff', paddingLeft: 0, fontFamily: 'rsu-text_bold', fontSize: 28, marginBottom: -4 }}
-      Component={TouchableOpacity}
-      activeOpacity={0.75}
-    />
+    //   leftElement={item.leftElement}
+    //   title={item.title}
+    //   onPress={() => navigation.navigate(item.href, item.hrefParams) }
+    //   containerStyle={[ LocalStyle.menuButtonContainer, menuButtonStyle, { backgroundColor: item.backgroundColor, paddingLeft: 20 }]}
+    //   contentContainerStyle={{ marginLeft: 0 }}
+    //   titleStyle={{ color: item.color ? item.color:'#fff', paddingLeft: 0, fontFamily: 'rsu-text_bold', fontSize: 28, marginBottom: -4 }}
+    //   Component={TouchableOpacity}
+    //   activeOpacity={0.75}
+    // />
   ))
 }
     
@@ -133,6 +142,7 @@ const renderUnorderedList = (listItems: string[], listImages: ImageSourcePropTyp
 const LocalStyle = StyleSheet.create({
   menuButtonContainer: {
     marginBottom: 12,
+    color: '#ffffff',
   },
   menuButtonLeft: {
     borderTopLeftRadius: 0,
