@@ -6,8 +6,6 @@ import {
   Dimensions,
   ImageSourcePropType,
   Image,
-  Button,
-  Text,
 } from 'react-native'
 
 import {
@@ -16,58 +14,22 @@ import {
 
 import StyledText from 'react-native-styled-text'
 import { SharedStyle } from '@app/components/styles'
-import TouchableScale from 'react-native-touchable-scale'
+import { MenuItemData, VKMenuItem, VKMenuItemStyle } from '@app/components/VKMenuItem'
 
 //
 // MENU ITEMS
 //
-interface MenuItemData {
-  title?: string,
-  href?: string,
-  hrefParams?: any,
-  backgroundColor?: string,
-  color?: string,
-  leftElement?: React.ReactElement,
-}
-const renderMenuItems = (menuItems: MenuItemData[], navigation: any, style: string = 'right') => {
-  let menuButtonStyle: any
-  switch(style) {
-    case 'left':
-      menuButtonStyle = LocalStyle.menuButtonLeft
-      break
-    case 'right':
-      menuButtonStyle = LocalStyle.menuButtonRight
-      break
-  }
+
+const renderMenuItems = (menuItems: MenuItemData[], navigation: any, style: VKMenuItemStyle = 'right') => {
   return menuItems.map((item, index) => (
-    item.title && (
-      <TouchableScale
-        key={index}
-        onPress={() => {
-          navigation.navigate(item.href, item.hrefParams)
-        }}
-      >
-        <View
-          style={[ LocalStyle.menuButtonContainer, menuButtonStyle, { backgroundColor: item.backgroundColor, paddingLeft: 20 }]}
-        >
-          {item.leftElement}
-          <Text>{item.title}</Text>
-        </View>
-      </TouchableScale>
-    )
-    // <ListItem
-    //   key={index}
-    //   leftElement={item.leftElement}
-    //   title={item.title}
-    //   onPress={() => navigation.navigate(item.href, item.hrefParams) }
-    //   containerStyle={[ LocalStyle.menuButtonContainer, menuButtonStyle, { backgroundColor: item.backgroundColor, paddingLeft: 20 }]}
-    //   contentContainerStyle={{ marginLeft: 0 }}
-    //   titleStyle={{ color: item.color ? item.color:'#fff', paddingLeft: 0, fontFamily: 'rsu-text_bold', fontSize: 28, marginBottom: -4 }}
-    //   Component={TouchableOpacity}
-    //   activeOpacity={0.75}
-    // />
-  ))
-}
+    <VKMenuItem
+      key={index}
+      item={item}
+      style={style}
+      navigation={navigation}
+    />
+  ));
+};
     
 //
 // LIST ITEMS
