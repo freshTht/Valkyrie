@@ -1,16 +1,11 @@
 import React from 'react'
 import {
   StyleSheet,
-  TouchableOpacity,
   View,
   Dimensions,
   ImageSourcePropType,
   Image,
 } from 'react-native'
-
-import {
-  ListItem,
-} from 'react-native-elements'
 
 import StyledText from 'react-native-styled-text'
 import { SharedStyle } from '@app/components/styles'
@@ -30,35 +25,6 @@ const renderMenuItems = (menuItems: MenuItemData[], navigation: any, style: VKMe
     />
   ));
 };
-    
-//
-// LIST ITEMS
-//
-interface ListItemData {
-  title?: string,
-  href?: string,
-  backgroundColor?: string,
-  leftElement?: React.ReactElement,
-}
-const renderListItems = (menuItems: ListItemData[], navigation: any) => {
-  return menuItems.map((item, index) => (
-    <ListItem
-      key={index}
-      leftElement={item.leftElement}
-      title={item.title}
-      onPress={() => navigation.push(item.href) }
-      containerStyle={{ backgroundColor: item.backgroundColor }}
-      Component={TouchableOpacity}
-      activeOpacity={0.5}
-      
-      bottomDivider
-    />
-      // activeScale={0.95}
-      // friction={10}
-      // tension={200}
-    // subtitle={l.subtitle}
-  ))
-}
 
 const renderOrderedList = (listItems: string[], listImages: ImageSourcePropType[] = [], hideOrders: boolean = false) => {
   const AVAILABLE_SPACE = Dimensions.get('window').width - (2*16) - (2*12)
@@ -92,13 +58,6 @@ const renderOrderedList = (listItems: string[], listImages: ImageSourcePropType[
 }
 const renderUnorderedList = (listItems: string[], listImages: ImageSourcePropType[] = []) => {
   return renderOrderedList(listItems, listImages, true)
-  // return listItems.map((item, index) => (
-  //   <View style={LocalStyle.OrderedListRow}>
-  //     <StyledText style={[ SharedStyle.Content, { flex: 1 }]}>
-  //       { item }
-  //     </StyledText>
-  //   </View>
-  // ))
 }
 
 const LocalStyle = StyleSheet.create({
@@ -126,7 +85,6 @@ const LocalStyle = StyleSheet.create({
 
 export {
   renderMenuItems, MenuItemData,
-  renderListItems, ListItemData,
   renderOrderedList,
   renderUnorderedList,
 }

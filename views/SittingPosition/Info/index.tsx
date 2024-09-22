@@ -27,6 +27,7 @@ import i18n from 'i18n-js'
 import VKRootView from '@app/components/VKRootView'
 
 interface Props {
+  route?: any
   navigation?: any
 }
 
@@ -45,11 +46,10 @@ const SittingPositionInfoPage: React.FC<Props> = (props) => {
   }, [])
 
   // PARAM
-  let INDEX = props.navigation.getParam('INDEX', 1)
-  let IMG_SRC = props.navigation.getParam('IMG_SRC', '')
+  const { INDEX, IMG_SRC } = props.route.params;
   
   // DATA
-  const RAW_DATA = i18n.t(`sitting_positions`)[INDEX]
+  const RAW_DATA = i18n.t(`sitting_positions`)[INDEX] as any;
   const DATA = {
     // title: i18n.t(`sitting_position${INDEX}_title`),
     title: RAW_DATA.title,

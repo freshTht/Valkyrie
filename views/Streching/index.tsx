@@ -34,17 +34,12 @@ const StrechingPage: React.FC<Props> = (props) => {
     setTimeout(() => {
       setLoading(false)
     }, 100)
-
-    const componentWillUnmount = () => {
-      // do something..
-    }
-    return componentWillUnmount
   }, [])
 
   // 
   // PARAMS
   // 
-  const DATA = i18n.t(`streching_types`)
+  const DATA = i18n.t(`streching_types`) as any;
 
   // MENU items
   let carouselItems = []
@@ -101,24 +96,12 @@ const StrechingPage: React.FC<Props> = (props) => {
   else {
     return (
       <VKRootView>
-
-        <VKHeader 
-          title={i18n.t('page_title_streching')}
-          backgroundColor='#4FAFA1'
-          color='#fff'
-          barStyle='light-content'
-          navigation={ props.navigation }
-        />
-        
         <ScrollView style={{ flex: 1 }} contentContainerStyle={LocalStyle.mainMenu}>
-
           <View style={{ flex: 1, paddingBottom: 16 }}>
             <Instruction />
             <VKCarousel data={carouselItems} />
           </View>
-
         </ScrollView>
-
       </VKRootView>
     )
   }

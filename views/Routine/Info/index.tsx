@@ -25,48 +25,27 @@ import { VKInfoCard, VKSection } from '@app/components/VKInfoCard'
 import { renderMenuItems } from '@app/components/utils'
 import i18n from 'i18n-js'
 import VKRootView from '@app/components/VKRootView'
+import { Route } from '@react-navigation/native'
 
 interface Props {
+  route: any;
   navigation?: any
 }
 
 const RoutineInfoPage: React.FC<Props> = (props) => {
-
-  // STATE
-  // let [balance, setBalance] = React.useState<number>();
-
-  React.useEffect(() => {
-    // componentDidMount
-
-    const componentWillUnmount = () => {
-      // do something..
-    }
-    return componentWillUnmount
-  }, [])
-
-  // PARAM
-  let INDEX = props.navigation.getParam('INDEX', 0)
-  // let IMG_SRC = props.navigation.getParam('IMG_SRC', '')
-  let TINT_COLOR = props.navigation.getParam('TINT_COLOR', '#424242')
-  let IMAGES = props.navigation.getParam('IMAGES', [])
-  let CAUTION_IMAGE = props.navigation.getParam('CAUTION_IMAGE', '')
+  const { INDEX, TINT_COLOR, IMAGES, CAUTION_IMAGE } = props.route.params;
+  const RAW_DATA = i18n.t(`routine_items`)[INDEX] as any;
   
-  // DATA
-  const RAW_DATA = i18n.t(`routine_items`)[INDEX]
-  
-  let CAUTION_CARD: any 
-  if (RAW_DATA.caution) {
-    CAUTION_CARD = {
-      title: i18n.t('routine_section_caution'),
-      contentSections: [
-        {
-          sectionImageSource: CAUTION_IMAGE,
-          sectionOrderedList: RAW_DATA.caution,
-          hideNumber: RAW_DATA.caution.length <= 1,
-        }
-      ]
-    }
-  }
+  const CAUTION_CARD = RAW_DATA.caution && {
+    title: i18n.t('routine_section_caution'),
+    contentSections: [
+      {
+        sectionImageSource: CAUTION_IMAGE,
+        sectionOrderedList: RAW_DATA.caution,
+        hideNumber: RAW_DATA.caution.length <= 1,
+      },
+    ],
+  };
 
   const POSTURES = RAW_DATA.postures
   const CARDS_DATA: any[] = []
@@ -125,12 +104,6 @@ const RoutineInfoPage: React.FC<Props> = (props) => {
 
     CARDS_DATA.push(ITEM)
   }
-
-
-  // const DATA = {
-    // title: RAW_DATA.title,
-    // contentSections: CARDS_DATA
-  // }
   
   return (
     <VKRootView>

@@ -33,17 +33,12 @@ const SittingPositionPage: React.FC<Props> = (props) => {
     setTimeout(() => {
       setLoading(false)
     }, 100)
-
-    const componentWillUnmount = () => {
-      // do something..
-    }
-    return componentWillUnmount
   }, [])
 
   // 
   // PARAMS
   // 
-  const DATA = i18n.t(`sitting_positions`)
+  const DATA = i18n.t(`sitting_positions`) as any;
   const IMG_FILES = [
     require('@app/assets/colored/Sitting/Correct/ringss.png'),
     require('@app/assets/colored/Sitting/Correct/crossss.png'),
@@ -107,15 +102,6 @@ const SittingPositionPage: React.FC<Props> = (props) => {
   else {
     return (
       <VKRootView>
-
-        <VKHeader 
-          title={i18n.t('page_title_sitting_position')}
-          backgroundColor='#FDC055'
-          color='#000'
-          barStyle='dark-content'
-          navigation={ props.navigation }
-        />
-        
         <ScrollView style={{ flex: 1 }} contentContainerStyle={LocalStyle.mainMenu}>
 
           <View style={{ flex: 1, paddingBottom: 16 }}>

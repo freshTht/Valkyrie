@@ -96,7 +96,7 @@ const MainPage: React.FC<Props> = (props) => {
   return (
     <VKRootView>
       {/* centerComponent={{ text: `หนูจ๋า`, style: [SharedStyle.HeaderTitle, { color: '#fff' }], onPress: () => setOverlayVisible(true) }} */}
-      <Header
+      {/* <Header
         backgroundColor='#336099'
         centerComponent={
           <TouchableOpacity onPress={() => setOverlayVisible(true)}>
@@ -107,7 +107,7 @@ const MainPage: React.FC<Props> = (props) => {
         }
         barStyle="light-content"
         statusBarProps={{ barStyle: 'light-content', backgroundColor: '#00000033', translucent: true, animated: true }}
-      />
+      /> */}
       
       <View style={LocalStyle.mainMenu}>
         <View style={LocalStyle.menuListLeft}>

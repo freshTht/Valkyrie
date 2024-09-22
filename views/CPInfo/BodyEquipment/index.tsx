@@ -21,7 +21,8 @@ import VKInfoCard from '@app/components/VKInfoCard'
 import VKRootView from '@app/components/VKRootView'
 
 interface Props {
-  navigation?: any
+  route: any;
+  navigation?: any;
 }
 
 const BodyEquipmentPage: React.FC<Props> = (props) => {
@@ -39,28 +40,14 @@ const BodyEquipmentPage: React.FC<Props> = (props) => {
   }, [])
 
   // PARAM
-  let INDEX = props.navigation.getParam('INDEX', 0)
-  // let IMG_SRC = props.navigation.getParam('IMG_SRC', '')
-  let TINT_COLOR = props.navigation.getParam('TINT_COLOR', '#424242')
-  let IMAGES = props.navigation.getParam('IMAGES', [])
-  let CAUTION_IMAGE = props.navigation.getParam('CAUTION_IMAGE', '')
+  // let INDEX = props.navigation.getParam('INDEX', 0)
+  // // let IMG_SRC = props.navigation.getParam('IMG_SRC', '')
+  // let TINT_COLOR = props.navigation.getParam('TINT_COLOR', '#424242')
+  // let IMAGES = props.navigation.getParam('IMAGES', [])
+  // let CAUTION_IMAGE = props.navigation.getParam('CAUTION_IMAGE', '')
   
   // DATA
-  const RAW_DATA = i18n.t(`cpinfo_body_equipments`)
-  
-  // let CAUTION_CARD: any 
-  // if (RAW_DATA.caution) {
-  //   CAUTION_CARD = {
-  //     title: i18n.t('routine_section_caution'),
-  //     contentSections: [
-  //       {
-  //         sectionImageSource: CAUTION_IMAGE,
-  //         sectionOrderedList: RAW_DATA.caution,
-  //         hideNumber: RAW_DATA.caution.length <= 1,
-  //       }
-  //     ]
-  //   }
-  // }
+  const RAW_DATA = i18n.t(`cpinfo_body_equipments`) as any
 
   const CARDS_DATA: any[] = []
   for (var i = 0; i < RAW_DATA.length; i++) {
@@ -89,15 +76,8 @@ const BodyEquipmentPage: React.FC<Props> = (props) => {
 
   return (
     <VKRootView>
-
-      <VKHeader 
-        title={i18n.t('cpinfo_body_equipment_title')}
-        backgroundColor='#E16E5B'
-        navigation={ props.navigation }
-      />
       
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 16 }}>
-        {/* <BodyEquipment /> */}
         <View style={{ flex: 1 }}>
           {/* {
             CAUTION_CARD ?

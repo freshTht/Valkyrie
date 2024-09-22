@@ -33,17 +33,12 @@ const ExerciseTutorialPage: React.FC<Props> = (props) => {
     setTimeout(() => {
       setLoading(false)
     }, 100)
-
-    const componentWillUnmount = () => {
-      // do something..
-    }
-    return componentWillUnmount
   }, [])
 
   // 
   // PARAMS
   // 
-  const DATA = i18n.t(`exercise_types`)
+  const DATA = i18n.t(`exercise_types`) as any;
   const COVER_IMG_FILES = [
     require('@app/assets/colored/Exercise/COM/17ขยับ.gif'),
     require('@app/assets/colored/Exercise/COM/26weat.png'),
@@ -117,63 +112,18 @@ const ExerciseTutorialPage: React.FC<Props> = (props) => {
     })
   }
 
-  let _carousel: Component
-  
-  const WIDTH = Dimensions.get('window').width
-  const ITEM_WIDTH = Dimensions.get('window').width * 0.7
-
-  const HEIGHT = Dimensions.get('window').height
-
-  const _renderItems = (itemData: any) => {
-    const { item, index } = itemData
-    return (
-      <TouchableOpacity activeOpacity={0.8}
-        onPress={() => props.navigation.navigate( item.href, item.hrefParams )}
-      >
-        <View
-          style={[ SharedStyle.CarouselCard, { backgroundColor: item.backgroundColor } ]}>
-
-          <View style={{ alignItems: 'center' }}>
-            <View style={ SharedStyle.CarouselCardImageContainer }>
-              <Image 
-                source={item.imgSrc}
-                width={ITEM_WIDTH * 0.7}
-                style={ SharedStyle.CarouselCardImage }
-              />
-            </View>
-            <Text style={SharedStyle.CarouselCardTitle}> 
-              { item.title } 
-            </Text>
-          </View>
-        </View>
-      </TouchableOpacity>
-    )
-  }
-
   if (loading) {
     return <></>
   }
   else {
     return (
       <VKRootView>
-
-        <VKHeader 
-          title={i18n.t('page_title_exercise')}
-          backgroundColor='#FDC055'
-          color='#000'
-          barStyle='dark-content'
-          navigation={ props.navigation }
-        />
-        
         <ScrollView style={{ flex: 1 }} contentContainerStyle={LocalStyle.mainMenu}>
-
           <View style={{ flex: 1, paddingBottom: 16 }}>
             <Note />
             <VKCarousel data={carouselItems} />
           </View>
-
         </ScrollView>
-
       </VKRootView>
     )
   }

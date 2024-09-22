@@ -1,6 +1,9 @@
 import {
+  Dimensions,
   StyleSheet
 } from 'react-native'
+
+const { width, height } = Dimensions.get('window')
 
 const SharedStyle = StyleSheet.create({
   Root: {
@@ -58,27 +61,28 @@ const SharedStyle = StyleSheet.create({
   CarouselCard: { 
     marginHorizontal: 2, 
     marginVertical: 24, 
-    // paddingHorizontal: 20, 
-    // paddingVertical: 20,
-    padding: 24,
+    paddingHorizontal: 12,
+    paddingVertical: 24,
 
-    backgroundColor: '#424242',
+    // backgroundColor: '#424242',
+    backgroundColor: '#ffffff',
     borderRadius: 36,
   },
   CarouselCardImageContainer: {
     // marginBottom: 0,
     // backgroundColor: '#fff',
     overflow: "hidden",
-    borderRadius: 1000,
+    // borderRadius: 1000,
+    display: 'flex',
   },
   CarouselCardImage: {
     marginBottom: 0,
-    backgroundColor: '#fff',
-    // overflow: "hidden",
-    // borderRadius: 100,
+    width: width * 0.3,
+    height: width * 0.3,
   },
   CarouselCardTitle: {
-    color: '#fff',
+    color: '#000',
+    // color: '#fff',
     marginTop: 20,
     // fontSize: 19,
     textAlign: 'center',

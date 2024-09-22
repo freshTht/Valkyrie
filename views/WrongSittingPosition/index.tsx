@@ -39,7 +39,7 @@ const WrongSittingPositionPage: React.FC<Props> = (props) => {
   // 
   
   // MENU items
-  const DATA = i18n.t(`wrong_sitting_positions`)
+  const DATA = i18n.t(`wrong_sitting_positions`) as any;
   const IMG_FILES = [
     require('@app/assets/colored/Sitting/Incorrect/wss.png'),
     require('@app/assets/colored/Sitting/Incorrect/sacralss.png'),
@@ -68,15 +68,6 @@ const WrongSittingPositionPage: React.FC<Props> = (props) => {
   else {
     return (
       <VKRootView>
-
-        <VKHeader 
-          title={i18n.t('page_title_wrong_sitting_position')}
-          backgroundColor='#EC8C50'
-          color='#fff'
-          barStyle='light-content'
-          navigation={ props.navigation }
-        />
-        
         <ScrollView style={{ flex: 1 }} contentContainerStyle={LocalStyle.mainMenu}>
 
           <View style={{ flex: 1, paddingBottom: 16 }}>

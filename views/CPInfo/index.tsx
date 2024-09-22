@@ -1,30 +1,22 @@
 /* eslint-disable */
 
-import React, {Component,} from 'react'
+import React from 'react'
 import {
   StyleSheet,
   ScrollView,
   View,
-  ImageBackground,
 } from 'react-native'
 
-import {
-  // Button,
-  // Text,
-  Card
-} from 'react-native-elements'
 
 import {
   AntDesign,
   MaterialCommunityIcons,
 } from '@expo/vector-icons'
 
-import { 
-  // renderListItems, ListItemData
+import {
   renderMenuItems, MenuItemData
 } from '@app/components/utils'
 
-import { SharedStyle } from '@app/components/styles'
 
 import VKHeader from '@app/components/VKHeader'
 import Meaning from '@app/components/CPInfo/Meaning'
@@ -36,19 +28,6 @@ interface Props {
 }
 
 const CPInfoPage: React.FC<Props> = (props) => {
-
-  // STATE
-  // let [balance, setBalance] = React.useState<number>();
-
-  React.useEffect(() => {
-    // componentDidMount
-
-    const componentWillUnmount = () => {
-      // do something..
-    }
-    return componentWillUnmount
-  }, [])
-
   // MENU items
   const menuItems: MenuItemData[] = [
     // {
@@ -96,24 +75,14 @@ const CPInfoPage: React.FC<Props> = (props) => {
   
   return (
     <VKRootView>
-
-      <VKHeader 
-        title='Cerebral palsy คืออะไร'
-        backgroundColor='#4FAFA1'
-        navigation={ props.navigation }
-      />
-      
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 16 }}>
         <View style={{ flex: 1 }}>
           <Meaning />
-          {/* <Causes /> */}
-          {/* <Card containerStyle={LocalStyle.menuCard}> */}
           <View style={LocalStyle.menuListRight}>
             {
               renderMenuItems(menuItems, props.navigation)
             }
           </View>
-          {/* </Card> */}
         </View>
       </ScrollView>
 
@@ -130,8 +99,6 @@ const LocalStyle = StyleSheet.create({
     paddingHorizontal: 8,
   },
   mainMenu: {
-    // paddingHorizontal: 12,
-    // paddingVertical: 16,
     flex: 1,
   },
   
@@ -141,11 +108,6 @@ const LocalStyle = StyleSheet.create({
     marginTop: 20,
     marginBottom: 8,
   },
-  // menuListFull: {
-  //   alignSelf: 'flex-end',
-  //   width: '100%',
-  //   marginBottom: 8,
-  // },
 
   menuCard: {
     padding: 0,
