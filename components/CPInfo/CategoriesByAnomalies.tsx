@@ -53,7 +53,12 @@ const CategoriesByAnomalies: React.FC<Props> = (props) => {
       </View>
       <Image source={require('@app/assets/CPInfo/Categories/plegia.png')} 
         width={IMG_WIDTH}
-        style={{ marginTop: IMG_WIDTH * 0.1, marginBottom: IMG_WIDTH * 0.1 }}
+        style={{
+          marginTop: IMG_WIDTH * 0.1,
+          marginBottom: IMG_WIDTH * 0.1,
+          width: IMG_WIDTH,
+          height: IMG_WIDTH,
+        }}
       />
     </View>
   )

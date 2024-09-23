@@ -1,28 +1,11 @@
 /* eslint-disable */
-import React, {Component} from 'react'
+import React from 'react'
 import {
-  StyleSheet,
   View,
   ScrollView,
-  Dimensions,
 } from 'react-native'
 
-// import {
-//   Button,
-//   Text
-// } from 'react-native-elements'
-
-import {
-  FontAwesome5,
-  MaterialCommunityIcons,
-  MaterialIcons,
-} from '@expo/vector-icons'
-
-import { SharedStyle } from '@app/components/styles'
-
-import VKHeader from '@app/components/VKHeader'
-import { VKInfoCard, VKSection } from '@app/components/VKInfoCard'
-import { renderMenuItems } from '@app/components/utils'
+import { VKInfoCard } from '@app/components/VKInfoCard'
 import i18n from 'i18n-js'
 import VKRootView from '@app/components/VKRootView'
 
@@ -58,7 +41,6 @@ const SittingPositionInfoPage: React.FC<Props> = (props) => {
     ]
   }
   
-  
   return (
     <VKRootView>
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 16 }}>
@@ -70,7 +52,6 @@ const SittingPositionInfoPage: React.FC<Props> = (props) => {
           />
         </View>
       </ScrollView>
-
     </VKRootView>
   )
 };

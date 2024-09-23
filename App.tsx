@@ -31,6 +31,8 @@ import { Asset } from 'expo-asset'
 import { NavigationContainer } from '@react-navigation/native'
 import I18n from 'i18n-js'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { FontFamily, SharedStyle } from './components/styles'
+import { StyleProp, TextStyle } from 'react-native'
 
 enum HeaderStyle {
   white = '#fff',
@@ -39,26 +41,33 @@ enum HeaderStyle {
   yellow = '#FDC055',
   orange = '#EC8C50',
 };
+
+const headerTitleStyle = SharedStyle.HeaderTitle;
 const headerStyles: Record<HeaderStyle, Partial<StackNavigationOptions>> = {
   [HeaderStyle.white]: {
     headerStyle: { backgroundColor: '#fff' },
     headerTintColor: '#000',
+    headerTitleStyle,
   },
   [HeaderStyle.green]: {
     headerStyle: { backgroundColor: '#4FAFA1' },
     headerTintColor: '#fff',
+    headerTitleStyle,
   },
   [HeaderStyle.red]: {
     headerStyle: { backgroundColor: '#E16E5B' },
     headerTintColor: '#fff',
+    headerTitleStyle,
   },
   [HeaderStyle.yellow]: {
     headerStyle: { backgroundColor: '#FDC055' },
     headerTintColor: '#000',
+    headerTitleStyle,
   },
   [HeaderStyle.orange]: {
     headerStyle: { backgroundColor: '#EC8C50' },
     headerTintColor: '#fff',
+    headerTitleStyle,
   },
 }
 const buildScreenOptions = (title: string, style: HeaderStyle = HeaderStyle.white) => {
@@ -181,8 +190,8 @@ const App = () => {
   
   const loadFontAsync = async () => {
     await Font.loadAsync({
-      'rsu-text': require('./assets/fonts/RSUText_Regular.ttf'),
-      'rsu-text_bold': require('./assets/fonts/RSUText_Bold.ttf'),
+      [FontFamily.DefaultBold]: require('./assets/fonts/RSUText_Regular.ttf'),
+      [FontFamily.DefaultRegular]: require('./assets/fonts/RSUText_Bold.ttf'),
     })
     setFontLoaded(true)
   }

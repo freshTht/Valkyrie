@@ -1,18 +1,10 @@
 /* eslint-disable */
-import React, {Component} from 'react'
+import React from 'react'
 import {
-  StyleSheet,
   View,
   ScrollView,
-  Dimensions,
-  Text,
-  TouchableOpacity,
-  Image,
 } from 'react-native'
 
-import { SharedStyle } from '@app/components/styles'
-
-import VKHeader from '@app/components/VKHeader'
 import i18n from 'i18n-js'
 
 import Note from '@app/components/Exercise/Note'
@@ -24,7 +16,6 @@ interface Props {
 }
 
 const ExerciseTutorialPage: React.FC<Props> = (props) => {
-
   // STATE
   let [loading, setLoading] = React.useState<boolean>(true);
 
@@ -92,10 +83,8 @@ const ExerciseTutorialPage: React.FC<Props> = (props) => {
       '',   // TODO: add image
     ],
   ]
-  // const ITEM_COUNT = 4;
 
   // MENU items
-  // let menuItems: MenuItemData[] = []
   let carouselItems = []
   for (var i = 0; i < DATA.length; i++) {
     let ITEM = DATA[i]
@@ -118,7 +107,7 @@ const ExerciseTutorialPage: React.FC<Props> = (props) => {
   else {
     return (
       <VKRootView>
-        <ScrollView style={{ flex: 1 }} contentContainerStyle={LocalStyle.mainMenu}>
+        <ScrollView style={{ flex: 1 }}>
           <View style={{ flex: 1, paddingBottom: 16 }}>
             <Note />
             <VKCarousel data={carouselItems} />
@@ -128,21 +117,5 @@ const ExerciseTutorialPage: React.FC<Props> = (props) => {
     )
   }
 }
-
-const LocalStyle = StyleSheet.create({
-  mainMenu: {
-    // paddingHorizontal: 12,
-    // paddingVertical: 16,
-    // flex: 1,
-  },
-  
-  menuListRight: {
-    flex: 1,
-    alignSelf: 'flex-end',
-    width: 224,
-    marginTop: 20,
-    marginBottom: 8,
-  },
-});
 
 export default ExerciseTutorialPage

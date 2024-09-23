@@ -55,39 +55,6 @@ const StrechingPage: React.FC<Props> = (props) => {
     })
   }
 
-  let _carousel: Component
-  
-  const WIDTH = Dimensions.get('window').width
-  const ITEM_WIDTH = Dimensions.get('window').width * 0.7
-
-  const HEIGHT = Dimensions.get('window').height
-
-  const _renderItems = (itemData: any) => {
-    const { item, index } = itemData
-    return (
-      <TouchableOpacity activeOpacity={0.8}
-        onPress={() => props.navigation.navigate( item.href, item.hrefParams )}
-      >
-        <View
-          style={[ SharedStyle.CarouselCard, { backgroundColor: item.backgroundColor } ]}>
-
-          <View style={{ alignItems: 'center' }}>
-            <View style={ SharedStyle.CarouselCardImageContainer }>
-              <Image 
-                source={item.imgSrc}
-                width={ITEM_WIDTH * 0.7}
-                style={ SharedStyle.CarouselCardImage }
-              />
-            </View>
-            <Text style={SharedStyle.CarouselCardTitle}> 
-              { item.title } 
-            </Text>
-          </View>
-        </View>
-      </TouchableOpacity>
-    )
-  }
-
   if (loading) {
     return <></>
   }

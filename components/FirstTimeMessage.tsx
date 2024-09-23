@@ -18,7 +18,7 @@ import {
 // import { SharedStyle } from '@app/components/styles'
 import { renderUnorderedList } from '@app/components/utils'
 import StyledText from 'react-native-styled-text'
-import { SharedStyle } from '@app/components/styles'
+import { FontFamily, SharedStyle } from '@app/components/styles'
 import { ScrollView } from 'react-native-gesture-handler'
 
 // ASYNC STORAGE
@@ -81,7 +81,7 @@ const FirstTimeMessage: React.FC<Props> = (props) => {
           </View>
 
           <View style={{ marginTop: 16 }}>
-            <StyledText style={[ SharedStyle.Content, { marginBottom: 8, fontFamily: 'rsu-text_bold' }]}>
+            <StyledText style={[ SharedStyle.Content, { marginBottom: 8, fontFamily: FontFamily.DefaultBold }]}>
               คณะผู้จัดทำ
             </StyledText>
             { 
@@ -95,13 +95,13 @@ const FirstTimeMessage: React.FC<Props> = (props) => {
           </View>
 
           <View style={{ marginTop: 16 }}>
-            <StyledText style={[ SharedStyle.Content, { fontFamily: 'rsu-text_bold' }]}>
+            <StyledText style={[ SharedStyle.Content, { fontFamily: FontFamily.DefaultBold }]}>
               ภาควิชากายภาพบำบัด คณะสหเวชศาสตร์ มหาวิทยาลัยธรรมศาสตร์
             </StyledText>
           </View>
 
           {/* <View style={{ marginTop: 16 }}>
-            <StyledText style={[ SharedStyle.Content, { marginBottom: 8, fontFamily: 'rsu-text_bold', textAlign: 'center' }]}>
+            <StyledText style={[ SharedStyle.Content, { marginBottom: 8, fontFamily: FontFamily.DefaultBold, textAlign: 'center' }]}>
               อาจารย์ที่ปรึกษา
             </StyledText>
             { 

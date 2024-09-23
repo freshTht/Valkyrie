@@ -2,6 +2,7 @@ import React from "react";
 import TouchableScale from "react-native-touchable-scale";
 import { StyleSheet, View } from "react-native";
 import StyledText from "react-native-styled-text";
+import { SharedStyle } from "./styles";
 
 export interface MenuItemData {
     title?: string,
@@ -48,7 +49,12 @@ export const VKMenuItem: React.FC<VKMenuItemProps> = ({ item, navigation, style 
                 ]}
             >
                 {item.leftElement}
-                <StyledText style={LocalStyle.menuButtonText}>
+                <StyledText
+                    style={[
+                        SharedStyle.ButtonText,
+                        { color: item.color ?? '#fff' },
+                    ]}
+                >
                     {item.title}
                 </StyledText>
             </View>
@@ -59,19 +65,12 @@ export const VKMenuItem: React.FC<VKMenuItemProps> = ({ item, navigation, style 
 const LocalStyle = StyleSheet.create({
     menuButtonContainer: {
         marginBottom: 12,
-        color: '#ffffff',
         display: 'flex',
         flexDirection: 'row',
+        alignItems: 'center',
         paddingLeft: 20,
-        paddingVertical: 12,
+        paddingVertical: 8,
         gap: 8,
-    },
-    menuButtonText: {
-        color: '#ffffff',
-        fontSize: 17,
-        flexWrap: 'wrap',
-        flexDirection: 'row',
-        flexGrow: 1,
-        overflow: 'scroll',
+        // TODO: fix font
     },
 })

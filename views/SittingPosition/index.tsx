@@ -12,7 +12,6 @@ import {
 
 import { SharedStyle } from '@app/components/styles'
 
-import VKHeader from '@app/components/VKHeader'
 import i18n from 'i18n-js'
 
 import Importance from '@app/components/SittingPosition/Importance'
@@ -63,73 +62,21 @@ const SittingPositionPage: React.FC<Props> = (props) => {
     })
   }
 
-  let _carousel: Component
-  
-  const WIDTH = Dimensions.get('window').width
-  const ITEM_WIDTH = Dimensions.get('window').width * 0.7
-
-  const HEIGHT = Dimensions.get('window').height
-
-  const _renderItems = (itemData: any) => {
-    const { item, index } = itemData
-    return (
-      <TouchableOpacity activeOpacity={0.8}
-        onPress={() => props.navigation.navigate( item.href, item.hrefParams )}
-      >
-        <View
-          style={[ SharedStyle.CarouselCard, { backgroundColor: item.backgroundColor } ]}>
-
-          <View style={{ alignItems: 'center' }}>
-            <View style={ SharedStyle.CarouselCardImageContainer }>
-              <Image 
-                source={item.imgSrc}
-                width={ITEM_WIDTH * 0.7}
-                style={ SharedStyle.CarouselCardImage }
-              />
-            </View>
-            <Text style={SharedStyle.CarouselCardTitle}> 
-              { item.title } 
-            </Text>
-          </View>
-        </View>
-      </TouchableOpacity>
-    )
-  }
-
   if (loading) {
     return <></>
   }
   else {
     return (
       <VKRootView>
-        <ScrollView style={{ flex: 1 }} contentContainerStyle={LocalStyle.mainMenu}>
-
+        <ScrollView style={{ flex: 1 }}>
           <View style={{ flex: 1, paddingBottom: 16 }}>
             <VKCarousel data={carouselItems} />
             <Importance />
           </View>
-
         </ScrollView>
-
       </VKRootView>
     )
   }
-}
-
-const LocalStyle = StyleSheet.create({
-  mainMenu: {
-    // paddingHorizontal: 12,
-    // paddingVertical: 16,
-    // flex: 1,
-  },
-  
-  menuListRight: {
-    flex: 1,
-    alignSelf: 'flex-end',
-    width: 224,
-    marginTop: 20,
-    marginBottom: 8,
-  },
-});
+};
 
 export default SittingPositionPage

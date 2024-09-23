@@ -112,7 +112,11 @@ const VKInfoCard: React.FC<Props> = (props) => {
               {
                 s.sectionMultipleImageSource.map(elm =>
                   <Image source={elm} 
-                    style={{ marginHorizontal: SMALL_IMG_MARGIN }}
+                    style={{
+                      marginHorizontal: SMALL_IMG_MARGIN,
+                      width: SMALL_IMG_MARGIN,
+                      height: SMALL_IMG_MARGIN,
+                    }}
                     width={SMALL_IMG_WIDTH}
                   />
                 )

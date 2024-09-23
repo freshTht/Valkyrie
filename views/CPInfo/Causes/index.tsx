@@ -5,7 +5,6 @@ import {
   ScrollView,
 } from 'react-native'
 
-import VKHeader from '@app/components/VKHeader'
 import Causes from '@app/components/CPInfo/Causes'
 import VKRootView from '@app/components/VKRootView'
 

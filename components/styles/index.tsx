@@ -5,6 +5,11 @@ import {
 
 const { width, height } = Dimensions.get('window')
 
+export enum FontFamily {
+  DefaultBold = 'rsu-text_bold',
+  DefaultRegular = 'rsu-text',
+};
+
 const SharedStyle = StyleSheet.create({
   Root: {
     flex: 1,
@@ -15,19 +20,19 @@ const SharedStyle = StyleSheet.create({
     // fontSize: 19,
     // fontWeight: 'bold',
 
-    fontFamily: 'rsu-text_bold',
+    fontFamily: FontFamily.DefaultBold,
     fontSize: 32,
   },
   Content: {
     // fontSize: 15,
-    fontFamily: 'rsu-text',
+    fontFamily: FontFamily.DefaultRegular,
     fontSize: 24,
   },
   Subtitle: {
     // fontSize: 15,
     marginBottom: 12,
 
-    fontFamily: 'rsu-text',
+    fontFamily: FontFamily.DefaultRegular,
     fontSize: 28,
     // marginLeft: 24,
   },
@@ -51,7 +56,7 @@ const SharedStyle = StyleSheet.create({
     marginBottom: 4,
     // fontSize: 15,
     // fontWeight: 'bold',
-    fontFamily: 'rsu-text_bold',
+    fontFamily: FontFamily.DefaultBold,
     fontSize: 24,
   },
 
@@ -87,7 +92,7 @@ const SharedStyle = StyleSheet.create({
     // fontSize: 19,
     textAlign: 'center',
 
-    fontFamily: 'rsu-text_bold',
+    fontFamily: FontFamily.DefaultBold,
     // fontSize: 24,
     fontSize: 32,
   },
@@ -95,12 +100,13 @@ const SharedStyle = StyleSheet.create({
   HeaderTitle: {
     fontSize: 28, 
     // fontWeight: 'bold', 
-    fontFamily: 'rsu-text_bold',
+    fontFamily: FontFamily.DefaultBold,
   },
   
   ButtonText: {
+    // fontSize: 17,
     fontSize: 28,
-    fontFamily: 'rsu-text_bold',
+    fontFamily: FontFamily.DefaultBold,
   },
   ButtonOrange: {
     backgroundColor: '#EC8C50',

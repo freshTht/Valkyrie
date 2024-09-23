@@ -4,25 +4,16 @@ import React from 'react'
 import {
   StyleSheet,
   View,
-  TouchableOpacity,
-  Text,
 } from 'react-native'
-
-import {
-  Header,
-} from 'react-native-elements'
 
 import Modal from 'react-native-modal'
 
-// import { SharedStyle } from '@app/components/styles'
-import { renderMenuItems } from '@app/components/utils'
+import { MenuItemData, renderMenuItems } from '@app/components/utils'
 import VKRootView from '@app/components/VKRootView'
-import { SharedStyle } from '@app/components/styles'
 import FirstTimeMessage from '@app/components/FirstTimeMessage'
 
 // ASYNC STORAGE
 import _dontShowOverlay from '@app/utils/preferences/dontShowOverlay'
-
 
 interface Props {
   navigation?: any
@@ -50,17 +41,17 @@ const MainPage: React.FC<Props> = (props) => {
   }, [])
 
   // MENU items
-  const menuList1 = [
+  const menuList1: MenuItemData[] = [
     {
       title: 'Cerebral palsy คืออะไร',
       href: 'CPInfo',
       backgroundColor: '#4FAFA1',
-      // leftElement: <AntDesign name='exclamationcircle' size={20} color='#fff' />,
     },
     {
       title: 'ท่านั่งที่ถูกต้อง',
       href: 'SittingPosition',
       backgroundColor: '#FDC055',
+      color: '#000',
     },
     {
       title: 'การนั่งที่ไม่เหมาะสม',
@@ -83,32 +74,12 @@ const MainPage: React.FC<Props> = (props) => {
       title: 'การออกกำลังกาย',
       href: 'Exercise',
       backgroundColor: '#FDC055',
+      color: '#000',
     },
   ]
-  // const menuList3 = [
-  //   {
-  //     title: 'วิดีโอการออกกำลังกาย',
-  //     href: 'ExerciseTutorial',
-  //     backgroundColor: '#E16E5B',
-  //   },
-  // ]
 
   return (
     <VKRootView>
-      {/* centerComponent={{ text: `หนูจ๋า`, style: [SharedStyle.HeaderTitle, { color: '#fff' }], onPress: () => setOverlayVisible(true) }} */}
-      {/* <Header
-        backgroundColor='#336099'
-        centerComponent={
-          <TouchableOpacity onPress={() => setOverlayVisible(true)}>
-            <Text style={[SharedStyle.HeaderTitle, { color: '#fff' }]}>
-              หนูจ๋า
-            </Text>
-          </TouchableOpacity>
-        }
-        barStyle="light-content"
-        statusBarProps={{ barStyle: 'light-content', backgroundColor: '#00000033', translucent: true, animated: true }}
-      /> */}
-      
       <View style={LocalStyle.mainMenu}>
         <View style={LocalStyle.menuListLeft}>
           {
@@ -123,13 +94,6 @@ const MainPage: React.FC<Props> = (props) => {
             renderMenuItems(menuList2, props.navigation, 'right')
           }
         </View>
-
-        {/* <View style={LocalStyle.menuList3}>
-          {
-            renderMenuItems(menuList3, props.navigation, 'left')
-          }
-        </View> */}
-
       </View>
 
       {/* modal message for first time use */}

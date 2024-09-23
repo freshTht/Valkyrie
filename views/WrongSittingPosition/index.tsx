@@ -6,7 +6,6 @@ import {
   ScrollView,
 } from 'react-native'
 
-import VKHeader from '@app/components/VKHeader'
 import i18n from 'i18n-js'
 
 import HealthEffect from '@app/components/WrongSittingPosition/HealthEffect'
@@ -27,11 +26,6 @@ const WrongSittingPositionPage: React.FC<Props> = (props) => {
     setTimeout(() => {
       setLoading(false)
     }, 100)
-
-    const componentWillUnmount = () => {
-      // do something..
-    }
-    return componentWillUnmount
   }, [])
 
   // 
@@ -68,35 +62,15 @@ const WrongSittingPositionPage: React.FC<Props> = (props) => {
   else {
     return (
       <VKRootView>
-        <ScrollView style={{ flex: 1 }} contentContainerStyle={LocalStyle.mainMenu}>
-
+        <ScrollView style={{ flex: 1 }}>
           <View style={{ flex: 1, paddingBottom: 16 }}>
             <VKCarousel data={carouselItems} />
-
             <HealthEffect />
           </View>
-
         </ScrollView>
-
       </VKRootView>
     )
   }
-}
-
-const LocalStyle = StyleSheet.create({
-  mainMenu: {
-    // paddingHorizontal: 12,
-    // paddingVertical: 16,
-    // flex: 1,
-  },
-  
-  menuListRight: {
-    flex: 1,
-    alignSelf: 'flex-end',
-    width: 224,
-    marginTop: 20,
-    marginBottom: 8,
-  },
-});
+};
 
 export default WrongSittingPositionPage

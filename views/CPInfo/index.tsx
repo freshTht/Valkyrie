@@ -18,10 +18,8 @@ import {
 } from '@app/components/utils'
 
 
-import VKHeader from '@app/components/VKHeader'
 import Meaning from '@app/components/CPInfo/Meaning'
 import VKRootView from '@app/components/VKRootView'
-// import Causes from '@app/components/CPInfo/Causes'
 
 interface Props {
   navigation?: any

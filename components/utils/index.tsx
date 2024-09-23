@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 
 import StyledText from 'react-native-styled-text'
-import { SharedStyle } from '@app/components/styles'
+import { FontFamily, SharedStyle } from '@app/components/styles'
 import { MenuItemData, VKMenuItem, VKMenuItemStyle } from '@app/components/VKMenuItem'
 
 //
@@ -35,7 +35,7 @@ const renderOrderedList = (listItems: string[], listImages: ImageSourcePropType[
       <View style={LocalStyle.OrderedListRow}>
         {
           hideOrders === false ?
-          <StyledText style={[ SharedStyle.Content, { marginRight: 8, fontFamily: 'rsu-text_bold' }]}>
+          <StyledText style={[ SharedStyle.Content, { marginRight: 8, fontFamily: FontFamily.DefaultBold }]}>
             { `<b>${index+1}.</b>` }
           </StyledText>
           : <></>

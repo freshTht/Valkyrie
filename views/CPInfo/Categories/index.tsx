@@ -1,17 +1,11 @@
 /* eslint-disable */
 
-import React, {Component,} from 'react'
+import React from 'react'
 import {
   StyleSheet,
   ScrollView,
-  View,
-  SafeAreaView,
-  ImageBackground,
 } from 'react-native'
 
-import { SharedStyle } from '@app/components/styles'
-
-import VKHeader from '@app/components/VKHeader'
 import CategoriesByMovement from '@app/components/CPInfo/CategoriesByMovement'
 import CategoriesByAnomalies from '@app/components/CPInfo/CategoriesByAnomalies'
 import VKRootView from '@app/components/VKRootView'
