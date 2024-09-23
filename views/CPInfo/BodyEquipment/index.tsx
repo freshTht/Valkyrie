@@ -1,23 +1,13 @@
 /* eslint-disable */
 
-import React, {Component} from 'react'
+import React from 'react'
 import {
-  StyleSheet,
   ScrollView,
   View,
 } from 'react-native'
 
-// import {
-//   Button,
-//   Text
-// } from 'react-native-elements'
-
 import i18n from 'i18n-js'
-import { SharedStyle } from '@app/components/styles'
-
-import VKHeader from '@app/components/VKHeader'
 import VKInfoCard from '@app/components/VKInfoCard'
-// import BodyEquipment from '@app/components/CPInfo/BodyEquipment'
 import VKRootView from '@app/components/VKRootView'
 
 interface Props {
@@ -26,27 +16,6 @@ interface Props {
 }
 
 const BodyEquipmentPage: React.FC<Props> = (props) => {
-
-  // STATE
-  // let [balance, setBalance] = React.useState<number>();
-
-  React.useEffect(() => {
-    // componentDidMount
-
-    const componentWillUnmount = () => {
-      // do something..
-    }
-    return componentWillUnmount
-  }, [])
-
-  // PARAM
-  // let INDEX = props.navigation.getParam('INDEX', 0)
-  // // let IMG_SRC = props.navigation.getParam('IMG_SRC', '')
-  // let TINT_COLOR = props.navigation.getParam('TINT_COLOR', '#424242')
-  // let IMAGES = props.navigation.getParam('IMAGES', [])
-  // let CAUTION_IMAGE = props.navigation.getParam('CAUTION_IMAGE', '')
-  
-  // DATA
   const RAW_DATA = i18n.t(`cpinfo_body_equipments`) as any
 
   const CARDS_DATA: any[] = []
@@ -76,18 +45,8 @@ const BodyEquipmentPage: React.FC<Props> = (props) => {
 
   return (
     <VKRootView>
-      
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 16 }}>
         <View style={{ flex: 1 }}>
-          {/* {
-            CAUTION_CARD ?
-            <VKInfoCard 
-              title={ CAUTION_CARD.title }
-              titleAlignment='left'
-              contentSections={ CAUTION_CARD.contentSections }
-            />
-            : <></>
-          } */}
           {
             CARDS_DATA.map((CARD_ITEM, index) => (
               <VKInfoCard 
@@ -100,36 +59,8 @@ const BodyEquipmentPage: React.FC<Props> = (props) => {
           }
         </View>
       </ScrollView>
-
     </VKRootView>
   )
-}
-
-const LocalStyle = StyleSheet.create({
-  bottomBar: {
-    paddingVertical: 8,
-    width: '100%', 
-    flex: 0,
-
-    paddingHorizontal: 8,
-  },
-  mainMenu: {
-    // paddingHorizontal: 12,
-    // paddingVertical: 16,
-    flex: 1,
-    // height: '100%',
-  },
-  
-  menuListRight: {
-    alignSelf: 'flex-end',
-    width: '50%',
-    marginBottom: 8,
-  },
-  menuListFull: {
-    alignSelf: 'flex-end',
-    width: '100%',
-    marginBottom: 8,
-  },
-});
+};
 
 export default BodyEquipmentPage

@@ -29,29 +29,12 @@ interface Props {
   title?: string,
   titleAlignment?: 'left' | 'center' | 'right',
   contentSections?: VKSection[],
-  // navigation?: any,
 }
 
 const VKInfoCard: React.FC<Props> = (props) => {
-  // STATE
-  // let [balance, setBalance] = React.useState<number>();
-
-  // PROPS
-  // const TITLE = props.title ? props.title : ''
-
-  React.useEffect(() => {
-    // componentDidMount
-
-    const componentWillUnmount = () => {
-      // do something..
-    }
-    return componentWillUnmount
-  }, [])
-
   const TITLE = props.title
   const SECTIONS = props.contentSections ? props.contentSections:[]
-  
-  // console.log(props.titleAlignment)
+
   let TITLE_ALIGNMENT
   switch (props.titleAlignment) {
     case 'center':
@@ -105,8 +88,6 @@ const VKInfoCard: React.FC<Props> = (props) => {
           
           <View style={{ marginLeft: 12 }}>
             {
-              // (ORDERED_LIST.length <= 1 || s.hideNumber) ? 
-              // renderUnorderedList(ORDERED_LIST) : renderOrderedList(ORDERED_LIST, ORDERED_LIST_IMAGES)
               renderOrderedList(ORDERED_LIST, ORDERED_LIST_IMAGES, ORDERED_LIST.length <= 1 || s.hideNumber)
             }
           </View>
@@ -139,11 +120,6 @@ const VKInfoCard: React.FC<Props> = (props) => {
             )
             : (<></>)
           }
-  
-          {/* {
-            s.sectionNestedSection ? _renderSection(s.sectionNestedSection, i) : <></>
-          } */}
-          
         </View>
       )
     }

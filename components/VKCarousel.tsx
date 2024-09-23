@@ -1,6 +1,7 @@
 import { Dimensions, Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { SharedStyle } from "./styles";
 import TouchableScale from "react-native-touchable-scale";
+import { useNavigation } from "@react-navigation/native";
 // import Carousel from "react-native-snap-carousel";
 
 interface VKCarouselItem {
@@ -15,32 +16,18 @@ interface VKCarouselItem {
 }
 
 interface VKCarouselProps {
-  navigation?: any;
   data: VKCarouselItem[];
 };
 
 export const VKCarousel: React.FC<VKCarouselProps> = (props) => {
-    // const WIDTH = Dimensions.get('window').width
-    const ITEM_WIDTH = Dimensions.get('window').width * 0.7
-  
-    // const HEIGHT = Dimensions.get('window').height
-  
-    let _carousel;
+    const navigation = useNavigation();
     const _renderItems = (item: VKCarouselItem) => {
-      // const { item, index } = itemData
       return (
         <TouchableScale
           activeScale={0.95}
-          onPress={() => props.navigation.navigate( item.href, item.hrefParams )}
+          onPress={() => navigation.navigate(item.href, item.hrefParams)}
         >
-          <View
-            style={[
-              SharedStyle.CarouselCard,
-              // {
-              //   backgroundColor: item.backgroundColor,
-              // },
-            ]}>
-  
+          <View style={SharedStyle.CarouselCard}>
             <View style={{ alignItems: 'center' }}>
               <View style={ SharedStyle.CarouselCardImageContainer }>
                 <Image 

@@ -1,7 +1,6 @@
 /* eslint-disable */
 import React, {Component} from 'react'
 import {
-  StyleSheet,
   View,
   ScrollView,
   Dimensions,
@@ -13,7 +12,6 @@ import {
 
 import { SharedStyle } from '@app/components/styles'
 
-import VKHeader from '@app/components/VKHeader'
 import i18n from 'i18n-js'
 
 import Instruction from '@app/components/Streching/Instruction'
@@ -96,7 +94,7 @@ const StrechingPage: React.FC<Props> = (props) => {
   else {
     return (
       <VKRootView>
-        <ScrollView style={{ flex: 1 }} contentContainerStyle={LocalStyle.mainMenu}>
+        <ScrollView style={{ flex: 1 }}>
           <View style={{ flex: 1, paddingBottom: 16 }}>
             <Instruction />
             <VKCarousel data={carouselItems} />
@@ -104,23 +102,7 @@ const StrechingPage: React.FC<Props> = (props) => {
         </ScrollView>
       </VKRootView>
     )
-  }
-}
+  };
+};
 
-const LocalStyle = StyleSheet.create({
-  mainMenu: {
-    // paddingHorizontal: 12,
-    // paddingVertical: 16,
-    // flex: 1,
-  },
-  
-  menuListRight: {
-    flex: 1,
-    alignSelf: 'flex-end',
-    width: 224,
-    marginTop: 20,
-    marginBottom: 8,
-  },
-});
-
-export default StrechingPage
+export default StrechingPage;

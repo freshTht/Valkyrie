@@ -9,11 +9,6 @@ import {
   ImageBackground,
 } from 'react-native'
 
-// import {
-//   Button,
-//   Text
-// } from 'react-native-elements'
-
 import { SharedStyle } from '@app/components/styles'
 
 import VKHeader from '@app/components/VKHeader'
@@ -26,32 +21,12 @@ interface Props {
 }
 
 const CategoriesPage: React.FC<Props> = (props) => {
-
-  // STATE
-  // let [balance, setBalance] = React.useState<number>();
-
-  React.useEffect(() => {
-    // componentDidMount
-
-    const componentWillUnmount = () => {
-      // do something..
-    }
-    return componentWillUnmount
-  }, [])
-
   return (
     <VKRootView>
-      <VKHeader 
-        title='การแบ่งประเภทเด็กภาวะสมองพิการ'
-        backgroundColor='#E16E5B'
-        navigation={ props.navigation }
-      />
-      
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 16 }}>
         <CategoriesByMovement />
         <CategoriesByAnomalies />
       </ScrollView>
-
     </VKRootView>
   )
 }

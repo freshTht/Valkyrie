@@ -32,26 +32,12 @@ interface Props {
 }
 
 const SittingPositionInfoPage: React.FC<Props> = (props) => {
-
-  // STATE
-  // let [balance, setBalance] = React.useState<number>();
-
-  React.useEffect(() => {
-    // componentDidMount
-
-    const componentWillUnmount = () => {
-      // do something..
-    }
-    return componentWillUnmount
-  }, [])
-
   // PARAM
   const { INDEX, IMG_SRC } = props.route.params;
   
   // DATA
   const RAW_DATA = i18n.t(`sitting_positions`)[INDEX] as any;
   const DATA = {
-    // title: i18n.t(`sitting_position${INDEX}_title`),
     title: RAW_DATA.title,
     contentSections: [
       {
@@ -59,17 +45,14 @@ const SittingPositionInfoPage: React.FC<Props> = (props) => {
       },
       {
         sectionTitle: i18n.t(`sitting_position_section_method`),
-        // sectionContent: i18n.t(`sitting_position${INDEX}_method`),
         sectionContent: RAW_DATA.method,
       },
       {
         sectionTitle: i18n.t(`sitting_position_section_benefits`),
-        // sectionContent: i18n.t(`sitting_position${INDEX}_benefits`),
         sectionOrderedList: RAW_DATA.benefits,
       },
       {
         sectionTitle: i18n.t(`sitting_position_section_prohibitions`),
-        // sectionContent: i18n.t(`sitting_position${INDEX}_prohibitions`),
         sectionOrderedList: RAW_DATA.prohibitions,
       },
     ]
@@ -78,15 +61,6 @@ const SittingPositionInfoPage: React.FC<Props> = (props) => {
   
   return (
     <VKRootView>
-
-      <VKHeader 
-        title=''
-        backgroundColor='#FDC055'
-        color='#000'
-        barStyle='dark-content'
-        navigation={ props.navigation }
-      />
-      
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 16 }}>
         <View style={{ flex: 1 }}>
           <VKInfoCard 
@@ -99,10 +73,6 @@ const SittingPositionInfoPage: React.FC<Props> = (props) => {
 
     </VKRootView>
   )
-}
+};
 
-const LocalStyle = StyleSheet.create({
-  // 
-});
-
-export default SittingPositionInfoPage
+export default SittingPositionInfoPage;
