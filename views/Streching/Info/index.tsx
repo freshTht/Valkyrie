@@ -1,55 +1,24 @@
 /* eslint-disable */
-import React, {Component} from 'react'
+import React from 'react'
 import {
-  StyleSheet,
   View,
   ScrollView,
-  Dimensions,
 } from 'react-native'
 
-// import {
-//   Button,
-//   Text
-// } from 'react-native-elements'
-
-import {
-  FontAwesome5,
-  MaterialCommunityIcons,
-  MaterialIcons,
-} from '@expo/vector-icons'
-
-import { SharedStyle } from '@app/components/styles'
-
-import VKHeader from '@app/components/VKHeader'
-import { VKInfoCard, VKSection } from '@app/components/VKInfoCard'
-import { renderMenuItems } from '@app/components/utils'
+import { VKInfoCard } from '@app/components/VKInfoCard'
 import i18n from 'i18n-js'
 import VKRootView from '@app/components/VKRootView'
 
 interface Props {
-  navigation?: any
+  route?: any
 }
 
 const StrechingInfoPage: React.FC<Props> = (props) => {
-
-  // STATE
-  // let [balance, setBalance] = React.useState<number>();
-
-  React.useEffect(() => {
-    // componentDidMount
-
-    const componentWillUnmount = () => {
-      // do something..
-    }
-    return componentWillUnmount
-  }, [])
-
   // PARAM
-  let INDEX = props.navigation.getParam('INDEX', 1)
-  // let IMG_SRC = props.navigation.getParam('IMG_SRC', '')
+  const { INDEX } = props.route.params;
   
   // DATA
-  const RAW_DATA = i18n.t(`streching_types`)[INDEX]
+  const RAW_DATA = i18n.t(`streching_types`)[INDEX] as any;
   const DATA: any = {
     title: RAW_DATA.title_full,
     contentSections: []
@@ -58,10 +27,8 @@ const StrechingInfoPage: React.FC<Props> = (props) => {
     const METHOD = RAW_DATA.methods[i]
 
     DATA.contentSections.push({
-      // sectionImageSource: IMG_SRC[i],
       sectionImageSource: METHOD.image,
     })
-    // console.log(JSON.stringify(IMG_SRC[INDEX]));
 
     DATA.contentSections.push({
       sectionTitle: (
@@ -93,21 +60,10 @@ const StrechingInfoPage: React.FC<Props> = (props) => {
         isSeperatorSection: true,
       })
     }
-
   }
-  
   
   return (
     <VKRootView>
-
-      <VKHeader 
-        title=''
-        backgroundColor='#4FAFA1'
-        color='#fff'
-        barStyle='light-content'
-        navigation={ props.navigation }
-      />
-      
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 16 }}>
         <View style={{ flex: 1 }}>
           <VKInfoCard 
@@ -117,13 +73,8 @@ const StrechingInfoPage: React.FC<Props> = (props) => {
           />
         </View>
       </ScrollView>
-
     </VKRootView>
   )
-}
-
-const LocalStyle = StyleSheet.create({
-  // 
-});
+};
 
 export default StrechingInfoPage

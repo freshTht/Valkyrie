@@ -33,35 +33,35 @@ import I18n from 'i18n-js'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 enum HeaderStyle {
-  white = 'white',
-  green = 'green',
-  red = 'red',
-  yellow = 'yellow',
-  orange = 'orange',
+  white = '#fff',
+  green = '#4FAFA1',
+  red = '#E16E5B',
+  yellow = '#FDC055',
+  orange = '#EC8C50',
 };
 const headerStyles: Record<HeaderStyle, Partial<StackNavigationOptions>> = {
-  white: {
+  [HeaderStyle.white]: {
     headerStyle: { backgroundColor: '#fff' },
     headerTintColor: '#000',
   },
-  green: {
+  [HeaderStyle.green]: {
     headerStyle: { backgroundColor: '#4FAFA1' },
     headerTintColor: '#fff',
   },
-  red: {
+  [HeaderStyle.red]: {
     headerStyle: { backgroundColor: '#E16E5B' },
     headerTintColor: '#fff',
   },
-  yellow: {
+  [HeaderStyle.yellow]: {
     headerStyle: { backgroundColor: '#FDC055' },
     headerTintColor: '#000',
   },
-  orange: {
+  [HeaderStyle.orange]: {
     headerStyle: { backgroundColor: '#EC8C50' },
     headerTintColor: '#fff',
   },
 }
-const buildScreenHeaderOptions = (title: string, style: HeaderStyle = HeaderStyle.white) => {
+const buildScreenOptions = (title: string, style: HeaderStyle = HeaderStyle.white) => {
   return {
     title,
     ...headerStyles[style],
@@ -82,88 +82,96 @@ const AppContainer = () => (
     <Stack.Screen
       name="Main"
       component={MainPage}
-      options={buildScreenHeaderOptions('หนูจ๋า')}
+      options={buildScreenOptions('หนูจ๋า')}
     />
     <Stack.Screen
       name="CPInfo"
       component={CPInfoPage}
-      options={buildScreenHeaderOptions('Cerebral palsy คืออะไร', HeaderStyle.green)}
+      options={buildScreenOptions('Cerebral palsy คืออะไร', HeaderStyle.green)}
     />
     <Stack.Screen
       name="CPCauses"
       component={CPCausesPage}
-      options={buildScreenHeaderOptions('ปัจจัยเสี่ยงการเกิดโรค', HeaderStyle.red)}
+      options={buildScreenOptions('ปัจจัยเสี่ยงการเกิดโรค', HeaderStyle.red)}
     />
     <Stack.Screen
       name="CPSymptoms"
       component={CPSymptomsPage}
-      options={buildScreenHeaderOptions(I18n.t('page_title_cpinfo_diagnostic'), HeaderStyle.red)}
+      options={buildScreenOptions(I18n.t('page_title_cpinfo_diagnostic'), HeaderStyle.red)}
     />
     <Stack.Screen
       name="CPCategories"
       component={CPCategoriesPage}
-      options={buildScreenHeaderOptions('การแบ่งประเภทเด็กภาวะสมองพิการ', HeaderStyle.red)}
+      options={buildScreenOptions('การแบ่งประเภทเด็กภาวะสมองพิการ', HeaderStyle.red)}
     />
     <Stack.Screen
       name="CPDiagnostics"
       component={CPDiagnosticsPage}
-      options={buildScreenHeaderOptions(I18n.t('page_title_cpinfo_diagnostic'), HeaderStyle.red)}
+      options={buildScreenOptions(I18n.t('page_title_cpinfo_diagnostic'), HeaderStyle.red)}
     />
     <Stack.Screen
       name="CPMedicalTreatments"
       component={CPMedicalTreatmentsPage}
-      options={buildScreenHeaderOptions(I18n.t('page_title_cpinfo_medical_treatments'), HeaderStyle.red)}
+      options={buildScreenOptions(I18n.t('page_title_cpinfo_medical_treatments'), HeaderStyle.red)}
     />
     <Stack.Screen
       name="CPBodyEquipment"
       component={CPBodyEquipmentPage}
-      options={buildScreenHeaderOptions(I18n.t('cpinfo_body_equipment_title'), HeaderStyle.red)}
+      options={buildScreenOptions(I18n.t('cpinfo_body_equipment_title'), HeaderStyle.red)}
     />
     <Stack.Screen
       name="SittingPosition"
       component={SittingPositionPage}
-      options={buildScreenHeaderOptions(I18n.t('page_title_sitting_position'), HeaderStyle.yellow)}
+      options={buildScreenOptions(I18n.t('page_title_sitting_position'), HeaderStyle.yellow)}
     />
     <Stack.Screen
       name="SittingPositionInfo"
       component={SittingPositionInfoPage}
-      options={buildScreenHeaderOptions('', HeaderStyle.yellow)}
+      options={buildScreenOptions('', HeaderStyle.yellow)}
     />
     <Stack.Screen
       name="WrongSittingPosition"
       component={WrongSittingPositionPage}
-      options={buildScreenHeaderOptions(I18n.t('page_title_wrong_sitting_position'), HeaderStyle.orange)}
+      options={buildScreenOptions(I18n.t('page_title_wrong_sitting_position'), HeaderStyle.orange)}
     />
     <Stack.Screen
       name="WrongSittingPositionInfo"
       component={WrongSittingPositionInfoPage}
+      options={buildScreenOptions('', HeaderStyle.orange)}
     />
     <Stack.Screen
       name="Routine"
       component={RoutinePage}
-      options={buildScreenHeaderOptions('กิจวัตรประจำวัน',HeaderStyle.red)}
+      options={buildScreenOptions('กิจวัตรประจำวัน', HeaderStyle.red)}
     />
     <Stack.Screen
       name="RoutineInfo"
       component={RoutineInfoPage}
+      options={({ route }) => {
+        const { INDEX, TINT_COLOR } = route.params as any;
+        const RAW_DATA = I18n.t(`routine_items`)[INDEX] as any;
+        return buildScreenOptions(RAW_DATA.title, TINT_COLOR);
+      }}
     />
     <Stack.Screen
       name="Streching"
       component={StrechingPage}
-      options={buildScreenHeaderOptions(I18n.t('page_title_streching'), HeaderStyle.green)}
+      options={buildScreenOptions(I18n.t('page_title_streching'), HeaderStyle.green)}
     />
     <Stack.Screen
       name="StrechingInfo"
       component={StrechingInfoPage}
+      options={buildScreenOptions('', HeaderStyle.green)}
     />
     <Stack.Screen
       name="Exercise"
       component={ExercisePage}
-      options={buildScreenHeaderOptions(I18n.t('page_title_exercise'), HeaderStyle.yellow)}
+      options={buildScreenOptions(I18n.t('page_title_exercise'), HeaderStyle.yellow)}
     />
     <Stack.Screen
       name="ExerciseInfo"
       component={ExerciseInfoPage}
+      options={buildScreenOptions('', HeaderStyle.yellow)}
     />
   </Stack.Navigator>
 );

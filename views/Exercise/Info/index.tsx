@@ -1,55 +1,24 @@
 /* eslint-disable */
-import React, {Component} from 'react'
+import React from 'react'
 import {
-  StyleSheet,
   View,
   ScrollView,
-  Dimensions,
 } from 'react-native'
 
-// import {
-//   Button,
-//   Text
-// } from 'react-native-elements'
-
-import {
-  FontAwesome5,
-  MaterialCommunityIcons,
-  MaterialIcons,
-} from '@expo/vector-icons'
-
-import { SharedStyle } from '@app/components/styles'
-
-import VKHeader from '@app/components/VKHeader'
-import { VKInfoCard, VKSection } from '@app/components/VKInfoCard'
-import { renderMenuItems } from '@app/components/utils'
+import { VKInfoCard } from '@app/components/VKInfoCard'
 import i18n from 'i18n-js'
 import VKRootView from '@app/components/VKRootView'
 
 interface Props {
-  navigation?: any
+  route?: any
 }
 
 const ExerciseInfoPage: React.FC<Props> = (props) => {
-
-  // STATE
-  // let [balance, setBalance] = React.useState<number>();
-
-  React.useEffect(() => {
-    // componentDidMount
-
-    const componentWillUnmount = () => {
-      // do something..
-    }
-    return componentWillUnmount
-  }, [])
-
   // PARAM
-  let INDEX = props.navigation.getParam('INDEX', 1)
-  let IMG_SRC = props.navigation.getParam('IMG_SRC', '')
+  const { INDEX, IMG_SRC } = props.route.params;
   
   // DATA
-  const RAW_DATA = i18n.t(`exercise_types`)[INDEX]
+  const RAW_DATA = i18n.t(`exercise_types`)[INDEX] as any;
   const DATA: any = {
     title: RAW_DATA.title_full,
     contentSections: [
@@ -73,29 +42,15 @@ const ExerciseInfoPage: React.FC<Props> = (props) => {
       
       DATA.contentSections.push(TITLE_AND_IMGS);
       
-      // console.log(`${i} ${JSON.stringify(IMG)}`)
       if (IMG) { // if image exists
         if (!IMG[0]) {  // if not an array
           TITLE_AND_IMGS.sectionImageSource = IMG;
         }
         else {
           TITLE_AND_IMGS.sectionMultipleImageSource = IMG;
-          // IMG.forEach((elm: any) => {
-          //   DATA.contentSections.push({
-          //     sectionImageSource: elm,
-          //   });
-          // })
         }
       }
     }
-
-    // if (IMG_SRC[i]) {
-    //   DATA.contentSections.push({
-    //     sectionImageSource: IMG_SRC[i],
-    //   })
-    // }
-    // console.log(JSON.stringify(IMG_SRC[INDEX]));
-    
 
     if (METHOD.description || METHOD.steps) {
       DATA.contentSections.push({
@@ -111,7 +66,6 @@ const ExerciseInfoPage: React.FC<Props> = (props) => {
 
     if (METHOD.multiSteps) {
       for (let key in METHOD.multiSteps) {
-        // console.log(key)
         DATA.contentSections.push({
           sectionTitle: key,
           sectionOrderedList: METHOD.multiSteps[key],
@@ -131,7 +85,6 @@ const ExerciseInfoPage: React.FC<Props> = (props) => {
         sectionContent: METHOD.advice,
       })
     }
-    // console.log(METHOD.advice)
 
     if (METHOD.warnings) {
       DATA.contentSections.push({
@@ -149,18 +102,8 @@ const ExerciseInfoPage: React.FC<Props> = (props) => {
     }
   }
   
-  
   return (
     <VKRootView>
-
-      <VKHeader 
-        title=''
-        backgroundColor='#FDC055'
-        color='#000'
-        barStyle='dark-content'
-        navigation={ props.navigation }
-      />
-      
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 16 }}>
         <View style={{ flex: 1 }}>
           <VKInfoCard 
@@ -170,13 +113,8 @@ const ExerciseInfoPage: React.FC<Props> = (props) => {
           />
         </View>
       </ScrollView>
-
     </VKRootView>
-  )
-}
-
-const LocalStyle = StyleSheet.create({
-  // 
-});
+  );
+};
 
 export default ExerciseInfoPage

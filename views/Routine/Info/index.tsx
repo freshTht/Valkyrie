@@ -1,31 +1,13 @@
 /* eslint-disable */
-import React, {Component} from 'react'
+import React from 'react'
 import {
-  StyleSheet,
   View,
   ScrollView,
-  Dimensions,
 } from 'react-native'
 
-// import {
-//   Button,
-//   Text
-// } from 'react-native-elements'
-
-import {
-  FontAwesome5,
-  MaterialCommunityIcons,
-  MaterialIcons,
-} from '@expo/vector-icons'
-
-import { SharedStyle } from '@app/components/styles'
-
-import VKHeader from '@app/components/VKHeader'
 import { VKInfoCard, VKSection } from '@app/components/VKInfoCard'
-import { renderMenuItems } from '@app/components/utils'
 import i18n from 'i18n-js'
 import VKRootView from '@app/components/VKRootView'
-import { Route } from '@react-navigation/native'
 
 interface Props {
   route: any;
@@ -33,7 +15,7 @@ interface Props {
 }
 
 const RoutineInfoPage: React.FC<Props> = (props) => {
-  const { INDEX, TINT_COLOR, IMAGES, CAUTION_IMAGE } = props.route.params;
+  const { INDEX, IMAGES, CAUTION_IMAGE } = props.route.params;
   const RAW_DATA = i18n.t(`routine_items`)[INDEX] as any;
   
   const CAUTION_CARD = RAW_DATA.caution && {
@@ -107,25 +89,16 @@ const RoutineInfoPage: React.FC<Props> = (props) => {
   
   return (
     <VKRootView>
-
-      <VKHeader 
-        title={ RAW_DATA.title }
-        backgroundColor={ TINT_COLOR }
-        color='#fff'
-        barStyle='light-content'
-        navigation={ props.navigation }
-      />
-      
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 16 }}>
         <View style={{ flex: 1 }}>
           {
-            CAUTION_CARD ?
-            <VKInfoCard 
-              title={ CAUTION_CARD.title }
-              titleAlignment='left'
-              contentSections={ CAUTION_CARD.contentSections }
-            />
-            : <></>
+            CAUTION_CARD && (
+              <VKInfoCard 
+                title={ CAUTION_CARD.title }
+                titleAlignment='left'
+                contentSections={ CAUTION_CARD.contentSections }
+              />
+            )
           }
           {
             CARDS_DATA.map((CARD_ITEM, index) => (
@@ -139,13 +112,8 @@ const RoutineInfoPage: React.FC<Props> = (props) => {
           }
         </View>
       </ScrollView>
-
     </VKRootView>
-  )
-}
-
-const LocalStyle = StyleSheet.create({
-  // 
-});
+  );
+};
 
 export default RoutineInfoPage

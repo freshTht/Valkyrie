@@ -1,15 +1,10 @@
 /* eslint-disable */
-import React, {Component} from 'react'
+import React from 'react'
 import {
   StyleSheet,
   View,
   ScrollView,
 } from 'react-native'
-
-// import {
-//   Button,
-//   Text
-// } from 'react-native-elements'
 
 import {
   FontAwesome5,
@@ -17,12 +12,8 @@ import {
   MaterialIcons,
 } from '@expo/vector-icons'
 
-import { SharedStyle } from '@app/components/styles'
-
-import VKHeader from '@app/components/VKHeader'
 import { renderMenuItems, MenuItemData } from '@app/components/utils'
 import Meaning from '@app/components/Routine/Meaning'
-// const DefaultTouchableComponent = TouchableOpacity
 
 import i18n from 'i18n-js'
 import VKRootView from '@app/components/VKRootView'
@@ -32,19 +23,6 @@ interface Props {
 }
 
 const RoutinePage: React.FC<Props> = (props) => {
-
-  // STATE
-  // let [balance, setBalance] = React.useState<number>();
-
-  React.useEffect(() => {
-    // componentDidMount
-
-    const componentWillUnmount = () => {
-      // do something..
-    }
-    return componentWillUnmount
-  }, [])
-
   // MENU items
   const MENU_ITEMS: MenuItemData[] = []
   const RAW_DATA = i18n.t('routine_items')
@@ -229,7 +207,7 @@ const RoutinePage: React.FC<Props> = (props) => {
     },
   ]
   for (var i = 0; i < RAW_DATA.length; i++) {
-    const ITEM = RAW_DATA[i]
+    const ITEM = RAW_DATA[i] as any;
     MENU_ITEMS.push({
       title: ITEM.title,
       backgroundColor: ITEM.backgroundColor,
@@ -246,12 +224,12 @@ const RoutinePage: React.FC<Props> = (props) => {
 
   return (
     <VKRootView>
-      <ScrollView style={{ flex: 1 }} contentContainerStyle={LocalStyle.mainMenu}>
+      <ScrollView style={{ flex: 1 }}>
         <View style={{ flex: 1 }}>
           <Meaning />
           <View style={LocalStyle.menuListRight}>
             {
-              renderMenuItems(MENU_ITEMS, props.navigation)
+              renderMenuItems(MENU_ITEMS, props.navigation, 'right')
             }
           </View>
         </View>
@@ -261,12 +239,6 @@ const RoutinePage: React.FC<Props> = (props) => {
 }
 
 const LocalStyle = StyleSheet.create({
-  mainMenu: {
-    // paddingHorizontal: 12,
-    // paddingVertical: 16,
-    // flex: 1,
-  },
-  
   menuListRight: {
     flex: 1,
     alignSelf: 'flex-end',
