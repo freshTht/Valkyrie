@@ -94,13 +94,14 @@ const VKInfoCard: React.FC<Props> = (props) => {
           
           {
             s.sectionImageSource && (
-              <>
-                <Text>IMG_WIDTH = {IMG_WIDTH}</Text>
-                <Image source={s.sectionImageSource} 
-                  style={{ marginLeft: 'auto', marginRight: 'auto' }}
-                  width={IMG_WIDTH}
-                />
-              </>
+              <Image source={s.sectionImageSource} 
+                style={{
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                  width: IMG_WIDTH,
+                  height: IMG_WIDTH,
+                }}
+              />
             )
           }
 
