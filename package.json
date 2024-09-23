@@ -42,6 +42,7 @@
     "babel-preset-expo": "~11.0.0",
     "eslint-import-resolver-babel-module": "^5.1.0",
     "eslint-plugin-import": "^2.19.1",
+    "expo-dev-client": "~4.0.26",
     "metro-react-native-babel-preset": "^0.77.0",
     "typescript": "~5.3.3"
   },
