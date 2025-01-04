@@ -1,8 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { createStackNavigator, StackNavigationOptions } from '@react-navigation/stack'
-
-// FONT
-import * as Font from 'expo-font'
+import React from 'react'
+import { StackNavigationOptions } from '@react-navigation/stack'
 
 // PAGES
 import MainPage from '@app/views/MainPage'
@@ -27,14 +24,15 @@ import ExerciseInfoPage from './views/Exercise/Info'
 // LOCALIZATION
 require('@app/utils/localizations')
 
-import { Asset } from 'expo-asset'
 import { NavigationContainer } from '@react-navigation/native'
 import I18n from 'i18n-js'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { FontFamily, SharedStyle } from './components/styles'
-import { StyleProp, TextStyle } from 'react-native'
+import { useFonts } from 'expo-font'
+import { createNativeStackNavigator, NativeStackNavigationOptions } from '@react-navigation/native-stack'
 
 enum HeaderStyle {
+  transparent = 'transparent',
   white = '#fff',
   green = '#4FAFA1',
   red = '#E16E5B',
@@ -43,7 +41,12 @@ enum HeaderStyle {
 };
 
 const headerTitleStyle = SharedStyle.HeaderTitle;
-const headerStyles: Record<HeaderStyle, Partial<StackNavigationOptions>> = {
+const headerStyles: Record<HeaderStyle, Partial<NativeStackNavigationOptions>> = {
+  [HeaderStyle.transparent]: {
+    headerTintColor: '#000',
+    headerTitleStyle,
+    headerTransparent: true,
+  },
   [HeaderStyle.white]: {
     headerStyle: { backgroundColor: '#fff' },
     headerTintColor: '#000',
@@ -80,7 +83,7 @@ const buildScreenOptions = (title: string, style: HeaderStyle = HeaderStyle.whit
 //
 // Main Navigator
 //
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 const AppContainer = () => (
   <Stack.Navigator
     initialRouteName='Main'
@@ -186,29 +189,11 @@ const AppContainer = () => (
 );
 
 const App = () => {
-  const [ fontLoaded, setFontLoaded ] = useState(false)
-  
-  const loadFontAsync = async () => {
-    await Font.loadAsync({
-      [FontFamily.DefaultBold]: require('./assets/fonts/RSUText_Regular.ttf'),
-      [FontFamily.DefaultRegular]: require('./assets/fonts/RSUText_Bold.ttf'),
-    })
-    setFontLoaded(true)
-  }
-  const loadImageAsync = async () => {
-    const images = [
-      require("./assets/_brand/bg.png"),   
-    ]
-    for (let image of images) {
-      await Asset.fromModule(image).downloadAsync()
-    }
-  }
+  const [fontLoaded] = useFonts({
+    [FontFamily.DefaultRegular]: require('./assets/fonts/RSUText_Regular.ttf'),
+    [FontFamily.DefaultBold]: require('./assets/fonts/RSUText_Bold.ttf'),
+  });
 
-  useEffect(() => {
-    // componentDidMount
-    loadFontAsync()
-    loadImageAsync()
-  }, [])
   return fontLoaded && (
     <SafeAreaProvider>
       <NavigationContainer>

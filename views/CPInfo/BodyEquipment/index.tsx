@@ -9,6 +9,7 @@ import {
 import i18n from 'i18n-js'
 import VKInfoCard from '@app/components/VKInfoCard'
 import VKRootView from '@app/components/VKRootView'
+import { VKPageContainer } from '@app/components/VKPageContainer'
 
 interface Props {
   route: any;
@@ -44,22 +45,16 @@ const BodyEquipmentPage: React.FC<Props> = (props) => {
   }
 
   return (
-    <VKRootView>
-      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 16 }}>
-        <View style={{ flex: 1 }}>
-          {
-            CARDS_DATA.map((CARD_ITEM, index) => (
-              <VKInfoCard 
-                key={index}
-                title={ CARD_ITEM.title }
-                titleAlignment='left'
-                contentSections={CARD_ITEM.contentSections}
-              />
-            ))
-          }
-        </View>
-      </ScrollView>
-    </VKRootView>
+    <VKPageContainer>
+      {CARDS_DATA.map((CARD_ITEM, index) => (
+        <VKInfoCard 
+          key={index}
+          title={ CARD_ITEM.title }
+          titleAlignment='left'
+          contentSections={CARD_ITEM.contentSections}
+        />
+      ))}
+    </VKPageContainer>
   )
 };
 

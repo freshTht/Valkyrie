@@ -7,6 +7,7 @@ import {
 
 import Symptoms from '@app/components/CPInfo/Symptoms'
 import VKRootView from '@app/components/VKRootView'
+import { VKPageContainer } from '@app/components/VKPageContainer'
 
 interface Props {
   navigation?: any
@@ -14,11 +15,9 @@ interface Props {
 
 const DiagnosticsPage: React.FC<Props> = (_) => {
   return (
-    <VKRootView>
-      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 16 }}>
-        <Symptoms/>
-      </ScrollView>
-    </VKRootView>
+    <VKPageContainer>
+      <Symptoms/>
+    </VKPageContainer>
   )
 };
 

@@ -5,11 +5,14 @@ import {
   Dimensions,
   ImageSourcePropType,
   Image,
+  Text,
 } from 'react-native'
 
 import StyledText from 'react-native-styled-text'
 import { FontFamily, SharedStyle } from '@app/components/styles'
 import { MenuItemData, VKMenuItem, VKMenuItemStyle } from '@app/components/VKMenuItem'
+import { BorderRadius } from '../styles/enum/BorderRadius.enum'
+import { Spacing } from '../styles/enum/Spacing.enum'
 
 //
 // MENU ITEMS
@@ -30,31 +33,31 @@ const renderOrderedList = (listItems: string[], listImages: ImageSourcePropType[
   const AVAILABLE_SPACE = Dimensions.get('window').width - (2*16) - (2*12)
   const IMG_WIDTH = AVAILABLE_SPACE * 0.8
 
-  return listItems.map((item, index) => (
-    <View key={index}>
-      <View style={LocalStyle.OrderedListRow}>
-        {
-          hideOrders === false ?
-          <StyledText style={[ SharedStyle.Content, { marginRight: 8, fontFamily: FontFamily.DefaultBold }]}>
-            { `<b>${index+1}.</b>` }
-          </StyledText>
-          : <></>
-        }
-        <StyledText style={[ SharedStyle.Content, { flex: 1 }]}>
-          { item }
-        </StyledText>
-      </View>
-
-      {
-        listImages[index] ? 
-        <Image source={listImages[index]} 
-          style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: 32 }}
-          width={IMG_WIDTH}
-        />
-        : <></>
-      }
-    </View> 
-  ))
+  return (
+    <View style={{ display: 'flex', flexDirection: 'column', rowGap: Spacing.M }}>
+      {listItems.map((item, index) => (
+        <View key={index}>
+          <View style={LocalStyle.OrderedListRow}>
+            {!hideOrders && (
+              <Text style={SharedStyle.OrderedListNumber}>
+                { index + 1 }
+              </Text>
+            )}
+            <Text style={[ SharedStyle.Content, { flex: 1 }]}>
+              { item }
+            </Text>
+          </View>
+    
+          {listImages[index] && (
+            <Image source={listImages[index]} 
+              style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: 32 }}
+              width={IMG_WIDTH}
+            />
+          )}
+        </View> 
+      ))}
+    </View>
+  );
 }
 const renderUnorderedList = (listItems: string[], listImages: ImageSourcePropType[] = []) => {
   return renderOrderedList(listItems, listImages, true)
@@ -79,7 +82,9 @@ const LocalStyle = StyleSheet.create({
   },
   OrderedListRow: {
     flexDirection: 'row',
-    marginBottom: 8,
+    backgroundColor: '#fff',
+    padding: 12,
+    borderRadius: BorderRadius.M,
   },
 })
 

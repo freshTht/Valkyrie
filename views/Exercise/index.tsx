@@ -1,21 +1,11 @@
-/* eslint-disable */
 import React from 'react'
-import {
-  View,
-  ScrollView,
-} from 'react-native'
-
 import i18n from 'i18n-js'
 
 import Note from '@app/components/Exercise/Note'
-import VKRootView from '@app/components/VKRootView'
 import { VKCarousel } from '@app/components/VKCarousel'
+import { VKPageContainer } from '@app/components/VKPageContainer'
 
-interface Props {
-  navigation?: any
-}
-
-const ExerciseTutorialPage: React.FC<Props> = (props) => {
+const ExerciseTutorialPage: React.FC = () => {
   // STATE
   let [loading, setLoading] = React.useState<boolean>(true);
 
@@ -29,7 +19,7 @@ const ExerciseTutorialPage: React.FC<Props> = (props) => {
   // 
   // PARAMS
   // 
-  const DATA = i18n.t(`exercise_types`) as any;
+  const DATA = i18n.t(`exercise_types`) as unknown as any[];
   const COVER_IMG_FILES = [
     require('@app/assets/colored/Exercise/COM/17ขยับ.gif'),
     require('@app/assets/colored/Exercise/COM/26weat.png'),
@@ -79,43 +69,25 @@ const ExerciseTutorialPage: React.FC<Props> = (props) => {
     [
       require('@app/assets/colored/Exercise/COM/1ขยับ.gif'),
     ],
-    [
-      '',   // TODO: add image
-    ],
   ]
 
   // MENU items
-  let carouselItems = []
-  for (var i = 0; i < DATA.length; i++) {
-    let ITEM = DATA[i]
+  let carouselItems = DATA.map((ITEM, i) => ({
+    title: ITEM.title,
+    href: 'ExerciseInfo',
+    imgSrc: COVER_IMG_FILES[i],
+    hrefParams: {
+      INDEX: i,
+      IMG_SRC: IMG_FILES[i],
+    },
+  }));
 
-    carouselItems.push({
-      title: ITEM.title,
-      href: 'ExerciseInfo',
-      imgSrc: COVER_IMG_FILES[i],
-      hrefParams: {
-        INDEX: i,
-        IMG_SRC: IMG_FILES[i],
-      },
-      backgroundColor: '#325E96',
-    })
-  }
-
-  if (loading) {
-    return <></>
-  }
-  else {
-    return (
-      <VKRootView>
-        <ScrollView style={{ flex: 1 }}>
-          <View style={{ flex: 1, paddingBottom: 16 }}>
-            <Note />
-            <VKCarousel data={carouselItems} />
-          </View>
-        </ScrollView>
-      </VKRootView>
-    )
-  }
+  return (
+    <VKPageContainer>
+      <Note />
+      <VKCarousel data={carouselItems} />
+    </VKPageContainer>
+  );
 }
 
 export default ExerciseTutorialPage

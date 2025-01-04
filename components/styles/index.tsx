@@ -2,6 +2,9 @@ import {
   Dimensions,
   StyleSheet
 } from 'react-native'
+import { BorderRadius } from './enum/BorderRadius.enum';
+import { FontSize } from './enum/FontSize';
+import { Spacing } from './enum/Spacing.enum';
 
 const { width, height } = Dimensions.get('window')
 
@@ -21,57 +24,83 @@ const SharedStyle = StyleSheet.create({
     // fontWeight: 'bold',
 
     fontFamily: FontFamily.DefaultBold,
-    fontSize: 32,
+    fontSize: FontSize.Title,
   },
   Content: {
-    // fontSize: 15,
-    fontFamily: FontFamily.DefaultRegular,
-    fontSize: 24,
+    fontFamily: FontFamily.DefaultBold,
+    opacity: 0.6,
+    fontSize: FontSize.Content,
   },
+  ContentBold: {
+    fontFamily: FontFamily.DefaultBold,
+    fontSize: FontSize.Content,
+  },
+  
+  OrderedListNumber: {
+    fontFamily: FontFamily.DefaultBold,
+    fontSize: FontSize.Content,
+    // marginTop: 4,
+    marginRight: 12,
+    backgroundColor: '#4FAFA1',
+    color: '#fff',
+    height: 32,
+    width: 32,
+    textAlign: 'center',
+    borderRadius: BorderRadius.L,
+  },
+
   Subtitle: {
-    // fontSize: 15,
     marginBottom: 12,
 
     fontFamily: FontFamily.DefaultRegular,
-    fontSize: 28,
-    // marginLeft: 24,
+    fontSize: FontSize.Content,
   },
   InfoCard: {
-    borderRadius: 8,
+    borderRadius: BorderRadius.XL,
     backgroundColor: 'rgba(255, 255, 255, 0.75)',
 
     paddingVertical: 20,
     paddingHorizontal: 20,
 
-    margin: 16,
+    // margin: 16,
     // shadowColor: 'rgba(0, 0, 0, 0.25)',
-    borderColor: 'rgba(100, 100, 100, 0.1)',
-    borderWidth: 1,
+    // borderColor: 'rgba(100, 100, 100, 0.1)',
+    // borderWidth: 1,
   },
   SubSection: {
-    marginTop: 16,
-    marginBottom: 16,
+    // marginTop: 16,
+    // marginBottom: 16,
+    marginVertical: 8,
   },
   SubSectionTitle: {
     marginBottom: 4,
     // fontSize: 15,
     // fontWeight: 'bold',
     fontFamily: FontFamily.DefaultBold,
-    fontSize: 24,
+    fontSize: FontSize.SubSectionTitle,
   },
 
   Carousel: {
-    marginBottom: 24,
+    
   },
-  CarouselCard: { 
-    marginHorizontal: 2, 
-    marginVertical: 24, 
+  CarouselItemsContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    overflow: 'visible',
+
+    columnGap: 12,
+    width: '100%',
+  },
+  CarouselCard: {
     paddingHorizontal: 12,
     paddingVertical: 24,
+    // width: width * 0.3,
+    flexShrink: 1,
+    height: '100%',
 
     // backgroundColor: '#424242',
     backgroundColor: '#ffffff',
-    borderRadius: 36,
+    borderRadius: BorderRadius.XL,
   },
   CarouselCardImageContainer: {
     // marginBottom: 0,
@@ -87,29 +116,92 @@ const SharedStyle = StyleSheet.create({
   },
   CarouselCardTitle: {
     color: '#000',
-    // color: '#fff',
     marginTop: 20,
-    // fontSize: 19,
     textAlign: 'center',
 
     fontFamily: FontFamily.DefaultBold,
-    // fontSize: 24,
-    fontSize: 32,
+    fontSize: FontSize.Title,
   },
 
   HeaderTitle: {
-    fontSize: 28, 
+    fontSize: FontSize.Title, 
     // fontWeight: 'bold', 
     fontFamily: FontFamily.DefaultBold,
   },
   
   ButtonText: {
     // fontSize: 17,
-    fontSize: 28,
+    fontSize: FontSize.Button,
     fontFamily: FontFamily.DefaultBold,
   },
   ButtonOrange: {
     backgroundColor: '#EC8C50',
+  },
+
+  ModalFooter: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+  },
+  ModalActionButton: {
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    // fontSize: 36,
+    backgroundColor: '#EBEBEB',
+    borderRadius: BorderRadius.L,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    minWidth: 120,
+  },
+  ModalActionButtonText: {
+    // fontSize: 17,
+    fontSize: FontSize.Button,
+    fontFamily: FontFamily.DefaultBold,
+    textAlign: 'center',
+    alignSelf: 'center',
+  },
+
+  Modal: { 
+    borderTopStartRadius: 24,
+    borderTopEndRadius: 24,
+    padding: 0,
+    backgroundColor: '#fff',
+    height: '100%',
+    maxHeight: '75%',
+    width: '100%',
+    alignItems: 'center',
+    marginTop: 'auto',
+
+    shadowColor: '#000',
+    shadowOpacity: 1,
+    shadowOffset: { width: 4, height: 4 },
+    shadowRadius: 10,
+
+    elevation: 10,
+  },
+  ModalHeader: {
+    width: '100%',
+    padding: 16,
+    textAlign: 'center',
+    // backgroundColor: 'red',
+
+    fontFamily: FontFamily.DefaultBold,
+    fontSize: FontSize.Title,
+  },
+  ModalBackdrop: {
+    // paddingHorizontal: 12,
+    // paddingVertical: 8,
+    backgroundColor: '#00000080',
+  },
+  TuLogo: {
+    alignSelf: 'center',
+    width: 120,
+    height: 120,
+    margin: 16,
   },
 });
 

@@ -8,6 +8,7 @@ import {
 import { VKInfoCard, VKSection } from '@app/components/VKInfoCard'
 import i18n from 'i18n-js'
 import VKRootView from '@app/components/VKRootView'
+import { VKPageContainer } from '@app/components/VKPageContainer'
 
 interface Props {
   route: any;
@@ -88,31 +89,27 @@ const RoutineInfoPage: React.FC<Props> = (props) => {
   }
   
   return (
-    <VKRootView>
-      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 16 }}>
-        <View style={{ flex: 1 }}>
-          {
-            CAUTION_CARD && (
-              <VKInfoCard 
-                title={ CAUTION_CARD.title }
-                titleAlignment='left'
-                contentSections={ CAUTION_CARD.contentSections }
-              />
-            )
-          }
-          {
-            CARDS_DATA.map((CARD_ITEM, index) => (
-              <VKInfoCard 
-                key={index}
-                title={ CARD_ITEM.title }
-                titleAlignment='left'
-                contentSections={CARD_ITEM.contentSections}
-              />
-            ))
-          }
-        </View>
-      </ScrollView>
-    </VKRootView>
+    <VKPageContainer>
+      {
+        CAUTION_CARD && (
+          <VKInfoCard 
+            title={ CAUTION_CARD.title }
+            titleAlignment='left'
+            contentSections={ CAUTION_CARD.contentSections }
+          />
+        )
+      }
+      {
+        CARDS_DATA.map((CARD_ITEM, index) => (
+          <VKInfoCard 
+            key={index}
+            title={ CARD_ITEM.title }
+            titleAlignment='left'
+            contentSections={CARD_ITEM.contentSections}
+          />
+        ))
+      }
+    </VKPageContainer>
   );
 };
 

@@ -3,6 +3,7 @@ import TouchableScale from "react-native-touchable-scale";
 import { StyleSheet, View } from "react-native";
 import StyledText from "react-native-styled-text";
 import { SharedStyle } from "./styles";
+import { Spacing } from "./styles/enum/Spacing.enum";
 
 export interface MenuItemData {
     title?: string,
@@ -39,6 +40,8 @@ const borderRadiusStyles = {
 export const VKMenuItem: React.FC<VKMenuItemProps> = ({ item, navigation, style }) => {
     return item.title && (
         <TouchableScale
+            activeScale={1.1}
+            tension={1}
             onPress={() => navigation.navigate(item.href, item.hrefParams)}
         >
             <View
@@ -72,5 +75,6 @@ const LocalStyle = StyleSheet.create({
         paddingVertical: 8,
         gap: 8,
         // TODO: fix font
+        marginHorizontal: -Spacing.L,
     },
 })

@@ -20,22 +20,7 @@ interface Props {
 }
 
 const Meaning: React.FC<Props> = (props) => {
-  // STATE
-  // let [balance, setBalance] = React.useState<number>();
-
-  // PROPS
-  // const TITLE = props.title ? props.title : ''
-
-  React.useEffect(() => {
-    // componentDidMount
-
-    const componentWillUnmount = () => {
-      // do something..
-    }
-    return componentWillUnmount
-  }, [])
-
-  const DATA = i18n.t('routine_meaning')
+  const DATA = i18n.t('routine_meaning') as any
 
   const TITLE = DATA.title
   const CONTENT = DATA.body
@@ -51,12 +36,5 @@ const Meaning: React.FC<Props> = (props) => {
     </View>
   )
 }
-
-const LocalStyle = StyleSheet.create({
-  header: {
-    width: '100%',
-    height: 100
-  },
-});
 
 export default Meaning

@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react'
 import {
   View,
@@ -8,6 +7,7 @@ import {
 import { VKInfoCard } from '@app/components/VKInfoCard'
 import i18n from 'i18n-js'
 import VKRootView from '@app/components/VKRootView'
+import { VKPageContainer } from '@app/components/VKPageContainer'
 
 interface Props {
   route?: any
@@ -63,18 +63,14 @@ const StrechingInfoPage: React.FC<Props> = (props) => {
   }
   
   return (
-    <VKRootView>
-      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 16 }}>
-        <View style={{ flex: 1 }}>
-          <VKInfoCard 
-            title={ DATA.title }
-            titleAlignment='center'
-            contentSections={ DATA.contentSections }
-          />
-        </View>
-      </ScrollView>
-    </VKRootView>
-  )
+    <VKPageContainer>
+      <VKInfoCard 
+        title={ DATA.title }
+        titleAlignment='center'
+        contentSections={ DATA.contentSections }
+      />
+    </VKPageContainer>
+  );
 };
 
 export default StrechingInfoPage

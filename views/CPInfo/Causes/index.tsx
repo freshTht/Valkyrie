@@ -1,24 +1,13 @@
-/* eslint-disable */
-
 import React from 'react'
-import {
-  ScrollView,
-} from 'react-native'
 
 import Causes from '@app/components/CPInfo/Causes'
-import VKRootView from '@app/components/VKRootView'
+import { VKPageContainer } from '@app/components/VKPageContainer'
 
-interface Props {
-  navigation?: any
-}
-
-const CausesPage: React.FC<Props> = (props) => {
+const CausesPage: React.FC = () => {
   return (
-    <VKRootView>
-      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 16 }}>
-        <Causes />
-      </ScrollView>      
-    </VKRootView>
+    <VKPageContainer>
+      <Causes />
+    </VKPageContainer>
   )
 };
 

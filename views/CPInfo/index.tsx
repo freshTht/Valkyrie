@@ -20,6 +20,9 @@ import {
 
 import Meaning from '@app/components/CPInfo/Meaning'
 import VKRootView from '@app/components/VKRootView'
+import { BorderRadius } from '@app/components/styles/enum/BorderRadius.enum'
+import { VKPageContainer } from '@app/components/VKPageContainer'
+import { Spacing } from '@app/components/styles/enum/Spacing.enum'
 
 interface Props {
   navigation?: any
@@ -72,19 +75,12 @@ const CPInfoPage: React.FC<Props> = (props) => {
   ]
   
   return (
-    <VKRootView>
-      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 16 }}>
-        <View style={{ flex: 1 }}>
-          <Meaning />
-          <View style={LocalStyle.menuListRight}>
-            {
-              renderMenuItems(menuItems, props.navigation)
-            }
-          </View>
-        </View>
-      </ScrollView>
-
-    </VKRootView>
+    <VKPageContainer>
+      <Meaning />
+      <View style={LocalStyle.menuListRight}>
+        {renderMenuItems(menuItems, props.navigation)}
+      </View>
+    </VKPageContainer>
   )
 }
 
@@ -105,11 +101,12 @@ const LocalStyle = StyleSheet.create({
     width: 240,
     marginTop: 20,
     marginBottom: 8,
+    marginRight: -Spacing.L,
   },
 
   menuCard: {
     padding: 0,
-    borderRadius: 8,
+    borderRadius: BorderRadius.S,
   }
 });
 

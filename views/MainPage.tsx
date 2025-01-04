@@ -2,44 +2,22 @@
 
 import React from 'react'
 import {
+  Modal,
   StyleSheet,
   View,
 } from 'react-native'
 
-import Modal from 'react-native-modal'
-
 import { MenuItemData, renderMenuItems } from '@app/components/utils'
 import VKRootView from '@app/components/VKRootView'
-import FirstTimeMessage from '@app/components/FirstTimeMessage'
 
-// ASYNC STORAGE
-import _dontShowOverlay from '@app/utils/preferences/dontShowOverlay'
+import { FirstTimeMessageModal } from '@app/components/FirstTimeMessageModal'
+import { VKPageContainer } from '@app/components/VKPageContainer'
 
 interface Props {
   navigation?: any
 }
 
 const MainPage: React.FC<Props> = (props) => {
-
-  // STATE
-  let [overlayVisible, setOverlayVisible] = React.useState<boolean>(false);
-
-  React.useEffect(() => {
-    // componentDidMount
-    setTimeout(async () => {
-      const dontShowOverlayAgain = await _dontShowOverlay.load()
-      if (dontShowOverlayAgain === false) {
-        setOverlayVisible(true)
-      }
-
-    }, 100)
-
-    const componentWillUnmount = () => {
-      // do something..
-    }
-    return componentWillUnmount
-  }, [])
-
   // MENU items
   const menuList1: MenuItemData[] = [
     {
@@ -79,36 +57,20 @@ const MainPage: React.FC<Props> = (props) => {
   ]
 
   return (
-    <VKRootView>
-      <View style={LocalStyle.mainMenu}>
+    <>
+      <VKPageContainer>
         <View style={LocalStyle.menuListLeft}>
-          {
-            renderMenuItems(menuList1, props.navigation, 'left')
-          }
+          { renderMenuItems(menuList1, props.navigation, 'left') }
         </View>
 
         <View style={{ height: 20 }}/>
 
         <View style={LocalStyle.menuListRight}>
-          {
-            renderMenuItems(menuList2, props.navigation, 'right')
-          }
+          { renderMenuItems(menuList2, props.navigation, 'right') }
         </View>
-      </View>
-
-      {/* modal message for first time use */}
-      <Modal
-        isVisible={overlayVisible}
-        animationIn={'fadeInUp'}
-        animationOut={'fadeOutDown'}
-        onBackdropPress={() => setOverlayVisible(false)}
-        onBackButtonPress={() => setOverlayVisible(false)}
-      >
-        <FirstTimeMessage 
-          onCloseButtonPress={() => {setOverlayVisible(false)}}/>
-      </Modal>
-
-    </VKRootView>
+      </VKPageContainer>
+      <FirstTimeMessageModal />
+    </>
   )
 }
 

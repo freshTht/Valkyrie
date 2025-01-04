@@ -5,6 +5,7 @@ import {
   View,
   Dimensions,
   Image,
+  useWindowDimensions,
 } from 'react-native'
 
 import {
@@ -14,48 +15,25 @@ import {
 import i18n from 'i18n-js'
 import { renderOrderedList } from '@app/components/utils'
 import { SharedStyle } from '@app/components/styles'
+import { Spacing } from '../styles/enum/Spacing.enum'
 
-interface Props {
-  // backgroundColor?: string,
-  // title?: string,
-  // navigation?: any,
-}
-
-const CategoriesByAnomalies: React.FC<Props> = (props) => {
-  // STATE
-  // let [balance, setBalance] = React.useState<number>();
-
-  // PROPS
-  // const TITLE = props.title ? props.title : ''
-
-  React.useEffect(() => {
-    // componentDidMount
-
-    const componentWillUnmount = () => {
-      // do something..
-    }
-    return componentWillUnmount
-  }, [])
-
+const CategoriesByAnomalies: React.FC = () => {
   const TITLE = i18n.t('cpcategory_anomalies_title')
   const LIST_ITEMS = i18n.t('cpcategory_anomalies')
-  const IMG_WIDTH = Dimensions.get('window').width - (2*16) - (2*12)
+
+  const dimensions = useWindowDimensions();
+  const IMG_WIDTH = dimensions.width * 0.4;
 
   return (
     <View style={SharedStyle.InfoCard}>
       <Text style={SharedStyle.Title}>
         { TITLE }
       </Text>
-      <View>
-        {
-          renderOrderedList(LIST_ITEMS)
-        }
-      </View>
+      {renderOrderedList(LIST_ITEMS)}
       <Image source={require('@app/assets/CPInfo/Categories/plegia.png')} 
-        width={IMG_WIDTH}
         style={{
-          marginTop: IMG_WIDTH * 0.1,
-          marginBottom: IMG_WIDTH * 0.1,
+          marginVertical: Spacing.XL,
+          marginHorizontal: 'auto',
           width: IMG_WIDTH,
           height: IMG_WIDTH,
         }}

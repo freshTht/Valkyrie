@@ -17,6 +17,7 @@ import Meaning from '@app/components/Routine/Meaning'
 
 import i18n from 'i18n-js'
 import VKRootView from '@app/components/VKRootView'
+import { VKPageContainer } from '@app/components/VKPageContainer'
 
 interface Props {
   navigation?: any
@@ -223,18 +224,14 @@ const RoutinePage: React.FC<Props> = (props) => {
   }
 
   return (
-    <VKRootView>
-      <ScrollView style={{ flex: 1 }}>
-        <View style={{ flex: 1 }}>
-          <Meaning />
-          <View style={LocalStyle.menuListRight}>
-            {
-              renderMenuItems(MENU_ITEMS, props.navigation, 'right')
-            }
-          </View>
-        </View>
-      </ScrollView>
-    </VKRootView>
+    <VKPageContainer>
+      <Meaning />
+      <View style={LocalStyle.menuListRight}>
+        {
+          renderMenuItems(MENU_ITEMS, props.navigation, 'right')
+        }
+      </View>
+    </VKPageContainer>
   )
 }
 

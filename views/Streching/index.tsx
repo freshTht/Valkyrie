@@ -1,39 +1,17 @@
-/* eslint-disable */
-import React, {Component} from 'react'
+import React from 'react'
 import {
   View,
   ScrollView,
-  Dimensions,
-  Text,
-  TouchableOpacity,
-  Image,
 } from 'react-native'
-
-
-import { SharedStyle } from '@app/components/styles'
 
 import i18n from 'i18n-js'
 
 import Instruction from '@app/components/Streching/Instruction'
 import VKRootView from '@app/components/VKRootView'
 import { VKCarousel } from '@app/components/VKCarousel'
+import { VKPageContainer } from '@app/components/VKPageContainer'
 
-interface Props {
-  navigation?: any
-}
-
-const StrechingPage: React.FC<Props> = (props) => {
-
-  // STATE
-  let [loading, setLoading] = React.useState<boolean>(true);
-
-  React.useEffect(() => {
-    // componentDidMount
-    setTimeout(() => {
-      setLoading(false)
-    }, 100)
-  }, [])
-
+const StrechingPage: React.FC = () => {
   // 
   // PARAMS
   // 
@@ -54,22 +32,12 @@ const StrechingPage: React.FC<Props> = (props) => {
       backgroundColor: '#325E96',
     })
   }
-
-  if (loading) {
-    return <></>
-  }
-  else {
-    return (
-      <VKRootView>
-        <ScrollView style={{ flex: 1 }}>
-          <View style={{ flex: 1, paddingBottom: 16 }}>
-            <Instruction />
-            <VKCarousel data={carouselItems} />
-          </View>
-        </ScrollView>
-      </VKRootView>
-    )
-  };
+  return (
+    <VKPageContainer>
+      <Instruction />
+      <VKCarousel data={carouselItems} />
+    </VKPageContainer>
+  );
 };
 
 export default StrechingPage;
