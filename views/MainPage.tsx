@@ -59,14 +59,16 @@ const MainPage: React.FC<Props> = (props) => {
   return (
     <>
       <VKPageContainer>
-        <View style={LocalStyle.menuListLeft}>
-          { renderMenuItems(menuList1, props.navigation, 'left') }
-        </View>
+        <View style={{ height: '100%', justifyContent: 'center' }}>
+          <View style={LocalStyle.menuListLeft}>
+            { renderMenuItems(menuList1, props.navigation, 'left') }
+          </View>
 
-        <View style={{ height: 20 }}/>
+          <View style={{ height: 20 }}/>
 
-        <View style={LocalStyle.menuListRight}>
-          { renderMenuItems(menuList2, props.navigation, 'right') }
+          <View style={LocalStyle.menuListRight}>
+            { renderMenuItems(menuList2, props.navigation, 'right') }
+          </View>
         </View>
       </VKPageContainer>
       <FirstTimeMessageModal />
