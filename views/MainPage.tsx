@@ -1,16 +1,13 @@
-/* eslint-disable */
-
 import React from 'react'
 import {
-  Modal,
+  Button,
   StyleSheet,
   View,
 } from 'react-native'
 
 import { MenuItemData, renderMenuItems } from '@app/components/utils'
-import VKRootView from '@app/components/VKRootView'
 
-import { FirstTimeMessageModal } from '@app/components/FirstTimeMessageModal'
+import { AboutModal } from '@app/components/AboutModal'
 import { VKPageContainer } from '@app/components/VKPageContainer'
 
 interface Props {
@@ -57,22 +54,21 @@ const MainPage: React.FC<Props> = (props) => {
   ]
 
   return (
-    <>
-      <VKPageContainer>
-        <View style={{ height: '100%', justifyContent: 'center' }}>
-          <View style={LocalStyle.menuListLeft}>
-            { renderMenuItems(menuList1, props.navigation, 'left') }
-          </View>
-
-          <View style={{ height: 20 }}/>
-
-          <View style={LocalStyle.menuListRight}>
-            { renderMenuItems(menuList2, props.navigation, 'right') }
-          </View>
+    <VKPageContainer>
+      <View style={{ height: '100%', justifyContent: 'center' }}>
+        <View style={LocalStyle.menuListLeft}>
+          { renderMenuItems(menuList1, props.navigation, 'left') }
         </View>
-      </VKPageContainer>
-      <FirstTimeMessageModal />
-    </>
+
+        <View style={{ height: 20 }}/>
+
+        <View style={LocalStyle.menuListRight}>
+          { renderMenuItems(menuList2, props.navigation, 'right') }
+        </View>
+        
+        <AboutModal />
+      </View>
+    </VKPageContainer>
   )
 }
 

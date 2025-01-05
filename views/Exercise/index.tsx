@@ -2,8 +2,9 @@ import React from 'react'
 import i18n from 'i18n-js'
 
 import Note from '@app/components/Exercise/Note'
-import { VKCarousel } from '@app/components/VKCarousel'
+import { VKTileGroup, VKTileGroupVariant } from '@app/components/VKTileGroup'
 import { VKPageContainer } from '@app/components/VKPageContainer'
+import { Spacing } from '@app/components/styles/enum/Spacing.enum'
 
 const ExerciseTutorialPage: React.FC = () => {
   // STATE
@@ -83,9 +84,13 @@ const ExerciseTutorialPage: React.FC = () => {
   }));
 
   return (
-    <VKPageContainer>
-      <Note />
-      <VKCarousel data={carouselItems} />
+    <VKPageContainer scrollable={false}>
+      <VKTileGroup
+        variant="grid"
+        data={carouselItems}
+        ListHeaderComponent={Note}
+        ListHeaderComponentStyle={{ marginBottom: Spacing.XS }}
+      />
     </VKPageContainer>
   );
 }

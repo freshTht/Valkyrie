@@ -8,8 +8,9 @@ import i18n from 'i18n-js'
 
 import Instruction from '@app/components/Streching/Instruction'
 import VKRootView from '@app/components/VKRootView'
-import { VKCarousel } from '@app/components/VKCarousel'
+import { VKTileGroup } from '@app/components/VKTileGroup'
 import { VKPageContainer } from '@app/components/VKPageContainer'
+import { Spacing } from '@app/components/styles/enum/Spacing.enum'
 
 const StrechingPage: React.FC = () => {
   // 
@@ -33,9 +34,13 @@ const StrechingPage: React.FC = () => {
     })
   }
   return (
-    <VKPageContainer>
-      <Instruction />
-      <VKCarousel data={carouselItems} />
+    <VKPageContainer scrollable={false}>
+      <VKTileGroup
+        variant="grid"
+        data={carouselItems}
+        ListHeaderComponent={Instruction}
+        ListHeaderComponentStyle={{ marginBottom: Spacing.XS }}
+      />
     </VKPageContainer>
   );
 };

@@ -2,7 +2,7 @@ import React from 'react'
 import i18n from 'i18n-js'
 
 import Importance from '@app/components/SittingPosition/Importance'
-import { VKCarousel } from '@app/components/VKCarousel'
+import { VKTileGroup } from '@app/components/VKTileGroup'
 import { VKPageContainer } from '@app/components/VKPageContainer'
 
 const SittingPositionPage: React.FC = () => {
@@ -27,7 +27,7 @@ const SittingPositionPage: React.FC = () => {
 
   return (
     <VKPageContainer>
-      <VKCarousel data={carouselItems} />
+      <VKTileGroup variant="carousel" data={carouselItems} />
       <Importance />
     </VKPageContainer>
   );

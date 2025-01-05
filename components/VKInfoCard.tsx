@@ -11,7 +11,6 @@ import {
 import StyledText from 'react-native-styled-text'
 import { renderOrderedList } from '@app/components/utils'
 import { SharedStyle } from '@app/components/styles'
-import { useScaledWindowDimension } from '@app/utils/window/useScaledWindowDimension'
 import { Image } from 'expo-image'
 
 interface VKSection {
@@ -120,19 +119,13 @@ const VKInfoCard: React.FC<Props> = (props) => {
 
   return (
     <View style={SharedStyle.InfoCard}>
-      { 
-        TITLE ?
-        (
-          <Text style={[ SharedStyle.Title, TITLE_ALIGNMENT ]}>
-            { TITLE }
-          </Text>
-        ) 
-        : (<></>)
-      }
+      { TITLE && (
+        <Text style={[ SharedStyle.Title, TITLE_ALIGNMENT ]}>
+          { TITLE }
+        </Text>
+      )}
 
-      {
-        SECTIONS.map( (s: VKSection, i: number) => _renderSection(s, i))
-      }
+      { SECTIONS.map( (s: VKSection, i: number) => _renderSection(s, i)) }
     </View>
   )
 }

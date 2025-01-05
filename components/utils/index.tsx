@@ -8,10 +8,8 @@ import {
   Text,
 } from 'react-native'
 
-import StyledText from 'react-native-styled-text'
-import { FontFamily, SharedStyle } from '@app/components/styles'
+import { SharedStyle } from '@app/components/styles'
 import { MenuItemData, VKMenuItem, VKMenuItemStyle } from '@app/components/VKMenuItem'
-import { BorderRadius } from '../styles/enum/BorderRadius.enum'
 import { Spacing } from '../styles/enum/Spacing.enum'
 
 //
@@ -34,10 +32,10 @@ const renderOrderedList = (listItems: string[], listImages: ImageSourcePropType[
   const IMG_WIDTH = AVAILABLE_SPACE * 0.8
 
   return (
-    <View style={{ display: 'flex', flexDirection: 'column', rowGap: Spacing.M }}>
+    <View style={SharedStyle.OrderedList}>
       {listItems.map((item, index) => (
         <View key={index}>
-          <View style={LocalStyle.OrderedListRow}>
+          <View style={SharedStyle.OrderedListRow}>
             {!hideOrders && (
               <Text style={SharedStyle.OrderedListNumber}>
                 { index + 1 }
@@ -79,12 +77,6 @@ const LocalStyle = StyleSheet.create({
     borderBottomLeftRadius: 32,
     borderTopRightRadius: 0,
     borderBottomRightRadius: 0,
-  },
-  OrderedListRow: {
-    flexDirection: 'row',
-    backgroundColor: '#fff',
-    padding: 12,
-    borderRadius: BorderRadius.M,
   },
 })
 

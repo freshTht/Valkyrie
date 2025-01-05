@@ -6,11 +6,11 @@ import { BorderRadius } from './enum/BorderRadius.enum';
 import { FontSize } from './enum/FontSize';
 import { Spacing } from './enum/Spacing.enum';
 
-const { width, height } = Dimensions.get('window')
+const { width } = Dimensions.get('window')
 
 export enum FontFamily {
   DefaultBold = 'rsu-text_bold',
-  DefaultRegular = 'rsu-text',
+  // DefaultRegular = 'rsu-text',
 };
 
 const SharedStyle = StyleSheet.create({
@@ -36,6 +36,18 @@ const SharedStyle = StyleSheet.create({
     fontSize: FontSize.Content,
   },
   
+  OrderedList: {
+    display: 'flex',
+    flexDirection: 'column',
+    rowGap: Spacing.S,
+  },
+  OrderedListRow: {
+    flexDirection: 'row',
+    // backgroundColor: '#fff',
+    backgroundColor: '#0000000a',
+    padding: 12,
+    borderRadius: BorderRadius.M,
+  },
   OrderedListNumber: {
     fontFamily: FontFamily.DefaultBold,
     fontSize: FontSize.Content,
@@ -52,12 +64,12 @@ const SharedStyle = StyleSheet.create({
   Subtitle: {
     marginBottom: 12,
 
-    fontFamily: FontFamily.DefaultRegular,
-    fontSize: FontSize.Content,
+    fontFamily: FontFamily.DefaultBold,
+    fontSize: FontSize.Subtitle,
   },
   InfoCard: {
     borderRadius: BorderRadius.XL,
-    backgroundColor: 'rgba(255, 255, 255, 0.75)',
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
 
     paddingVertical: 20,
     paddingHorizontal: 20,
@@ -80,9 +92,6 @@ const SharedStyle = StyleSheet.create({
     fontSize: FontSize.SubSectionTitle,
   },
 
-  Carousel: {
-    
-  },
   CarouselItemsContainer: {
     display: 'flex',
     flexDirection: 'row',
@@ -90,17 +99,6 @@ const SharedStyle = StyleSheet.create({
 
     columnGap: 12,
     width: '100%',
-  },
-  CarouselCard: {
-    paddingHorizontal: 12,
-    paddingVertical: 24,
-    // width: width * 0.3,
-    flexShrink: 1,
-    height: '100%',
-
-    // backgroundColor: '#424242',
-    backgroundColor: '#ffffff',
-    borderRadius: BorderRadius.XL,
   },
   CarouselCardImageContainer: {
     // marginBottom: 0,
@@ -121,6 +119,22 @@ const SharedStyle = StyleSheet.create({
 
     fontFamily: FontFamily.DefaultBold,
     fontSize: FontSize.Title,
+
+    // flexWrap: 'wrap',
+  },
+
+  Tile: {
+    padding: Spacing.L,
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    borderRadius: BorderRadius.XL,
+  },
+  CarouselTile: {
+    height: '100%',
+    width: (width * 0.3) + (Spacing.L * 2),
+  },
+  GridTile: {
+    width: (width - (Spacing.L * 3)) * 0.5,
+    flexGrow: 1,
   },
 
   HeaderTitle: {
