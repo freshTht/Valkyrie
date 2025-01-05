@@ -190,8 +190,7 @@ const AppContainer = () => (
 
 const App = () => {
   const [fontLoaded] = useFonts({
-    [FontFamily.DefaultRegular]: require('./assets/fonts/RSUText_Regular.ttf'),
-    [FontFamily.DefaultBold]: require('./assets/fonts/RSUText_Bold.ttf'),
+    [FontFamily.DefaultBold]: require('./assets/fonts/RSUTEXT-Bold.otf'),
   });
 
   return fontLoaded && (
