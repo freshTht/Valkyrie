@@ -3,8 +3,6 @@ import React from 'react'
 import {
   StyleSheet, 
   View,
-  Dimensions,
-  Image,
   useWindowDimensions,
 } from 'react-native'
 
@@ -16,10 +14,11 @@ import i18n from 'i18n-js'
 import { renderOrderedList } from '@app/components/utils'
 import { SharedStyle } from '@app/components/styles'
 import { Spacing } from '../styles/enum/Spacing.enum'
+import { Image } from 'expo-image'
 
 const CategoriesByAnomalies: React.FC = () => {
   const TITLE = i18n.t('cpcategory_anomalies_title')
-  const LIST_ITEMS = i18n.t('cpcategory_anomalies')
+  const LIST_ITEMS = i18n.t('cpcategory_anomalies') as unknown as string[];
 
   const dimensions = useWindowDimensions();
   const IMG_WIDTH = dimensions.width * 0.4;
