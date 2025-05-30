@@ -32,6 +32,10 @@ const AboutModalContent: React.FC<Props> = (props) => {
         style={{ flex: 1, width: '100%' }}
         contentContainerStyle={{ padding: 16, gap: Spacing.XL }}
       >
+        <Image 
+          source={require('@app/assets/_brand/TU-Logo.png')}
+          style={SharedStyle.TuLogo} />
+
         {renderUnorderedList([
           'แอพพลิเคชั่นนี้จัดทำขึ้นเพื่อให้ความรู้แก่ผู้ดูแลเด็กในเรื่องการออกกำลังกายในท่านั่งของเด็กภาวะสมองพิการ โดยมีเนื้อหาเกี่ยวกับการนั่ง การออกกำลังกายด้วยท่านั่งและการฝึกการใช้ชีวิตประจำวันในเด็กภาวะสมองพิการ',
         ])}
@@ -57,10 +61,6 @@ const AboutModalContent: React.FC<Props> = (props) => {
           'งานวิจัยนี้ได้รับทุนสนับสนุนงานวิจัยเชิงนวัตกรรมประจำปีงบประมาณ 2562 จากคณะสหเวชศาสตร์ มหาวิทยาลัยธรรมศาสตร์',
           'ทางคณะผู้จัดทำหวังเป็นอย่างยิ่งว่าแอพพลิเคชั่นนี้จะเป็นประโยชน์ต่อผู้ใช้งาน',
         ])}
-
-        <Image 
-          source={require('@app/assets/_brand/TU-Logo.png')}
-          style={SharedStyle.TuLogo} />
           
       </ScrollView>
     </>
