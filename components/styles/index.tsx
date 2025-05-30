@@ -210,6 +210,8 @@ const SharedStyle = StyleSheet.create({
     // paddingHorizontal: 12,
     // paddingVertical: 8,
     backgroundColor: '#00000080',
+    height: '100%',
+    width: '100%',
   },
   TuLogo: {
     alignSelf: 'center',

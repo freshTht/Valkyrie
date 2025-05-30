@@ -1,11 +1,12 @@
-import { Button, Modal, Text, TouchableOpacity, View } from 'react-native';
+import { Button, Modal, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import AboutModalContent from './AboutModalContent';
 import React from 'react';
 
 import { SharedStyle } from './styles';
-import { CheckBox, Divider } from 'react-native-elements';
+import { BottomSheet, CheckBox, Divider } from 'react-native-elements';
 
 import { useSkipAboutModal } from '@app/utils/preferences/useSkipAboutModal';
+import { SafeAreaView } from 'react-navigation';
 
 interface ModalFooterButtonProps {
   onPress: () => void;
@@ -42,11 +43,13 @@ export const AboutModal = () => {
       <Modal
         visible={visible}
         animationType="fade"
+        onRequestClose={hideModal}
+        statusBarTranslucent
         transparent
       >
-        <View style={SharedStyle.ModalBackdrop}>
-          <View style={SharedStyle.Modal}>
-            <AboutModalContent onCloseButtonPress={() => { setVisible(false) }} />
+        <View style={SharedStyle.ModalBackdrop} onTouchEnd={hideModal}>
+          <SafeAreaView style={SharedStyle.Modal} onTouchEnd={(e) => e.stopPropagation()}>
+            <AboutModalContent onCloseButtonPress={hideModal} />
             
             <Divider style={{ width: '100%' }} />
             <View style={SharedStyle.ModalFooter}>
@@ -59,7 +62,7 @@ export const AboutModal = () => {
               />
               <ModalFooterButton title="รับทราบ" onPress={hideModal} />
             </View>
-          </View>
+          </SafeAreaView>
         </View>
       </Modal>
     </>
