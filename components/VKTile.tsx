@@ -1,7 +1,8 @@
-import { Image, StyleProp, Text, View, ViewStyle } from "react-native";
+import { StyleProp, Text, View, ViewStyle } from "react-native";
 import { SharedStyle } from "./styles";
 import TouchableScale from "react-native-touchable-scale";
 import { useNavigation } from "@react-navigation/native";
+import { Image } from "expo-image";
 
 export interface VKTileModel {
   title: string;

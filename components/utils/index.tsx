@@ -1,22 +1,19 @@
 import React from 'react'
 import {
-  StyleSheet,
   View,
-  Dimensions,
   ImageSourcePropType,
-  Image,
   Text,
+  useWindowDimensions,
 } from 'react-native'
 
 import { SharedStyle } from '@app/components/styles'
 import { MenuItemData, VKMenuItem, VKMenuItemStyle } from '@app/components/VKMenuItem'
-import { Spacing } from '../styles/enum/Spacing.enum'
+import { Image } from 'expo-image'
 
 //
 // MENU ITEMS
 //
-
-const renderMenuItems = (menuItems: MenuItemData[], navigation: any, style: VKMenuItemStyle = 'right') => {
+export const renderMenuItems = (menuItems: MenuItemData[], navigation: any, style: VKMenuItemStyle = 'right') => {
   return menuItems.map((item, index) => (
     <VKMenuItem
       key={index}
@@ -27,14 +24,15 @@ const renderMenuItems = (menuItems: MenuItemData[], navigation: any, style: VKMe
   ));
 };
 
-const renderOrderedList = (listItems: string[], listImages: ImageSourcePropType[] = [], hideOrders: boolean = false) => {
-  const AVAILABLE_SPACE = Dimensions.get('window').width - (2*16) - (2*12)
-  const IMG_WIDTH = AVAILABLE_SPACE * 0.8
+export const renderOrderedList = (listItems: string[], listImages: ImageSourcePropType[] = [], hideOrders: boolean = false) => {
+  const dimension = useWindowDimensions();
+  const AVAILABLE_SPACE = dimension.width - (2*16) - (2*12);
+  const IMG_WIDTH = AVAILABLE_SPACE * 0.8;
 
   return (
     <View style={SharedStyle.OrderedList}>
       {listItems.map((item, index) => (
-        <View key={index}>
+        <React.Fragment key={index}>
           <View style={SharedStyle.OrderedListRow}>
             {!hideOrders && (
               <Text style={SharedStyle.OrderedListNumber}>
@@ -48,40 +46,22 @@ const renderOrderedList = (listItems: string[], listImages: ImageSourcePropType[
     
           {listImages[index] && (
             <Image source={listImages[index]} 
-              style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: 32 }}
-              width={IMG_WIDTH}
+              autoplay={true}
+              style={{
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                marginBottom: 32,
+                width: IMG_WIDTH,
+                height: IMG_WIDTH,
+              }}
             />
           )}
-        </View> 
+        </React.Fragment> 
       ))}
     </View>
   );
-}
-const renderUnorderedList = (listItems: string[], listImages: ImageSourcePropType[] = []) => {
-  return renderOrderedList(listItems, listImages, true)
-}
+};
 
-const LocalStyle = StyleSheet.create({
-  menuButtonContainer: {
-    marginBottom: 12,
-    color: '#ffffff',
-  },
-  menuButtonLeft: {
-    borderTopLeftRadius: 0,
-    borderBottomLeftRadius: 0,
-    borderTopRightRadius: 32,
-    borderBottomRightRadius: 32,
-  },
-  menuButtonRight: {
-    borderTopLeftRadius: 32,
-    borderBottomLeftRadius: 32,
-    borderTopRightRadius: 0,
-    borderBottomRightRadius: 0,
-  },
-})
-
-export {
-  renderMenuItems, MenuItemData,
-  renderOrderedList,
-  renderUnorderedList,
-}
+export const renderUnorderedList = (listItems: string[], listImages: ImageSourcePropType[] = []) => {
+  return renderOrderedList(listItems, listImages, true);
+};
