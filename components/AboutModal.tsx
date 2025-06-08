@@ -1,7 +1,7 @@
 import { Modal, Text, View } from 'react-native';
 import AboutModalContent from './AboutModalContent';
 import React from 'react';
-
+import { MaterialIcons } from '@expo/vector-icons';
 import { SharedStyle } from './styles';
 
 import { useSkipAboutModal } from '@app/utils/preferences/useSkipAboutModal';
@@ -44,6 +44,13 @@ export const AboutModal = () => {
     <>
       <VKButton
         title="ชี้แจงจากคณะผู้จัดทำ"
+        leadingIcon={
+           <MaterialIcons
+              name="info-outline"
+              size={17}
+              color="#fff"
+            />
+        }
         onPress={() => setVisible(true)}
         tintColor={TintColor.Blue}
         size={ButtonSize.Small}

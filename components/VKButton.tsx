@@ -17,6 +17,7 @@ const fontSize: Record<ButtonSize, number> = {
 
 interface VKButtonProps {
   style?: ViewStyle,
+  leadingIcon?: React.ReactElement;
   onPress: () => void;
   title: string;
   tintColor?: TintColor;
@@ -25,6 +26,7 @@ interface VKButtonProps {
 
 export const VKButton: React.FC<VKButtonProps> = ({ 
   onPress,
+  leadingIcon,
   title,
   tintColor = TintColor.Green,
   size = ButtonSize.Default,
@@ -47,6 +49,7 @@ export const VKButton: React.FC<VKButtonProps> = ({
   return (
     <VKTouchable onPress={onPress}>
       <View style={containerStyles}>
+        {leadingIcon}
         <Text style={textStyles}>{title}</Text>
       </View>
     </VKTouchable>
