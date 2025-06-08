@@ -1,24 +1,20 @@
-import React from 'react'
-import {
-  View,
-} from 'react-native'
-
-import StyledText from 'react-native-styled-text'
-import { SharedStyle } from '../styles'
-import { renderOrderedList } from '../utils'
-import i18n from 'i18n-js'
+import React from 'react';
+import i18n from 'i18n-js';
+import VKInfoCard, { VKSection } from '../VKInfoCard';
 
 const Instruction: React.FC = () => {
-  const TITLE = i18n.t('streching_note_title')
-  const CONTENT: string[] = i18n.t('streching_note')
+  const TITLE = i18n.t('streching_note_title');
+  const ORDERED_LIST: string[] = i18n.t('streching_note') as unknown as string[];
+
+  const DATA: VKSection[] = [
+    {
+      sectionOrderedList: ORDERED_LIST,
+    }
+  ];
+
   return (
-    <View style={SharedStyle.InfoCard}>
-      <StyledText style={SharedStyle.Title}>
-        { TITLE }
-      </StyledText>
-      { renderOrderedList(CONTENT) }
-    </View>
-  )
+    <VKInfoCard title={TITLE} contentSections={DATA} />
+  );
 };
 
-export default Instruction
+export default Instruction;

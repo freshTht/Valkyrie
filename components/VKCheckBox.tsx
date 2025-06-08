@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { SharedStyle } from './styles';
 import { MaterialIcons } from '@expo/vector-icons';
 import { VKTouchable } from './VKTouchable';

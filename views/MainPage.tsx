@@ -11,6 +11,7 @@ import { AboutModal } from '@app/components/AboutModal'
 import { VKPageContainer } from '@app/components/VKPageContainer'
 import { TintColor } from '@app/components/styles/enum/TintColor.enum'
 import { MenuItemData } from '@app/components/VKMenuItem'
+import { SharedStyle } from '@app/components/styles'
 
 interface Props {
   navigation?: any
@@ -57,55 +58,20 @@ const MainPage: React.FC<Props> = (props) => {
     <VKPageContainer>
       <View style={{ height: '100%' }}>
         <View style={{ flexGrow: 1, justifyContent: 'center' }}>
-          <View style={LocalStyle.menuListLeft}>
+          <View style={SharedStyle.menuListLeft}>
             { renderMenuItems(menuList1, props.navigation, 'left') }
           </View>
 
           <View style={{ height: 20 }}/>
 
-          <View style={LocalStyle.menuListRight}>
+          <View style={SharedStyle.menuListRight}>
             { renderMenuItems(menuList2, props.navigation, 'right') }
           </View>
         </View>
         <AboutModal />
       </View>
     </VKPageContainer>
-  )
-}
+  );
+};
 
-const LocalStyle = StyleSheet.create({
-  bottomBar: {
-    paddingVertical: 8,
-    width: '100%', 
-    flex: 0,
-
-    paddingHorizontal: 8,
-  },
-  mainMenu: {
-    // paddingHorizontal: 12,
-    paddingVertical: 16,
-    justifyContent: 'center',
-    flex: 1,
-  },
-  menuButton: {
-    marginBottom: 8,
-  },
-  
-  menuListLeft: {
-    alignSelf: 'flex-start',
-    width: 200,
-    marginBottom: 8,
-  },
-  menuListRight: {
-    alignSelf: 'flex-end',
-    width: 180,
-    marginBottom: 8,
-  },
-  menuList3: {
-    alignSelf: 'flex-start',
-    width: 220,
-    marginBottom: 8,
-  },
-});
-
-export default MainPage
+export default MainPage;

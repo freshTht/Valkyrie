@@ -883,10 +883,8 @@ const th = {
   //
   // EXERCISE
   //
-  'exercise_note' : {
-    title: 'การออกกำลังกาย',
-    subtitle: 'เป็นการเพิ่มความแข็งแรงของกล้ามเนื้อลำตัว',
-  },
+  'exercise_note_title' : 'การออกกำลังกาย',
+  'exercise_note_subtitle': 'เป็นการเพิ่มความแข็งแรงของกล้ามเนื้อลำตัว',
   'exercise_section_methods': `วิธีการฝึก`,
   'exercise_section_advice': `คำแนะนำ`,
   'exercise_section_warnings': `ข้อควรระวัง`,

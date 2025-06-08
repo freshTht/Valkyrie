@@ -172,6 +172,8 @@ const SharedStyle = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
+    alignItems: 'center',
+    gap: 4,
     minWidth: 120,
   },
   ButtonText: {
@@ -229,6 +231,19 @@ const SharedStyle = StyleSheet.create({
     alignItems: 'center',
     gap: 8,
     paddingVertical: 4,
+  },
+
+  menuListLeft: {
+    alignSelf: 'flex-start',
+    minWidth: 200,
+    marginBottom: 8,
+    marginLeft: -Spacing.L,
+  },
+  menuListRight: {
+    alignSelf: 'flex-end',
+    minWidth: 180,
+    marginBottom: 8,
+    marginRight: -Spacing.L,
   },
 });
 

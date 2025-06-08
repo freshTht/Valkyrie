@@ -18,6 +18,7 @@ import Meaning from '@app/components/Routine/Meaning'
 import i18n from 'i18n-js'
 import VKRootView from '@app/components/VKRootView'
 import { VKPageContainer } from '@app/components/VKPageContainer'
+import { SharedStyle } from '@app/components/styles'
 
 interface Props {
   navigation?: any
@@ -221,28 +222,18 @@ const RoutinePage: React.FC<Props> = (props) => {
         CAUTION_IMAGE: ASSETS[i].cautionImage,
       }
     })
-  }
+  };
 
   return (
     <VKPageContainer>
       <Meaning />
-      <View style={LocalStyle.menuListRight}>
+      <View style={{ ...SharedStyle.menuListRight, width: 256 }}>
         {
           renderMenuItems(MENU_ITEMS, props.navigation, 'right')
         }
       </View>
     </VKPageContainer>
-  )
-}
-
-const LocalStyle = StyleSheet.create({
-  menuListRight: {
-    flex: 1,
-    alignSelf: 'flex-end',
-    width: 224,
-    marginTop: 20,
-    marginBottom: 8,
-  },
-});
+  );
+};
 
 export default RoutinePage

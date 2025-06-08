@@ -1,17 +1,16 @@
-import React from "react";
-import TouchableScale from "react-native-touchable-scale";
-import { StyleSheet, View } from "react-native";
-import StyledText from "react-native-styled-text";
-import { SharedStyle } from "./styles";
-import { Spacing } from "./styles/enum/Spacing.enum";
-import { VKTouchable } from "./VKTouchable";
-import { getContrastedColor } from "./styles/enum/TintColor.enum";
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import StyledText from 'react-native-styled-text';
+import { SharedStyle } from './styles';
+import { Spacing } from './styles/enum/Spacing.enum';
+import { VKTouchable } from './VKTouchable';
+import { getContrastedColor, TintColor } from './styles/enum/TintColor.enum';
 
 export interface MenuItemData {
     title?: string,
     href?: string,
     hrefParams?: any,
-    backgroundColor: string,
+    backgroundColor: TintColor,
     color?: string,
     leftElement?: React.ReactElement,
 }
@@ -26,12 +25,14 @@ interface VKMenuItemProps {
 
 const borderRadiusStyles = {
     left: {
+        paddingLeft: 20 + Spacing.L, // account for negative spacing
         borderTopLeftRadius: 0,
         borderBottomLeftRadius: 0,
         borderTopRightRadius: 32,
         borderBottomRightRadius: 32,
     },
     right: {
+        paddingLeft: 20,
         borderTopLeftRadius: 32,
         borderBottomLeftRadius: 32,
         borderTopRightRadius: 0,
@@ -73,7 +74,7 @@ const LocalStyle = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        paddingLeft: 20,
+        // paddingLeft: 20,
         paddingVertical: 8,
         gap: 8,
         // TODO: fix font

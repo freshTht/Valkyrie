@@ -24,6 +24,7 @@ import { BorderRadius } from '@app/components/styles/enum/BorderRadius.enum'
 import { VKPageContainer } from '@app/components/VKPageContainer'
 import { Spacing } from '@app/components/styles/enum/Spacing.enum'
 import { TintColor } from '@app/components/styles/enum/TintColor.enum'
+import { SharedStyle } from '@app/components/styles'
 
 interface Props {
   navigation?: any
@@ -78,37 +79,11 @@ const CPInfoPage: React.FC<Props> = (props) => {
   return (
     <VKPageContainer>
       <Meaning />
-      <View style={LocalStyle.menuListRight}>
+      <View style={{ ...SharedStyle.menuListRight, width: 240 }}>
         {renderMenuItems(menuItems, props.navigation)}
       </View>
     </VKPageContainer>
   )
 }
 
-const LocalStyle = StyleSheet.create({
-  bottomBar: {
-    paddingVertical: 8,
-    width: '100%', 
-    flex: 0,
-
-    paddingHorizontal: 8,
-  },
-  mainMenu: {
-    flex: 1,
-  },
-  
-  menuListRight: {
-    alignSelf: 'flex-end',
-    width: 240,
-    marginTop: 20,
-    marginBottom: 8,
-    marginRight: -Spacing.L,
-  },
-
-  menuCard: {
-    padding: 0,
-    borderRadius: BorderRadius.S,
-  }
-});
-
-export default CPInfoPage
+export default CPInfoPage;
