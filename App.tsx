@@ -1,5 +1,4 @@
 import React from 'react'
-import { StackNavigationOptions } from '@react-navigation/stack'
 
 // PAGES
 import MainPage from '@app/views/MainPage'
@@ -46,31 +45,37 @@ const headerStyles: Record<HeaderStyle, Partial<NativeStackNavigationOptions>> =
     headerTintColor: '#000',
     headerTitleStyle,
     headerTransparent: true,
+    statusBarStyle: 'light',
   },
   [HeaderStyle.white]: {
     headerStyle: { backgroundColor: '#fff' },
     headerTintColor: '#000',
     headerTitleStyle,
+    statusBarStyle: 'dark',
   },
   [HeaderStyle.green]: {
     headerStyle: { backgroundColor: TintColor.Green },
     headerTintColor: getContrastedColor(TintColor.Green),
     headerTitleStyle,
+    statusBarStyle: 'light',
   },
   [HeaderStyle.red]: {
     headerStyle: { backgroundColor: TintColor.Red },
     headerTintColor: getContrastedColor(TintColor.Red),
     headerTitleStyle,
+    statusBarStyle: 'light',
   },
   [HeaderStyle.yellow]: {
     headerStyle: { backgroundColor: TintColor.Yellow },
     headerTintColor: getContrastedColor(TintColor.Yellow),
     headerTitleStyle,
+    statusBarStyle: 'dark',
   },
   [HeaderStyle.orange]: {
     headerStyle: { backgroundColor: TintColor.Orange },
     headerTintColor: getContrastedColor(TintColor.Orange),
     headerTitleStyle,
+    statusBarStyle: 'light',
   },
 }
 const buildScreenOptions = (title: string, style: HeaderStyle = HeaderStyle.white) => {

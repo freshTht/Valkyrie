@@ -5,11 +5,11 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { SharedStyle } from './styles';
 
 import { useSkipAboutModal } from '@app/utils/preferences/useSkipAboutModal';
-import { SafeAreaView } from 'react-navigation';
 import { VKCheckBox } from './VKCheckBox';
 import { VKTouchable } from './VKTouchable';
 import { ButtonSize, VKButton } from './VKButton';
 import { TintColor } from './styles/enum/TintColor.enum';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 interface ModalFooterButtonProps {
   onPress: () => void;

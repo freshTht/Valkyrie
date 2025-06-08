@@ -3,10 +3,11 @@ import { Spacing } from "./styles/enum/Spacing.enum";
 import { VKTile, VKTileModel } from "./VKTile";
 import { SharedStyle } from "./styles";
 import React from "react";
+import { EdgeInsets, useSafeAreaInsets } from "react-native-safe-area-context";
 
 export type VKTileGroupVariant = 'carousel' | 'grid' | 'stackered-grid';
 
-const getFlatListPropsFor = (variant: VKTileGroupVariant): Partial<FlatListProps<any>> => {
+const getFlatListPropsFor = (variant: VKTileGroupVariant, insets: EdgeInsets): Partial<FlatListProps<any>> => {
   switch (variant) {
     case 'carousel':
       return {
@@ -24,8 +25,11 @@ const getFlatListPropsFor = (variant: VKTileGroupVariant): Partial<FlatListProps
           gap: Spacing.M,
         },
         contentContainerStyle: {
-          padding: Spacing.L,
           gap: Spacing.M,
+          paddingTop: Spacing.L, // top inset is already handled by Header Bar
+          paddingLeft: Spacing.L + insets.left,
+          paddingRight: Spacing.L + insets.right,
+          paddingBottom: Spacing.L + insets.bottom,
         },
         showsVerticalScrollIndicator: true,
       };
@@ -41,6 +45,12 @@ const getFlatListPropsFor = (variant: VKTileGroupVariant): Partial<FlatListProps
           paddingHorizontal: Spacing.L,
         },
         showsVerticalScrollIndicator: true,
+        style: {
+          paddingTop: Spacing.L, // top inset is already handled by Header Bar
+          paddingLeft: Spacing.L + (insets?.left ?? 0),
+          paddingRight: Spacing.L + (insets?.right ?? 0),
+          paddingBottom: Spacing.L + (insets?.bottom ?? 0),
+        },
       };
   }
 };
@@ -72,7 +82,9 @@ interface OwnProps {
 type VKTileGroupProps = OwnProps & Omit<FlatListProps<VKTileModel>, 'renderItem'>;
 
 export const VKTileGroup: React.FC<VKTileGroupProps> = ({ data, variant, ...flatListProps }) => {
-  const variantProps = getFlatListPropsFor(variant);
+  const insets = useSafeAreaInsets();
+
+  const variantProps = getFlatListPropsFor(variant, insets);
   const tileStyle = tileStyleFor[variant];
 
   return (
