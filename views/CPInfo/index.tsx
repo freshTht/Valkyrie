@@ -23,6 +23,7 @@ import VKRootView from '@app/components/VKRootView'
 import { BorderRadius } from '@app/components/styles/enum/BorderRadius.enum'
 import { VKPageContainer } from '@app/components/VKPageContainer'
 import { Spacing } from '@app/components/styles/enum/Spacing.enum'
+import { TintColor } from '@app/components/styles/enum/TintColor.enum'
 
 interface Props {
   navigation?: any
@@ -34,42 +35,42 @@ const CPInfoPage: React.FC<Props> = (props) => {
     // {
     //   title: 'ความหมาย',
     //   href: 'Main',
-    //   backgroundColor: '#E16E5B',
+    //   backgroundColor: TintColor.Red,
     // },
     {
       title: 'ปัจจัยเสี่ยงการเกิดโรค',
       href: 'CPCauses',
-      backgroundColor: '#E16E5B',
+      backgroundColor: TintColor.Red,
       leftElement: <AntDesign name='exclamationcircle' size={20} color='#fff' />,
     },
     {
       title: 'อาการอื่นๆ ที่อาจพบร่วมด้วย',
       href: 'CPSymptoms',
-      backgroundColor: '#E16E5B',
+      backgroundColor: TintColor.Red,
       leftElement: <AntDesign name='exclamationcircle' size={20} color='#fff' />,
     },
     {
       title: 'การแบ่งประเภท',
       href: 'CPCategories',
-      backgroundColor: '#E16E5B',
+      backgroundColor: TintColor.Red,
       leftElement: <MaterialCommunityIcons name='format-list-bulleted-type' size={20} color='#fff' />,
     },
     {
       title: 'การวินิจฉัยโรค',
       href: 'CPDiagnostics',
-      backgroundColor: '#E16E5B',
+      backgroundColor: TintColor.Red,
       leftElement: <MaterialCommunityIcons name='medical-bag' size={20} color='#fff' />,
     },
     {
       title: 'การรักษา',
       href: 'CPMedicalTreatments',
-      backgroundColor: '#E16E5B',
+      backgroundColor: TintColor.Red,
       leftElement: <MaterialCommunityIcons name='medical-bag' size={20} color='#fff' />,
     },
     {
       title: 'กายอุปกรณ์',
       href: 'CPBodyEquipment',
-      backgroundColor: '#E16E5B',
+      backgroundColor: TintColor.Red,
       leftElement: <MaterialCommunityIcons name='human' size={20} color='#fff' />,
     },
   ]

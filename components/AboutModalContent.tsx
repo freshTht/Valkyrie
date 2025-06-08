@@ -6,10 +6,6 @@ import {
   Text
 } from 'react-native'
 
-import {
-  Divider
-} from 'react-native-elements'
-
 import { renderUnorderedList } from '@app/components/utils'
 import { SharedStyle } from '@app/components/styles'
 import { Spacing } from '@app/components/styles/enum/Spacing.enum'
@@ -26,10 +22,11 @@ const AboutModalContent: React.FC<Props> = (props) => {
         ชี้แจงจากคณะผู้จัดทำ
       </Text>
 
-      <Divider style={{ width: '100%' }} />
+      {/* <Divider style={{ width: '100%' }} /> */}
 
       <ScrollView
         style={{ flex: 1, width: '100%' }}
+        fadingEdgeLength={64}
         contentContainerStyle={{ padding: 16, gap: Spacing.XL }}
       >
         <Image 

@@ -1,59 +1,21 @@
 /* eslint-disable */
-import React, {Component,} from 'react'
-import {
-  StyleSheet, TouchableOpacity,
-  View,
-} from 'react-native'
-
-import {
-  Header, Card, Text
-} from 'react-native-elements'
-
+import React from 'react';
 import i18n from 'i18n-js';
-import { renderOrderedList } from '@app/components/utils'
-import { SharedStyle } from '@app/components/styles'
+import VKInfoCard, { VKSection } from '../VKInfoCard';
 
-interface Props {
-  // backgroundColor?: string,
-  // title?: string,
-  // navigation?: any,
-}
+const Diagnostics1: React.FC = () => {
+  const TITLE = i18n.t('cpinfo_diagnostics1_title');
+  const CONTENT = i18n.t('cpinfo_diagnostics1_body');
 
-const Diagnostics1: React.FC<Props> = (props) => {
-  // STATE
-  // let [balance, setBalance] = React.useState<number>();
+  const contentSections: VKSection[] = [
+    {
+      sectionContent: CONTENT,
+    },
+  ];
 
-  // PROPS
-  // const TITLE = props.title ? props.title : ''
-
-  React.useEffect(() => {
-    // componentDidMount
-
-    const componentWillUnmount = () => {
-      // do something..
-    }
-    return componentWillUnmount
-  }, [])
-
-  const TITLE = i18n.t('cpinfo_diagnostics1_title')
-  const CONTENT = i18n.t('cpinfo_diagnostics1_body')
   return (
-    <View style={SharedStyle.InfoCard}>
-      <Text style={SharedStyle.Title}>
-        { TITLE }
-      </Text>
-      <Text style={SharedStyle.Content}>
-        { CONTENT }
-      </Text>
-    </View>
-  )
-}
+    <VKInfoCard title={TITLE} contentSections={contentSections} />
+  );
+};
 
-const LocalStyle = StyleSheet.create({
-  header: {
-    width: '100%',
-    height: 100
-  },
-});
-
-export default Diagnostics1
+export default Diagnostics1;

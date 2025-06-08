@@ -1,5 +1,8 @@
 // 
 // LOCALIZATIONS
+
+import { TintColor } from "@app/components/styles/enum/TintColor.enum"
+
 // 
 const th = {
   // // BG_IMAGE
@@ -310,7 +313,7 @@ const th = {
   'routine_items': [
     {
       title: `การนอน (Sleeping)`,
-      backgroundColor: `#4FAFA1`,
+      backgroundColor: TintColor.Green,
       caution: [
         `ในท่านอนหงาย ในเด็กที่มีการเกร็งของกล้ามเนื้อขามาก เด็กมักจะติดอยู่ในท่าหุบข้อสะโพก และ เหยียดเข่า`,
       ],
@@ -334,7 +337,7 @@ const th = {
     },
     {
       title: `การอาบน้ำ (Bathing)`,
-      backgroundColor: `#4FAFA1`,
+      backgroundColor: TintColor.Green,
       caution: [
         `ในเด็กเล็กที่มีการเกร็งแอ่นให้อาบน้ำในท่านอนคว่ำเพื่อป้องกันการเกร็งแอ่นจนหงายหลัง`,
       ],
@@ -389,7 +392,7 @@ const th = {
     },
     {
       title: `การเข้าห้องน้ำ (Toileting)`,
-      backgroundColor: `#4FAFA1`,
+      backgroundColor: TintColor.Green,
       caution: [
         `ควรจะมีราวจับด้านข้างกำแพงในห้องน้ำ ในเด็กที่สามารถนั่งขับถ่ายบนชักโครกได้เอง เพื่อช่วยในการลุกขึ้นยืน`,
       ],
@@ -419,7 +422,7 @@ const th = {
     },
     {
       title: `การแต่งตัว (Dressing)`,
-      backgroundColor: `#4FAFA1`,
+      backgroundColor: TintColor.Green,
       caution: [
         `ระวังการแอ่นของศีรษะขณะใส่และถอดเสื้อออกเพราะจะเป็นการไปเพิ่มอาการเกร็งของเด็กได้`,
         `ถ้าเด็กยังมีอาการเกร็งค่อนข้างมากให้สวมเสื้อผ้าในลักษณะนอนคว่ำแทน`,
@@ -494,7 +497,7 @@ const th = {
     },
     {
       title: `การรับประทานอาหาร (Eating)`,
-      backgroundColor: `#4FAFA1`,
+      backgroundColor: TintColor.Green,
       caution: [
         `การรับประทานอาหารหรือเครื่องดื่ม ควรระวังไม่ให้แอ่นหรือเงยศีรษะไปด้านหลังเพราะจะทำให้เกิดการสำลักอาหารได้`,
         `ในขณะรับประทานอาหารหรือเครื่องดื่ม ต้องระวังไม่ให้ขาอยู่ในท่าเหยียดตรง เพราะจะทำให้เพิ่มการเกร็งได้`,
@@ -543,7 +546,7 @@ const th = {
     },
     {
       title: `การอุ้ม (Carrying)`,
-      backgroundColor: `#4FAFA1`,
+      backgroundColor: TintColor.Green,
       caution: [
         `แขนของเด็กต้องไว้ข้างหน้าของตัวเด็กเสมอ`,
         `ลำตัวของเด็กไม่ควรแอ่นไปทางข้างหลังเพราะเป็นการกระตุ้นอาการเกร็ง ให้ก้มมาข้างหน้าเสมอ`,
@@ -570,7 +573,7 @@ const th = {
     },
     {
       title: `การเปลี่ยนท่าทาง (Transition)`,
-      backgroundColor: `#4FAFA1`,
+      backgroundColor: TintColor.Green,
       // caution: [
       //   `ท่าทางการเล่นเหมาะสม และไม่เกิดอันตราย`,
       //   `ของเล่นเหมาะสมกับวัย`,
@@ -619,7 +622,7 @@ const th = {
     },
     {
       title: `การเล่น (Playing)`,
-      backgroundColor: `#E16E5B`,
+      backgroundColor: TintColor.Red,
       caution: [
         `ท่าทางการเล่นเหมาะสม และไม่เกิดอันตราย`,
         `ของเล่นเหมาะสมกับวัย`,
@@ -699,7 +702,7 @@ const th = {
     },
     // {
     //   title: `ของเล่น`,
-    //   backgroundColor: `#E16E5B`,
+    //   backgroundColor: TintColor.Red,
     //   // caution: [],
     //   postures: [
         

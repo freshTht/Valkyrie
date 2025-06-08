@@ -1,7 +1,7 @@
 import React from 'react'
 import i18n from 'i18n-js'
 
-import HealthEffect from '@app/components/WrongSittingPosition/HealthEffect'
+import Causes from '@app/components/WrongSittingPosition/Causes'
 import { VKTileGroup } from '@app/components/VKTileGroup'
 import { VKPageContainer } from '@app/components/VKPageContainer'
 
@@ -31,7 +31,7 @@ const WrongSittingPositionPage: React.FC = () => {
   return (
     <VKPageContainer>
       <VKTileGroup variant="carousel" data={carouselItems} />
-      <HealthEffect />
+      <Causes />
     </VKPageContainer>
   )
 };

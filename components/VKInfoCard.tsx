@@ -2,7 +2,6 @@ import React from 'react'
 import {
   StyleSheet,
   View,
-  Dimensions,
   ImageSourcePropType,
   Text,
   useWindowDimensions

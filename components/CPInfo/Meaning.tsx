@@ -1,57 +1,21 @@
 /* eslint-disable */
-import React from 'react'
-import {
-  StyleSheet, View
-} from 'react-native'
+import React from 'react';
+import i18n from 'i18n-js';
+import VKInfoCard, { VKSection } from '../VKInfoCard';
 
-import {
-  Text
-} from 'react-native-elements'
+const Meaning: React.FC = () => {
+  const TITLE = i18n.t('cpinfo_meaning_title');
+  const CONTENT = i18n.t('cpinfo_meaning_body');
+  
+  const contentSections: VKSection[] = [
+    {
+      sectionContent: CONTENT,
+    },
+  ];
 
-import { SharedStyle } from '../styles'
-import i18n from 'i18n-js'
-
-interface Props {
-  // backgroundColor?: string,
-  // title?: string,
-  // navigation?: any,
-}
-
-const Meaning: React.FC<Props> = (props) => {
-  // STATE
-  // let [balance, setBalance] = React.useState<number>();
-
-  // PROPS
-  // const TITLE = props.title ? props.title : ''
-
-  React.useEffect(() => {
-    // componentDidMount
-
-    const componentWillUnmount = () => {
-      // do something..
-    }
-    return componentWillUnmount
-  }, [])
-
-  const TITLE = i18n.t('cpinfo_meaning_title')
-  const CONTENT = i18n.t('cpinfo_meaning_body')
   return (
-    <View style={SharedStyle.InfoCard}>
-      <Text style={SharedStyle.Title}>
-        { TITLE }
-      </Text>
-      <Text style={SharedStyle.Content}>
-        { CONTENT }
-      </Text>
-    </View>
-  )
-}
+    <VKInfoCard title={TITLE} contentSections={contentSections} />
+  );
+};
 
-const LocalStyle = StyleSheet.create({
-  header: {
-    width: '100%',
-    height: 100
-  },
-});
-
-export default Meaning
+export default Meaning;

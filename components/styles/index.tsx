@@ -5,6 +5,7 @@ import {
 import { BorderRadius } from './enum/BorderRadius.enum';
 import { FontSize } from './enum/FontSize';
 import { Spacing } from './enum/Spacing.enum';
+import { TintColor } from './enum/TintColor.enum';
 
 const { width } = Dimensions.get('window')
 
@@ -53,7 +54,7 @@ const SharedStyle = StyleSheet.create({
     fontSize: FontSize.Content,
     // marginTop: 4,
     marginRight: 12,
-    backgroundColor: '#4FAFA1',
+    backgroundColor: TintColor.Green,
     color: '#fff',
     height: 32,
     width: 32,
@@ -74,6 +75,8 @@ const SharedStyle = StyleSheet.create({
     paddingVertical: 20,
     paddingHorizontal: 20,
 
+    rowGap: 16,
+
     // margin: 16,
     // shadowColor: 'rgba(0, 0, 0, 0.25)',
     // borderColor: 'rgba(100, 100, 100, 0.1)',
@@ -82,7 +85,7 @@ const SharedStyle = StyleSheet.create({
   SubSection: {
     // marginTop: 16,
     // marginBottom: 16,
-    marginVertical: 8,
+    // marginVertical: 8,
   },
   SubSectionTitle: {
     marginBottom: 4,
@@ -127,6 +130,7 @@ const SharedStyle = StyleSheet.create({
     padding: Spacing.L,
     backgroundColor: 'rgba(255, 255, 255, 0.9)',
     borderRadius: BorderRadius.XL,
+    alignItems: 'center',
   },
   CarouselTile: {
     height: '100%',
@@ -143,24 +147,23 @@ const SharedStyle = StyleSheet.create({
     fontFamily: FontFamily.DefaultBold,
   },
   
-  ButtonText: {
+  MenuItemText: {
     // fontSize: 17,
     fontSize: FontSize.Button,
     fontFamily: FontFamily.DefaultBold,
-  },
-  ButtonOrange: {
-    backgroundColor: '#EC8C50',
   },
 
   ModalFooter: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    gap: 12,
+    justifyContent: 'flex-end',
+    width: '100%',
+    alignItems: 'center',
+    gap: 20,
     paddingVertical: 12,
     paddingHorizontal: 16,
   },
-  ModalActionButton: {
+  Button: {
     paddingVertical: 8,
     paddingHorizontal: 16,
     // fontSize: 36,
@@ -171,7 +174,7 @@ const SharedStyle = StyleSheet.create({
     justifyContent: 'center',
     minWidth: 120,
   },
-  ModalActionButtonText: {
+  ButtonText: {
     // fontSize: 17,
     fontSize: FontSize.Button,
     fontFamily: FontFamily.DefaultBold,
@@ -218,6 +221,14 @@ const SharedStyle = StyleSheet.create({
     width: 120,
     height: 120,
     margin: 16,
+  },
+
+  CheckBoxContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    paddingVertical: 4,
   },
 });
 

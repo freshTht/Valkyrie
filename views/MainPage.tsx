@@ -5,10 +5,12 @@ import {
   View,
 } from 'react-native'
 
-import { MenuItemData, renderMenuItems } from '@app/components/utils'
+import { renderMenuItems } from '@app/components/utils'
 
 import { AboutModal } from '@app/components/AboutModal'
 import { VKPageContainer } from '@app/components/VKPageContainer'
+import { TintColor } from '@app/components/styles/enum/TintColor.enum'
+import { MenuItemData } from '@app/components/VKMenuItem'
 
 interface Props {
   navigation?: any
@@ -20,52 +22,51 @@ const MainPage: React.FC<Props> = (props) => {
     {
       title: 'Cerebral palsy คืออะไร',
       href: 'CPInfo',
-      backgroundColor: '#4FAFA1',
+      backgroundColor: TintColor.Green,
     },
     {
       title: 'ท่านั่งที่ถูกต้อง',
       href: 'SittingPosition',
-      backgroundColor: '#FDC055',
-      color: '#000',
+      backgroundColor: TintColor.Yellow,
     },
     {
       title: 'การนั่งที่ไม่เหมาะสม',
       href: 'WrongSittingPosition',
-      backgroundColor: '#EC8C50',
+      backgroundColor: TintColor.Orange,
     },
   ]
-  const menuList2 = [
+  const menuList2: MenuItemData[] = [
     {
       title: 'กิจวัตรประจำวัน',
       href: 'Routine',
-      backgroundColor: '#E16E5B',
+      backgroundColor: TintColor.Red,
     },
     {
       title: 'การยืดกล้ามเนื้อ',
       href: 'Streching',
-      backgroundColor: '#4FAFA1',
+      backgroundColor: TintColor.Green,
     },
     {
       title: 'การออกกำลังกาย',
       href: 'Exercise',
-      backgroundColor: '#FDC055',
-      color: '#000',
+      backgroundColor: TintColor.Yellow,
     },
   ]
 
   return (
     <VKPageContainer>
-      <View style={{ height: '100%', justifyContent: 'center' }}>
-        <View style={LocalStyle.menuListLeft}>
-          { renderMenuItems(menuList1, props.navigation, 'left') }
-        </View>
+      <View style={{ height: '100%' }}>
+        <View style={{ flexGrow: 1, justifyContent: 'center' }}>
+          <View style={LocalStyle.menuListLeft}>
+            { renderMenuItems(menuList1, props.navigation, 'left') }
+          </View>
 
-        <View style={{ height: 20 }}/>
+          <View style={{ height: 20 }}/>
 
-        <View style={LocalStyle.menuListRight}>
-          { renderMenuItems(menuList2, props.navigation, 'right') }
+          <View style={LocalStyle.menuListRight}>
+            { renderMenuItems(menuList2, props.navigation, 'right') }
+          </View>
         </View>
-        
         <AboutModal />
       </View>
     </VKPageContainer>

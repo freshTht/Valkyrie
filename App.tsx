@@ -26,18 +26,18 @@ require('@app/utils/localizations')
 
 import { NavigationContainer } from '@react-navigation/native'
 import I18n from 'i18n-js'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { FontFamily, SharedStyle } from './components/styles'
 import { useFonts } from 'expo-font'
 import { createNativeStackNavigator, NativeStackNavigationOptions } from '@react-navigation/native-stack'
+import { getContrastedColor, TintColor } from './components/styles/enum/TintColor.enum'
 
 enum HeaderStyle {
   transparent = 'transparent',
   white = '#fff',
-  green = '#4FAFA1',
-  red = '#E16E5B',
-  yellow = '#FDC055',
-  orange = '#EC8C50',
+  green = TintColor.Green,
+  red = TintColor.Red,
+  yellow = TintColor.Yellow,
+  orange = TintColor.Orange,
 };
 
 const headerTitleStyle = SharedStyle.HeaderTitle;
@@ -53,23 +53,23 @@ const headerStyles: Record<HeaderStyle, Partial<NativeStackNavigationOptions>> =
     headerTitleStyle,
   },
   [HeaderStyle.green]: {
-    headerStyle: { backgroundColor: '#4FAFA1' },
-    headerTintColor: '#fff',
+    headerStyle: { backgroundColor: TintColor.Green },
+    headerTintColor: getContrastedColor(TintColor.Green),
     headerTitleStyle,
   },
   [HeaderStyle.red]: {
-    headerStyle: { backgroundColor: '#E16E5B' },
-    headerTintColor: '#fff',
+    headerStyle: { backgroundColor: TintColor.Red },
+    headerTintColor: getContrastedColor(TintColor.Red),
     headerTitleStyle,
   },
   [HeaderStyle.yellow]: {
-    headerStyle: { backgroundColor: '#FDC055' },
-    headerTintColor: '#000',
+    headerStyle: { backgroundColor: TintColor.Yellow },
+    headerTintColor: getContrastedColor(TintColor.Yellow),
     headerTitleStyle,
   },
   [HeaderStyle.orange]: {
-    headerStyle: { backgroundColor: '#EC8C50' },
-    headerTintColor: '#fff',
+    headerStyle: { backgroundColor: TintColor.Orange },
+    headerTintColor: getContrastedColor(TintColor.Orange),
     headerTitleStyle,
   },
 }
@@ -194,11 +194,9 @@ const App = () => {
   });
 
   return fontLoaded && (
-    <SafeAreaProvider>
-      <NavigationContainer>
-        <AppContainer />
-      </NavigationContainer>
-    </SafeAreaProvider>
+    <NavigationContainer>
+      <AppContainer />
+    </NavigationContainer>
   );
 }
 

@@ -3,6 +3,7 @@ import { SharedStyle } from "./styles";
 import TouchableScale from "react-native-touchable-scale";
 import { useNavigation } from "@react-navigation/native";
 import { Image } from "expo-image";
+import { VKTouchable } from "./VKTouchable";
 
 export interface VKTileModel {
   title: string;
@@ -24,25 +25,19 @@ export const VKTile: React.FC<VKTileProps> = ({ data, styles = [] }) => {
 
   const { title, href, imgSrc, hrefParams } = data;
   return (
-    <TouchableScale
-      activeScale={0.95}
+    <VKTouchable
       onPress={() => navigation.navigate(href, hrefParams)}
-      friction={10}
       key={title}
     >
       <View style={[SharedStyle.Tile, ...styles]}>
-        <View style={{ alignItems: 'center' }}>
-          <View style={SharedStyle.CarouselCardImageContainer}>
-            <Image
-              source={imgSrc}
-              style={SharedStyle.CarouselCardImage}
-            />
-          </View>
-          <Text style={SharedStyle.CarouselCardTitle}>
-            {title}
-          </Text>
-        </View>
+        <Image
+          source={imgSrc}
+          style={SharedStyle.CarouselCardImage}
+        />
+        <Text style={SharedStyle.CarouselCardTitle}>
+          {title}
+        </Text>
       </View>
-    </TouchableScale>
+    </VKTouchable>
   )
 };

@@ -1,12 +1,15 @@
-import { Button, Modal, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { Modal, Text, View } from 'react-native';
 import AboutModalContent from './AboutModalContent';
 import React from 'react';
 
 import { SharedStyle } from './styles';
-import { BottomSheet, CheckBox, Divider } from 'react-native-elements';
 
 import { useSkipAboutModal } from '@app/utils/preferences/useSkipAboutModal';
 import { SafeAreaView } from 'react-navigation';
+import { VKCheckBox } from './VKCheckBox';
+import { VKTouchable } from './VKTouchable';
+import { ButtonSize, VKButton } from './VKButton';
+import { TintColor } from './styles/enum/TintColor.enum';
 
 interface ModalFooterButtonProps {
   onPress: () => void;
@@ -15,11 +18,11 @@ interface ModalFooterButtonProps {
 
 export const ModalFooterButton: React.FC<ModalFooterButtonProps> = ({ onPress, title }) => {
   return (
-    <TouchableOpacity onPress={onPress}>
-      <View style={SharedStyle.ModalActionButton}>
-        <Text style={SharedStyle.ModalActionButtonText}>{title}</Text>
+    <VKTouchable onPress={onPress}>
+      <View style={[ SharedStyle.Button ]}>
+        <Text style={[ SharedStyle.ButtonText ]}>{title}</Text>
       </View>
-    </TouchableOpacity>
+    </VKTouchable>
   );
 };
 
@@ -39,7 +42,13 @@ export const AboutModal = () => {
 
   return (
     <>
-      <Button title="ชี้แจงจากคณะผู้จัดทำ" onPress={() => setVisible(true)}/>
+      <VKButton
+        title="ชี้แจงจากคณะผู้จัดทำ"
+        onPress={() => setVisible(true)}
+        tintColor={TintColor.Blue}
+        size={ButtonSize.Small}
+        style={{ marginHorizontal: 'auto' }}
+      />
       <Modal
         visible={visible}
         animationType="fade"
@@ -50,17 +59,15 @@ export const AboutModal = () => {
         <View style={SharedStyle.ModalBackdrop} onTouchEnd={hideModal}>
           <SafeAreaView style={SharedStyle.Modal} onTouchEnd={(e) => e.stopPropagation()}>
             <AboutModalContent onCloseButtonPress={hideModal} />
-            
-            <Divider style={{ width: '100%' }} />
+
             <View style={SharedStyle.ModalFooter}>
-              <CheckBox
-                title={`ไม่ต้องแสดงข้อความนี้อีก`}
-                titleProps={{ style: [ SharedStyle.Content, { marginLeft: 8 } ] }}
-                containerStyle={{ paddingVertical: 4 }}
+             <VKCheckBox
+                title="ไม่ต้องแสดงข้อความนี้อีก"
                 checked={shouldSkip === true}
                 onPress={toggleSkip}
+                checkedColor={TintColor.Blue}
               />
-              <ModalFooterButton title="รับทราบ" onPress={hideModal} />
+              <VKButton title="รับทราบ" onPress={hideModal} tintColor={TintColor.Blue} />
             </View>
           </SafeAreaView>
         </View>

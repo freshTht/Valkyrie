@@ -4,12 +4,14 @@ import { StyleSheet, View } from "react-native";
 import StyledText from "react-native-styled-text";
 import { SharedStyle } from "./styles";
 import { Spacing } from "./styles/enum/Spacing.enum";
+import { VKTouchable } from "./VKTouchable";
+import { getContrastedColor } from "./styles/enum/TintColor.enum";
 
 export interface MenuItemData {
     title?: string,
     href?: string,
     hrefParams?: any,
-    backgroundColor?: string,
+    backgroundColor: string,
     color?: string,
     leftElement?: React.ReactElement,
 }
@@ -38,12 +40,12 @@ const borderRadiusStyles = {
 }
 
 export const VKMenuItem: React.FC<VKMenuItemProps> = ({ item, navigation, style }) => {
+    const handlePress = React.useCallback(() => {
+        navigation.navigate(item.href, item.hrefParams);
+    }, []);
+
     return item.title && (
-        <TouchableScale
-            activeScale={1.1}
-            tension={1}
-            onPress={() => navigation.navigate(item.href, item.hrefParams)}
-        >
+        <VKTouchable onPress={handlePress}>
             <View
                 style={[
                     LocalStyle.menuButtonContainer,
@@ -54,14 +56,14 @@ export const VKMenuItem: React.FC<VKMenuItemProps> = ({ item, navigation, style 
                 {item.leftElement}
                 <StyledText
                     style={[
-                        SharedStyle.ButtonText,
-                        { color: item.color ?? '#fff' },
+                        SharedStyle.MenuItemText,
+                        { color: getContrastedColor(item.backgroundColor) },
                     ]}
                 >
                     {item.title}
                 </StyledText>
             </View>
-        </TouchableScale>
+        </VKTouchable>
     );
 };
 

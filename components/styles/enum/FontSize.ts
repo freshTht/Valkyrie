@@ -4,4 +4,5 @@ export enum FontSize {
     Content = 27,
     SubSectionTitle = 27, // TODO: update (??)
     Button = 29,
+    ButtonSmall = 25,
 }
